@@ -1,0 +1,18 @@
+body{
+    --primary-text-color: #2A2D34;
+    --primary-bg-color: #EDEEF0;
+    --primary-blue-color: #93B5C6;
+    --primary-text-transparent-color: rgba(42, 45, 52, 0.5);
+
+    --secondary-text-color: #FFFFFF;
+    --secondary-bg-color: #FFFFFF;
+    --darker-bg-color: #D3DBDE;
+    --darker-bg-hover-color: #BEC6C9;
+
+    --alert-color: #C14953;
+    --correct-color: #7DD181;
+    --like-color: #EA5D68;
+    --like-stroke-color: #CE525D;
+    --comment-color: #5982EB;
+    --comment-stroke-color: #4F73CF;
+}
