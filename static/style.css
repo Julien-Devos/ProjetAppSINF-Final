@@ -1,5 +1,6 @@
 body{
     --primary-text-color: #2A2D34;
+    --primary-text-hover-color: #151a1e;
     --primary-bg-color: #EDEEF0;
     --primary-blue-color: #93B5C6;
     --primary-blue-hover-color: #83A1B0;
@@ -7,6 +8,7 @@ body{
 
     --secondary-text-color: #FFFFFF;
     --secondary-bg-color: #FFFFFF;
+    --secondary-bg-hover-color: #ECECEC;
     --darker-bg-color: #D3DBDE;
     --darker-bg-hover-color: #BEC6C9;
 
@@ -19,23 +21,7 @@ body{
     --table-border-color: #93B5C6;
 }
 
-body{
-    background-color: var(--primary-bg-color);
-    overflow-x: hidden;
-}
-.navbar{
-    width: 100%;
-    height: 70px;
-    position: fixed;
-    top: 0;
-    z-index: 1000;
-    padding: 0 !important;
-}
-.page-content{
-    margin: 70px 160px 50px 160px;
-    overflow: auto;
-}
-
+/* Design for the scroll bar */
 ::-webkit-scrollbar{
     width: 4px;
     background-color: rgba(255, 255, 255, 0);
@@ -52,33 +38,66 @@ body{
     background-color: var(--primary-text-transparent-color);
     border-radius: 20px;
 }
-::-webkit-scrollbar-thumb:hover{
-    visibility: visible;
+
+
+/* For all elems */
+body{
+    background-color: var(--primary-bg-color);
+    overflow-x: hidden;
+}
+a{
+    text-decoration: none;
+    color: var(--primary-text-color);
 }
 
 
 
-div.navbar-collapse ul.navbar-nav{
-    margin-left: 5%;
+/* Navbar styling */
+.navbar{
+    width: 100%;
+    height: 61px;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    padding: 0 !important;
+    box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.25);
 }
-
-.dropdown-window-menu{
-    position: absolute;
-    border-radius: 10px 0px 0px 10px;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+.navbar-brand{
+    height: 61px;
+    margin-top: 4px;
+    margin-bottom: 5px;
+    margin-left: 0px;
+}
+.bg-light{
     background-color: var(--secondary-bg-color);
-    border: 0px !important;
 }
 
 
+
+/* game dropdown styling */
+div.navbar-collapse ul.navbar-nav{
+    margin-left: 5%; /* margin for the game dropdown */
+}
 .nav-link{
-    margin: 12px 0px 13px 0px;
+    margin: 11px 0px 10px 0px;
     width: 200px;
-    height: 45px;
+    height: 40px;
     border-radius: 10px;
-    padding: 4px 0px 5px 11px !important;
     background-color: var(--darker-bg-color);
     color: var(--primary-text-transparent-color) !important;
+}
+li.dropdown a{
+    padding: 3px;
+    height: 40px;
+}
+li.dropdown a:hover{
+    background-color: var(--darker-bg-hover-color);
+}
+a.dropdown-item:hover{
+    background-color: var(--primary-bg-color) !important;
+}
+li.dropdown a.span{
+    margin-top: 5px !important;
 }
 .nav-link span.icon-Dropdown{
     position: absolute;
@@ -90,14 +109,35 @@ div.navbar-collapse ul.navbar-nav{
     height: 200px;
     overflow: auto;
 }
+/*.dropdown.open .dropdown-menu {*/
+/*    height:200px;               JSP CE QUE C'EST*/
+/*    opacity: 1;*/
+/*}*/
+/* game dropdown styling */
 
+
+
+/* search bar styling */
+li.search-bar{
+    margin-left: 10%;
+}
 form .form-control{
-    height: 45px;
+    height: 40px;
     background-color: var(--darker-bg-color);
     border-radius: 10px 0px 0px 10px;
 }
-form button.search-button{
+form .form-control:focus, form button.search-button:focus, form button.search-button:active{
+    border: 1px solid var(--darker-bg-hover-color) !important;
+    box-shadow: 0px 0px 4px 2px var(--darker-bg-hover-color) !important;
+    background-color: var(--primary-bg-color) !important;
+}
+form.search-bar{
+    width: 500px;
     height: 45px;
+    margin-top: 12px;
+}
+form button.search-button{
+    height: 40px;
     width: 58px;
     background-color: var(--darker-bg-color);
     border-radius: 0px 10px 10px 0px;
@@ -107,30 +147,32 @@ form button.search-button{
 }
 form button.search-button:hover{
     background-color: var(--darker-bg-hover-color);
-}
-
-form.search-bar{
-    width: 800px;
-    height: 45px;
-    margin-top: 12px;
+    border: none;
 }
 form.search-bar input:hover{
     outline: var(--darker-bg-hover-color) solid 4px;
 }
-li.dropdown a:hover{
-    background-color: var(--darker-bg-hover-color);
-}
-li.dropdown a.span{
-    margin-top: 5px !important;
-}
-
-li.search-bar{
-    margin-left: 10%;
-}
 ::placeholder{
     color: var(--primary-text-transparent-color) !important;
 }
+/* search bar styling */
 
+/* Navbar styling */
+
+
+
+/* All pages styling */
+.page-content{
+    margin: 61px 160px 50px 160px;
+    overflow: auto;
+}
+.dropdown-window-menu{
+    position: absolute;
+    border-radius: 10px 0px 0px 10px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    background-color: var(--secondary-bg-color);
+    border: 0px !important;
+}
 .btn-style{
     border-radius: 8px;
     height: 50px;
@@ -145,39 +187,103 @@ li.search-bar{
     background-color: var(--primary-blue-hover-color) !important;
     box-shadow: none !important;
 }
-
-.new-post-btn{
-    margin-top: 45px;
-}
-
-li.nav-item{
-    width: 100% !important;
-}
 a.link{
     text-decoration: none;
 }
-a.link:hover{
+a.link:hover, .custom-table a:hover{
     text-decoration: underline;
+    color: var(--primary-text-hover-color);
 }
-
-.navbar-brand{
-    height: 54px;
-    margin-top: 6px;
-    margin-bottom: 10px;
-    margin-left: 17px;
+.new-post-btn{
+    margin-top: 45px;
 }
-.bg-light{
-    background-color: var(--secondary-bg-color);
-}
-
 div.posts{
     margin-top: 50px;
 }
-div.posts table{
+/* All pages styling */
+
+
+
+/* Custom tables styling */
+.custom-table{
+    border: 1px solid var(--primary-blue-color);
     background-color: var(--secondary-bg-color);
-    border:2px solid var(--primary-blue-color) !important;
-    height: 350px;
 }
-table.table-bordered, table.table-bordered > thead > tr > th, table.table-bordered > tbody > tr > td{
-    border:1px solid var(--primary-blue-color) !important;
+.grid{
+    border: 0.5px solid var(--primary-blue-color);
+}
+.row{
+    margin: 0px !important;
+}
+.col1, .col4{
+    width: 20%;
+}
+.col2{
+    width: 15%;
+}
+.col3{
+    width: 45%;
+}
+.table-row:hover{
+    background-color: var(--secondary-bg-hover-color);
+}
+/* Custom tables styling */
+
+
+
+
+/* All the above is for XXL screens since the website is desktop first designed */
+
+/*X-Large devices (large desktops, less than 1400px)*/
+@media (max-width: 1399.98px) {
+    body{
+        background-color: red;
+    }
+    form.search-bar{
+        width: 400px;
+    }
+    li.search-bar{
+        margin-left: 6%;
+    }
+}
+
+/*Large devices (desktops, less than 1200px)*/
+@media (max-width: 1199.98px) {
+    body{
+        background-color: green;
+    }
+    form.search-bar{
+        width: 300px;
+    }
+    li.search-bar{
+        margin-left: 4%;
+    }
+}
+
+/*Medium devices (tablets, less than 992px)  Navbar goes in mobile mode  */
+@media (max-width: 991.98px) {
+    body{
+        background-color: yellow;
+    }
+    li.search-bar{
+        margin-left: 0;
+    }
+    nav.navbar div.container-fluid{
+        background-color: var(--secondary-bg-color);
+        box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.25);
+    }
+}
+
+/*Small devices (landscape phones, less than 768px)*/
+@media (max-width: 767.98px) {
+    body{
+        background-color: pink;
+    }
+}
+
+/*X-Small devices (portrait phones, less than 576px)*/
+@media (max-width: 575.98px) {
+    body{
+        background-color: magenta;
+    }
 }
