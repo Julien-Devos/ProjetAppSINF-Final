@@ -3,10 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Jquery library import, and dataTables import -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    <!--  Bootstrap import  -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/bad5ba018c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="font-style.css">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
     <title>Home</title>
 </head>
 <body>
@@ -92,20 +98,24 @@
 
         <div class="container posts">
             <p class="titre2">Posts populaires<p>
-            <table class="table table-hover table-bordered">
-                <tbody>
+            <table id="dt-select" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                <thead>
                 <tr>
-                    <th scope="row">Premier post</th>
-                    <td>Admin</td>
-                    <td>blabla blabla</td>
-                    <td>likes{} comments{} time{}</td>
+                    <th>Titre</th>
+                    <th>Auteur</th>
+                    <th>Contenu</th>
+                    <th></th>
                 </tr>
-                </tbody>
+                </thead>
             </table>
         </div>
 
     </div>
 
+    <script
+            type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.0/mdb.min.js"
+    ></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 </body>
 </html>
