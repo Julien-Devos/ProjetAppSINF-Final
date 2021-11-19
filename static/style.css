@@ -2,6 +2,7 @@ body{
     --primary-text-color: #2A2D34;
     --primary-bg-color: #EDEEF0;
     --primary-blue-color: #93B5C6;
+    --primary-blue-hover-color: #83A1B0;
     --primary-text-transparent-color: rgba(42, 45, 52, 0.5);
 
     --secondary-text-color: #FFFFFF;
@@ -15,4 +16,168 @@ body{
     --like-stroke-color: #CE525D;
     --comment-color: #5982EB;
     --comment-stroke-color: #4F73CF;
+    --table-border-color: #93B5C6;
+}
+
+body{
+    background-color: var(--primary-bg-color);
+    overflow-x: hidden;
+}
+.navbar{
+    width: 100%;
+    height: 70px;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    padding: 0 !important;
+}
+.page-content{
+    margin: 70px 160px 50px 160px;
+    overflow: auto;
+}
+
+::-webkit-scrollbar{
+    width: 4px;
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-track{
+    background-color: var(--primary-bg-color);
+}
+.dropdown-game-menu::-webkit-scrollbar-track{
+    border-radius: 0px 10px 10px 0px;
+    background-color: var(--secondary-bg-color);
+}
+::-webkit-scrollbar-thumb{
+    background-color: var(--primary-text-transparent-color);
+    border-radius: 20px;
+}
+::-webkit-scrollbar-thumb:hover{
+    visibility: visible;
+}
+
+
+
+div.navbar-collapse ul.navbar-nav{
+    margin-left: 5%;
+}
+
+.dropdown-window-menu{
+    position: absolute;
+    border-radius: 10px 0px 0px 10px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    background-color: var(--secondary-bg-color);
+    border: 0px !important;
+}
+
+
+.nav-link{
+    margin: 12px 0px 13px 0px;
+    width: 200px;
+    height: 45px;
+    border-radius: 10px;
+    padding: 4px 0px 5px 11px !important;
+    background-color: var(--darker-bg-color);
+    color: var(--primary-text-transparent-color) !important;
+}
+.nav-link span.icon-Dropdown{
+    position: absolute;
+    margin: 21px 10px 18px 110px;
+    color: var(--primary-text-color) !important;
+}
+.dropdown-game-menu{
+    width: 200px;
+    height: 200px;
+    overflow: auto;
+}
+
+form .form-control{
+    height: 45px;
+    background-color: var(--darker-bg-color);
+    border-radius: 10px 0px 0px 10px;
+}
+form button.search-button{
+    height: 45px;
+    width: 58px;
+    background-color: var(--darker-bg-color);
+    border-radius: 0px 10px 10px 0px;
+    border: 0px;
+    margin-left: 4px;
+    color: var(--primary-text-color);
+}
+form button.search-button:hover{
+    background-color: var(--darker-bg-hover-color);
+}
+
+form.search-bar{
+    width: 800px;
+    height: 45px;
+    margin-top: 12px;
+}
+form.search-bar input:hover{
+    outline: var(--darker-bg-hover-color) solid 4px;
+}
+li.dropdown a:hover{
+    background-color: var(--darker-bg-hover-color);
+}
+li.dropdown a.span{
+    margin-top: 5px !important;
+}
+
+li.search-bar{
+    margin-left: 10%;
+}
+::placeholder{
+    color: var(--primary-text-transparent-color) !important;
+}
+
+.btn-style{
+    border-radius: 8px;
+    height: 50px;
+    background-color: var(--primary-blue-color);
+    border: 0px;
+    color: var(--secondary-text-color);
+}
+.btn-style:hover{
+    background-color: var(--primary-blue-hover-color);
+}
+.btn-style:active, .btn-style:focus, .btn-style:target{
+    background-color: var(--primary-blue-hover-color) !important;
+    box-shadow: none !important;
+}
+
+.new-post-btn{
+    margin-top: 45px;
+}
+
+li.nav-item{
+    width: 100% !important;
+}
+a.link{
+    text-decoration: none;
+}
+a.link:hover{
+    text-decoration: underline;
+}
+
+.navbar-brand{
+    height: 54px;
+    margin-top: 6px;
+    margin-bottom: 10px;
+    margin-left: 17px;
+}
+.bg-light{
+    background-color: var(--secondary-bg-color);
+}
+
+div.posts{
+    margin-top: 50px;
+}
+div.posts table{
+    background-color: var(--secondary-bg-color);
+    border:2px solid var(--primary-blue-color) !important;
+    height: 350px;
+}
+table.table-bordered, table.table-bordered > thead > tr > th, table.table-bordered > tbody > tr > td{
+    border:1px solid var(--primary-blue-color) !important;
 }

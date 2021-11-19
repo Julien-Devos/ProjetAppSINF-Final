@@ -15,7 +15,6 @@
 [class^="icon-"], [class*=" icon-"] {
     /* use !important to prevent issues with browser extensions that change fonts */
     font-family: 'icons' !important;
-    speak: never;
     font-style: normal;
     font-weight: normal;
     font-variant: normal;
@@ -28,11 +27,26 @@
 .icon-Search:before {
     content: "\e900";
 }
+.icon-Search{
+    margin-top: 5px;
+    font-size: 20px;
+    filter: progid: DXImageTransform.Microsoft.BasicImage(rotation=-0.5);
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    display: inline-block;
+}
 .icon-Quit:before {
     content: "\e901";
 }
 .icon-Dropdown:before {
     content: "\e902";
+}
+.icon-Dropdown {
+    font-size: 5px;
+    margin-top: 18px !important;
 }
 .icon-Like:before {
     content: "\e903";
@@ -86,42 +100,42 @@
     font-size: 18px;
     text-align: left;
     vertical-align: top;
-    color: var(--primary-text-color);
+    color: var(--primary-text-color) !important;
 }
 .titre1{
     font-family: 'Poppins-medium', sans-serif;
     font-size: 36px;
-    color: var(--primary-text-color);
+    color: var(--primary-text-color) !important;
 }
 .titre2{
     font-family: 'Poppins', sans-serif;
     font-size: 24px;
-    color: var(--primary-text-color);
+    color: var(--primary-text-color) !important;
 }
 .titre2-Underlined{
     font-family: 'Poppins', sans-serif;
     font-size: 24px;
-    color: var(--primary-text-color);
+    color: var(--primary-text-color) !important;
     text-decoration: underline;
 }
 .titre3-Underlined{
     font-family: 'Poppins-medium', sans-serif;
     font-size: 48px;
-    color: var(--primary-text-color);
+    color: var(--primary-text-color) !important;
     text-decoration: underline;
 }
 .buttonText{
     font-family: 'Poppins', sans-serif;
     font-size: 24px;
-    color: var(--secondary-bg-color);
+    color: var(--secondary-bg-color) !important;
 }
 .headline1{
     font-family: 'Poppins', sans-serif;
     font-size: 18px;
-    color: var(--primary-text-color);
+    color: var(--primary-text-color) !important;
 }
 .headline2{
     font-family: 'Poppins', sans-serif;
     font-size: 14px;
-    color: var(--primary-text-color);
+    color: var(--primary-text-color) !important;
 }
