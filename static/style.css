@@ -1,3 +1,4 @@
+/* All colors variables */
 body{
     --primary-text-color: #2A2D34;
     --primary-text-hover-color: #151a1e;
@@ -20,6 +21,9 @@ body{
     --comment-stroke-color: #4F73CF;
     --table-border-color: #93B5C6;
 }
+/* All colors variables */
+
+
 
 /* Design for the scroll bar */
 ::-webkit-scrollbar{
@@ -38,6 +42,8 @@ body{
     background-color: var(--primary-text-transparent-color);
     border-radius: 20px;
 }
+/* Design for the scroll bar */
+
 
 
 /* For all elems */
@@ -49,6 +55,7 @@ a{
     text-decoration: none;
     color: var(--primary-text-color);
 }
+/* For all elems */
 
 
 
@@ -83,6 +90,7 @@ div.navbar-collapse ul.navbar-nav{
     width: 200px;
     height: 40px;
     border-radius: 10px;
+    padding-left: .8rem !important;
     background-color: var(--darker-bg-color);
     color: var(--primary-text-transparent-color) !important;
 }
@@ -109,10 +117,6 @@ li.dropdown a.span{
     height: 200px;
     overflow: auto;
 }
-/*.dropdown.open .dropdown-menu {*/
-/*    height:200px;               JSP CE QUE C'EST*/
-/*    opacity: 1;*/
-/*}*/
 /* game dropdown styling */
 
 
@@ -265,12 +269,18 @@ div.posts{
     body{
         background-color: yellow;
     }
-    li.search-bar{
-        margin-left: 0;
-    }
     nav.navbar div.container-fluid{
         background-color: var(--secondary-bg-color);
         box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.25);
+    }
+    li.search-bar{
+        margin-left: 0;
+    }
+    div.navbar-collapse ul.navbar-nav{
+        margin-left: 0;
+    }
+    ul.navbar-nav.ms-auto{
+        margin-bottom: 20px;
     }
 }
 
