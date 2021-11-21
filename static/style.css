@@ -1,7 +1,8 @@
 /* All colors variables */
-body{
+:root{
     --primary-text-color: #2A2D34;
     --primary-text-hover-color: #151a1e;
+    --primary-text-active-color: #565660;
     --primary-bg-color: #EDEEF0;
     --primary-blue-color: #93B5C6;
     --primary-blue-hover-color: #83A1B0;
@@ -20,6 +21,9 @@ body{
     --comment-color: #5982EB;
     --comment-stroke-color: #4F73CF;
     --table-border-color: #93B5C6;
+}
+.dark-theme{
+    /*  TODO dark theme colors  */
 }
 /* All colors variables */
 
@@ -50,6 +54,7 @@ body{
 body{
     background-color: var(--primary-bg-color);
     overflow-x: hidden;
+    display: none; /* To make a smooth fade in js */
 }
 a{
     text-decoration: none;
@@ -71,8 +76,8 @@ a{
 }
 .navbar-brand{
     height: 61px;
-    margin-top: 4px;
-    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-bottom: 4px;
     margin-left: 0px;
 }
 .bg-light{
@@ -94,14 +99,16 @@ div.navbar-collapse ul.navbar-nav{
     background-color: var(--darker-bg-color);
     color: var(--primary-text-transparent-color) !important;
 }
-li.dropdown a{
+li.dropdown a, li.dropdown button{
     padding: 3px;
-    height: 40px;
 }
-li.dropdown a:hover{
-    background-color: var(--darker-bg-hover-color);
+li.dropdown a.nav-link:hover{
+    background-color: var(--darker-bg-hover-color)
 }
-a.dropdown-item:hover{
+li.dropdown a:focus, li.dropdown button:focus{
+    color: var(--primary-text-active-color);
+}
+a.dropdown-item:hover, li.dropdown button:hover{
     background-color: var(--primary-bg-color) !important;
 }
 li.dropdown a.span{
@@ -116,6 +123,7 @@ li.dropdown a.span{
     width: 200px;
     height: 200px;
     overflow: auto;
+    border-radius: 10px 0px 0px 10px !important;
 }
 /* game dropdown styling */
 
@@ -123,6 +131,7 @@ li.dropdown a.span{
 
 /* search bar styling */
 li.search-bar{
+    /*width: 1000px;*/
     margin-left: 10%;
 }
 form .form-control{
@@ -136,9 +145,8 @@ form .form-control:focus, form button.search-button:focus, form button.search-bu
     background-color: var(--primary-bg-color) !important;
 }
 form.search-bar{
-    width: 500px;
     height: 45px;
-    margin-top: 12px;
+    margin-top: 11px;
 }
 form button.search-button{
     height: 40px;
@@ -161,6 +169,28 @@ form.search-bar input:hover{
 }
 /* search bar styling */
 
+
+
+/* search bar styling */
+.profile-pic{
+    border-radius: 50px;
+    border: 3px solid var(--primary-blue-color);
+    margin-bottom: 3px;
+}
+.dropdown-profile-menu{
+    width: 200px;
+    margin-top: 10px;
+}
+.dropdown-profile-menu.dropdown-menu {
+    margin-top: 10px !important;
+}
+li.test{
+    margin-top: 5px;
+}
+/* search bar styling */
+
+
+
 /* Navbar styling */
 
 
@@ -170,10 +200,14 @@ form.search-bar input:hover{
     margin: 61px 160px 50px 160px;
     overflow: auto;
 }
+.dropdown-divider{
+    padding: 0 !important;
+}
 .dropdown-window-menu{
     position: absolute;
-    border-radius: 10px 0px 0px 10px;
+    border-radius: 10px;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    padding: .5rem 0 .5rem 0 !important;
     background-color: var(--secondary-bg-color);
     border: 0px !important;
 }

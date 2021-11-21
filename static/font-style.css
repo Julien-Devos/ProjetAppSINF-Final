@@ -46,7 +46,7 @@
 }
 .icon-Dropdown {
     font-size: 5px;
-    margin-top: 18px !important;
+    margin-top: 17px !important;
 }
 .icon-Like:before {
     content: "\e903";
@@ -60,17 +60,34 @@
 .icon-Profile:before {
     content: "\e906";
 }
+.icon-Profile {
+    margin-right: 5px;
+    padding-left: .3rem;
+}
 .icon-Edit:before {
     content: "\e907";
 }
 .icon-Dark-Mode:before {
     content: "\e908";
 }
+.icon-Dark-Mode {
+    margin-right: 5px;
+    padding-left: .3rem;
+}
 .icon-Light-Mode:before {
     content: "\e909";
 }
+.icon-Light-Mode {
+    margin-right: 5px;
+    padding-left: .3rem;
+}
 .icon-disconnect:before {
     content: "\e90a";
+}
+.icon-disconnect {
+    font-size: 15px;
+    margin-right: 2px;
+    padding-left: .3rem;
 }
 
 /* All fonts and text styles used in the website */
