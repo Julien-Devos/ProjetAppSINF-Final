@@ -19,7 +19,7 @@
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand titre1" href="#">
+                <a class="navbar-brand titre1" href="index.html">
                     <!--<img src="/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">-->
                     Titre et logo
                 </a>
@@ -27,17 +27,17 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item dropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown me-auto">
                             <a class="nav-link titre2" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Jeux <span class="icon-Dropdown"></span>
                             </a>
                             <ul class="dropdown-menu dropdown-game-menu dropdown-window-menu headline1" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="#">Undertale</a></li>
                                 <li><a class="dropdown-item" href="#">Minecraft</a></li>
-                                <li><a class="dropdown-item" href="#">Undertale</a></li>
-                                <li><a class="dropdown-item" href="#">Minecraft</a></li>
-                                <li><a class="dropdown-item" href="#">Undertale</a></li>
+                                <li><a class="dropdown-item" href="#">Mario kart</a></li>
+                                <li><a class="dropdown-item" href="#">CS-GO</a></li>
+                                <li><a class="dropdown-item" href="#">Genshin impact</a></li>
                                 <li><a class="dropdown-item" href="#">Minecraft</a></li>
                                 <li><a class="dropdown-item" href="#">Undertale</a></li>
                                 <li><a class="dropdown-item" href="#">Minecraft</a></li>
@@ -47,7 +47,7 @@
                                 <li><a class="dropdown-item" href="#">Minecraft</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item w-auto search-bar">
+                        <li class="nav-item search-bar">
                             <form class="d-flex search-bar">
                                 <input class="form-control titre2" type="search" placeholder="Rechercher" aria-label="Search">
                                 <button class="btn btn-outline-success search-button" type="submit"><span class="icon-Search"></span></button>
@@ -55,8 +55,18 @@
                         </li>
                     </ul>
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="titre2 link" href="/login">Se connecter</a>
+                        <li class="nav-item dropdown test">
+                            <a class="titre2" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Compte <img src="/static/img/default-profile.png" alt="Photo de profile" width="45" height="45" class="d-inline-block profile-pic ms-auto">
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-lg-end dropdown-window-menu dropdown-profile-menu headline1" aria-labelledby="accountDropdown">
+                                <li><a class="dropdown-item" href="profile.html"><span class="icon-Profile"></span> Profile</a></li>
+                                <li><button class="dropdown-item" id="theme-toggle"><span class="icon-Dark-Mode" id="theme-icon"></span> <t id="theme-txt">Mode nuit</t></button></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <form method="post" action="logout">
+                                    <li><a class="dropdown-item" href="logout"><span class="icon-disconnect"></span> Se déconnecter</a></li>
+                                </form>
+                            </ul>
                         </li>
                     </ul>
                 </div>
@@ -65,7 +75,9 @@
 
     </header>
 
-
+    <li class="nav-item">
+        <a class="titre2 link" href="/login">Se connecter</a>
+    </li>
 
     <section id="content">
 
@@ -79,7 +91,7 @@
 
             <div class="posts">
                 <p class="titre2">Derniers posts<p>
-                <div class="custom-table">
+                <div class="custom-table post-text">
                     <div class="row">
                         <div class="col-3 py-2 grid"><b>Titre</b></div>
                         <div class="col-2 py-2 grid"><b>Auteur</b></div>
@@ -145,7 +157,7 @@
 
             <div class="posts">
                 <p class="titre2">Posts populaires<p>
-                <div class="custom-table">
+                <div class="custom-table post-text">
                     <div class="row">
                         <div class="col-3 py-2 grid"><b>Titre</b></div>
                         <div class="col-2 py-2 grid"><b>Auteur</b></div>

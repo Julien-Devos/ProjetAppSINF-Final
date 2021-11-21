@@ -1,29 +1,49 @@
 /* All colors variables */
 :root{
     --primary-text-color: #2A2D34;
-    --primary-text-hover-color: #151a1e;
-    --primary-text-active-color: #565660;
-    --primary-bg-color: #EDEEF0;
-    --primary-blue-color: #93B5C6;
-    --primary-blue-hover-color: #83A1B0;
+    --primary-text-hover-color: #1E222C;
+    --primary-text-active-color: #717885;
     --primary-text-transparent-color: rgba(42, 45, 52, 0.5);
+    --primary-bg-color: #EDEEF0;
+    --primary-blue-color: #336984; /*#93B5C6*/
+    --primary-blue-hover-color: #255371; /*#83A1B0*/
 
-    --secondary-text-color: #FFFFFF;
-    --secondary-bg-color: #FFFFFF;
+    --secondary-text-color: #FCFCFC;
+    --secondary-bg-color: #FCFCFC;
     --secondary-bg-hover-color: #ECECEC;
     --darker-bg-color: #D3DBDE;
     --darker-bg-hover-color: #BEC6C9;
 
-    --alert-color: #C14953;
-    --correct-color: #7DD181;
+    --shadow-color: rgba(42, 45, 52, 0.25);
+    --alert-color: #D62442;
+    --correct-color: #6ed073;
     --like-color: #EA5D68;
     --like-stroke-color: #CE525D;
     --comment-color: #5982EB;
     --comment-stroke-color: #4F73CF;
-    --table-border-color: #93B5C6;
 }
 .dark-theme{
-    /*  TODO dark theme colors  */
+    --primary-text-color: #FCFCFC;
+    --primary-text-hover-color: #d5d6d7;
+    --primary-text-active-color: #D3E0E5;
+    --primary-text-transparent-color: rgba(252, 252, 252, 0.5);
+    --primary-bg-color: #202935;
+    --primary-blue-color: #82CAF0;
+    --primary-blue-hover-color: #5FA0CE;
+
+    --secondary-text-color: #1E222C;
+    --secondary-bg-color: #2B333C;
+    --secondary-bg-hover-color: #1F2733;
+    --darker-bg-color: #1F2733;
+    --darker-bg-hover-color: #161E2B;
+
+    --shadow-color: rgba(252, 252, 252, 0.15);
+    --alert-color: #D62442;
+    --correct-color: #6ed073;
+    --like-color: #EA5D68;
+    --like-stroke-color: #CE525D;
+    --comment-color: #5982EB;
+    --comment-stroke-color: #4F73CF;
 }
 /* All colors variables */
 
@@ -72,7 +92,7 @@ a{
     top: 0;
     z-index: 1000;
     padding: 0 !important;
-    box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 4px 1px var(--shadow-color);
 }
 .navbar-brand{
     height: 61px;
@@ -81,7 +101,7 @@ a{
     margin-left: 0px;
 }
 .bg-light{
-    background-color: var(--secondary-bg-color);
+    background-color: var(--secondary-bg-color) !important;
 }
 
 
@@ -108,7 +128,11 @@ li.dropdown a.nav-link:hover{
 li.dropdown a:focus, li.dropdown button:focus{
     color: var(--primary-text-active-color);
 }
-a.dropdown-item:hover, li.dropdown button:hover{
+a.dropdown-item{
+    color: var(--primary-text-color);
+}
+a.dropdown-item:hover, li.dropdown button:hover, button#theme-toggle.dropdown-item:hover{
+    color: var(--primary-text-hover-color);
     background-color: var(--primary-bg-color) !important;
 }
 li.dropdown a.span{
@@ -137,6 +161,7 @@ li.search-bar{
 form .form-control{
     height: 40px;
     background-color: var(--darker-bg-color);
+    border: 0 !important;
     border-radius: 10px 0px 0px 10px;
 }
 form .form-control:focus, form button.search-button:focus, form button.search-button:active{
@@ -187,6 +212,9 @@ form.search-bar input:hover{
 li.test{
     margin-top: 5px;
 }
+button#theme-toggle{
+    color: var(--primary-text-color);
+}
 /* search bar styling */
 
 
@@ -203,10 +231,13 @@ li.test{
 .dropdown-divider{
     padding: 0 !important;
 }
+.dropdown-item:focus{
+    background-color: var(--primary-bg-color);
+}
 .dropdown-window-menu{
     position: absolute;
     border-radius: 10px;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 0px 4px var(--shadow-color);
     padding: .5rem 0 .5rem 0 !important;
     background-color: var(--secondary-bg-color);
     border: 0px !important;
@@ -305,7 +336,7 @@ div.posts{
     }
     nav.navbar div.container-fluid{
         background-color: var(--secondary-bg-color);
-        box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.25);
+        box-shadow: 0 0 4px 1px var(--shadow-color);
     }
     li.search-bar{
         margin-left: 0;
