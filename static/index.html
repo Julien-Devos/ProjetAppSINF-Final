@@ -24,60 +24,66 @@
                     Titre et logo
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                    <span class="icon-Bars"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav">
-                        <li class="nav-item dropdown me-auto">
-                            <a class="nav-link titre2" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Jeux <span class="icon-Dropdown"></span>
-                            </a>
-                            <ul class="dropdown-menu dropdown-game-menu dropdown-window-menu headline1" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Undertale</a></li>
-                                <li><a class="dropdown-item" href="#">Minecraft</a></li>
-                                <li><a class="dropdown-item" href="#">Mario kart</a></li>
-                                <li><a class="dropdown-item" href="#">CS-GO</a></li>
-                                <li><a class="dropdown-item" href="#">Genshin impact</a></li>
-                                <li><a class="dropdown-item" href="#">Minecraft</a></li>
-                                <li><a class="dropdown-item" href="#">Undertale</a></li>
-                                <li><a class="dropdown-item" href="#">Minecraft</a></li>
-                                <li><a class="dropdown-item" href="#">Undertale</a></li>
-                                <li><a class="dropdown-item" href="#">Minecraft</a></li>
-                                <li><a class="dropdown-item" href="#">Undertale</a></li>
-                                <li><a class="dropdown-item" href="#">Minecraft</a></li>
+                    <div class="navbar-collapse row">
+                        <div class="nav col-3">
+                            <ul class="navbar-nav game">
+                                <li class="nav-item dropdown me-auto">
+                                    <a class="nav-link titre2" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Jeux <span class="icon-Dropdown"></span>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-game-menu dropdown-window-menu headline1" aria-labelledby="navbarDropdown">
+                                        <li><a class="dropdown-item" href="#">Undertale</a></li>
+                                        <li><a class="dropdown-item" href="#">Minecraft</a></li>
+                                        <li><a class="dropdown-item" href="#">Mario kart</a></li>
+                                        <li><a class="dropdown-item" href="#">CS-GO</a></li>
+                                        <li><a class="dropdown-item" href="#">Genshin impact</a></li>
+                                        <li><a class="dropdown-item" href="#">Minecraft</a></li>
+                                        <li><a class="dropdown-item" href="#">Undertale</a></li>
+                                        <li><a class="dropdown-item" href="#">Minecraft</a></li>
+                                        <li><a class="dropdown-item" href="#">Undertale</a></li>
+                                        <li><a class="dropdown-item" href="#">Minecraft</a></li>
+                                        <li><a class="dropdown-item" href="#">Undertale</a></li>
+                                        <li><a class="dropdown-item" href="#">Minecraft</a></li>
+                                    </ul>
+                                </li>
                             </ul>
-                        </li>
-                        <li class="nav-item search-bar">
+                        </div>
+                        <div class="nav col-6">
                             <form class="d-flex search-bar">
                                 <input class="form-control titre2" type="search" placeholder="Rechercher" aria-label="Search">
                                 <button class="btn btn-outline-success search-button" type="submit"><span class="icon-Search"></span></button>
                             </form>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item dropdown test">
-                            <a class="titre2" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Compte <img src="/static/img/default-profile.png" alt="Photo de profile" width="45" height="45" class="d-inline-block profile-pic ms-auto">
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-lg-end dropdown-window-menu dropdown-profile-menu headline1" aria-labelledby="accountDropdown">
-                                <li><a class="dropdown-item" href="profile.html"><span class="icon-Profile"></span> Profile</a></li>
-                                <li><button class="dropdown-item" id="theme-toggle"><span class="icon-Dark-Mode" id="theme-icon"></span> <t id="theme-txt">Mode nuit</t></button></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <form method="post" action="logout">
-                                    <li><a class="dropdown-item" href="logout"><span class="icon-disconnect"></span> Se déconnecter</a></li>
-                                </form>
+                        </div>
+                        <div class="nav col-3">
+                            <ul class="navbar-nav ms-auto justify-content-end">
+                                <li class="nav-item dropdown test">
+                                    <a class="headline1" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <img src="/static/img/default-profile.png" alt="Photo de profile" width="45" height="45" class="d-inline-block profile-pic ms-auto">
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-lg-end dropdown-window-menu dropdown-profile-menu headline1" aria-labelledby="accountDropdown">
+                                        <li><a class="dropdown-item" href="profile.html"><span class="icon-Profile"></span> Profile</a></li>
+                                        <li><button class="dropdown-item" id="theme-toggle"><span class="icon-Dark-Mode" id="theme-icon"></span> <t id="theme-txt">Mode nuit</t></button></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <form method="post" action="logout">
+                                            <li><a class="dropdown-item" href="logout"><span class="icon-disconnect"></span> Se déconnecter</a></li>
+                                        </form>
+                                    </ul>
+                                </li>
                             </ul>
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </nav>
 
     </header>
 
-    <li class="nav-item">
-        <a class="titre2 link" href="/login">Se connecter</a>
-    </li>
+<!--    <li class="nav-item">-->
+<!--        <a class="titre2 link" href="/login">Se connecter</a>-->
+<!--    </li>-->
 
     <section id="content">
 

@@ -3,11 +3,11 @@
 
 @font-face {
     font-family: 'icons';
-    src:  url('fonts/icons.eot?cbimvm');
-    src:  url('fonts/icons.eot?cbimvm#iefix') format('embedded-opentype'),
-    url('fonts/icons.ttf?cbimvm') format('truetype'),
-    url('fonts/icons.woff?cbimvm') format('woff'),
-    url('fonts/icons.svg?cbimvm#icomoon') format('svg');
+    src:  url('fonts/Icons/icons.eot?cbimvm');
+    src:  url('fonts/Icons/icons.eot?cbimvm#iefix') format('embedded-opentype'),
+    url('fonts/Icons/icons.ttf?cbimvm') format('truetype'),
+    url('fonts/Icons/icons.woff?cbimvm') format('woff'),
+    url('fonts/Icons/icons.svg?cbimvm#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
     font-display: block;
@@ -41,6 +41,9 @@
 .icon-Quit:before {
     content: "\e901";
 }
+.icon-Quit {
+    font-size: 20px;
+}
 .icon-Dropdown:before {
     content: "\e902";
 }
@@ -51,8 +54,14 @@
 .icon-Like:before {
     content: "\e903";
 }
+.icon-Like{
+    font-size: 25px;
+}
 .icon-Comments:before {
     content: "\e904";
+}
+.icon-Comments{
+    font-size: 25px;
 }
 .icon-Time:before {
     content: "\e905";
@@ -88,6 +97,12 @@
     font-size: 15px;
     margin-right: 2px;
     padding-left: .3rem;
+}
+.icon-Bars:before {
+    content: "\e90b";
+}
+.icons-Bars{
+    font-size: 10px !important;
 }
 
 /* All fonts and text styles used in the website */
