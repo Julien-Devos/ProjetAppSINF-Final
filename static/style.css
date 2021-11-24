@@ -13,6 +13,7 @@
     --secondary-bg-hover-color: #ECECEC;
     --darker-bg-color: #D3DBDE;
     --darker-bg-hover-color: #BEC6C9;
+    --scroller-color: #aeaeb0;
 
     --shadow-color: rgba(42, 45, 52, 0.25);
     --alert-color: #D62442;
@@ -36,6 +37,7 @@
     --secondary-bg-hover-color: #1F2733;
     --darker-bg-color: #1F2733;
     --darker-bg-hover-color: #161E2B;
+    --scroller-color: rgba(89, 89, 89, 0.5);
 
     --shadow-color: rgba(252, 252, 252, 0.15);
     --alert-color: #D62442;
@@ -51,20 +53,22 @@
 
 /* Design for the scroll bar */
 ::-webkit-scrollbar{
-    width: 4px;
+    width: 5px;
     background-color: rgba(255, 255, 255, 0);
     border-radius: 10px;
 }
 ::-webkit-scrollbar-track{
     background-color: var(--primary-bg-color);
 }
-.dropdown-game-menu::-webkit-scrollbar-track{
-    border-radius: 0px 10px 10px 0px;
+.dropdown-game-menu::-webkit-scrollbar-track, .post-box::-webkit-scrollbar-track{
     background-color: var(--secondary-bg-color);
 }
 ::-webkit-scrollbar-thumb{
-    background-color: var(--primary-text-transparent-color);
-    border-radius: 20px;
+    background-color: var(--scroller-color);
+}
+.scroller {
+    scrollbar-color: var(--scroller-color) rgba(255, 255, 255, 0);
+    scrollbar-width: thin;
 }
 /* Design for the scroll bar */
 
@@ -74,6 +78,7 @@
 body{
     background-color: var(--primary-bg-color);
     overflow-x: hidden;
+    overflow-y: scroll;
     display: none; /* To make a smooth fade in js */
 }
 a{
@@ -196,7 +201,7 @@ form.search-bar input:hover{
 
 
 
-/* search bar styling */
+/* account styling */
 .profile-pic{
     border-radius: 50px;
     border: 3px solid var(--primary-blue-color);
@@ -206,19 +211,10 @@ form.search-bar input:hover{
     width: 200px;
     margin-top: 10px;
 }
-.dropdown-profile-menu.dropdown-menu {
-    margin-top: 10px !important;
-}
-li.test{
-    margin-top: 5px;
-}
 button#theme-toggle{
     color: var(--primary-text-color);
 }
-/* search bar styling */
-
-
-
+/* account styling */
 /* Navbar styling */
 
 
@@ -227,6 +223,12 @@ button#theme-toggle{
 .page-content{
     margin: 81px 160px 50px 160px;
     overflow: auto;
+}
+.dropdown-menu{
+    margin-top: 8px !important;
+}
+.dropdown-profile-menu.dropdown-menu{
+    margin-top: 13px !important;
 }
 .dropdown-divider{
     padding: 0 !important;
@@ -345,6 +347,23 @@ t.headline2{
 .comment{
     margin-top: 40px;
 }
+.post-box{
+    width: 100%;
+    height: 800px;
+    overflow: auto;
+    border: 2px solid var(--primary-blue-color);
+    background-color: var(--secondary-bg-color);
+    padding: 25px;
+    border-radius: 10px 0 0 10px;
+}
+.trending-posts{
+    margin: 50px 0 50px 0;
+}
+.box-divider{
+    margin: 20px 100px 20px 100px;
+    background-color: var(--primary-blue-color);
+    height: 2px;
+}
 /* All pages styling */
 
 
@@ -412,7 +431,7 @@ t.headline2{
 /*Medium devices (tablets, less than 992px)  Navbar goes in mobile mode  */
 @media (max-width: 991.98px) {
     body{
-        /*background-color: yellow;*/
+        background-color: yellow;
     }
     button.navbar-toggler {
         border: 0;
@@ -448,13 +467,19 @@ t.headline2{
 /*Small devices (landscape phones, less than 768px)*/
 @media (max-width: 767.98px) {
     body{
-        /*background-color: pink;*/
+        background-color: pink;
+    }
+    .page-content{
+        margin: 61px 50px 50px 50px;
     }
 }
 
 /*X-Small devices (portrait phones, less than 576px)*/
 @media (max-width: 575.98px) {
     body{
-        /*background-color: magenta;*/
+        background-color: magenta;
+    }
+    .post-box{
+        height: 100%;
     }
 }

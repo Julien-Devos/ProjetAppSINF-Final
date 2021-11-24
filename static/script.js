@@ -13,9 +13,11 @@ window.addEventListener('load', function() {
             op += op * 0.1;
         }, 10);
     }
-
     fade(document.getElementById("body"))
 
+
+
+    // Found on https://www.w3schools.com/js/js_cookies.asp
     function setCookie(cname, cvalue, exdays) {
         const d = new Date();
         d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -69,6 +71,7 @@ window.addEventListener('load', function() {
             }
         }
     }
+
 
 
     // prevent leaving the dropdown-menu when clicking on it

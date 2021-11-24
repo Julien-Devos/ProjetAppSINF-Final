@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="font-style.css">
   <link rel="stylesheet" href="style.css">
   <script src="script.js"></script>
-  <title>Home</title>
+  <title>Post - Titre du post</title>
 </head>
 <body id="body">
 
@@ -34,7 +34,7 @@
                   <a class="nav-link titre2" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Jeux <span class="icon-Dropdown"></span>
                   </a>
-                  <ul class="dropdown-menu dropdown-game-menu dropdown-window-menu headline1" aria-labelledby="navbarDropdown">
+                  <ul class="dropdown-menu dropdown-game-menu dropdown-window-menu headline1 scroller" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item" href="#">Undertale</a></li>
                     <li><a class="dropdown-item" href="#">Minecraft</a></li>
                     <li><a class="dropdown-item" href="#">Mario kart</a></li>
@@ -106,25 +106,25 @@
           in purus laoreet, scelerisque metus ut, sodales tellus. Duis auctor ex vel bibendum cursus.
         </div>
 
-        <div class="row likes-comments">
+          <div class="row likes-comments">
 
-          <div class="col-1">
+            <div class="col-1">
 
-            <form method="get" action="./newLike">
-              <button class="btn like-btn" type="submit">
-                <span class="icon-Like"><t class="headline2">12</t></span>
+              <form method="get" action="./newLike">
+                <button class="btn like-btn" type="submit">
+                  <span class="icon-Like"><t class="headline2">12</t></span>
+                </button>
+              </form>
+
+            </div>
+            <div class="col-1">
+
+              <button type="button" class="btn comment-btn" data-bs-toggle="modal" data-bs-target="#myModal">
+                <span class="icon-Comments"><t class="headline2">12</t></span>
               </button>
-            </form>
 
+            </div>
           </div>
-          <div class="col-1">
-
-            <button type="button" class="btn comment-btn" data-bs-toggle="modal" data-bs-target="#myModal">
-              <span class="icon-Comments"><t class="headline2">12</t></span>
-            </button>
-
-          </div>
-        </div>
 
       </div>
 

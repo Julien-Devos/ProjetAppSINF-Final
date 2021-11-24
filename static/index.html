@@ -34,7 +34,7 @@
                                     <a class="nav-link titre2" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         Jeux <span class="icon-Dropdown"></span>
                                     </a>
-                                    <ul class="dropdown-menu dropdown-game-menu dropdown-window-menu headline1" aria-labelledby="navbarDropdown">
+                                    <ul class="dropdown-menu dropdown-game-menu dropdown-window-menu headline1 scroller" aria-labelledby="navbarDropdown">
                                         <li><a class="dropdown-item" href="#">Undertale</a></li>
                                         <li><a class="dropdown-item" href="#">Minecraft</a></li>
                                         <li><a class="dropdown-item" href="#">Mario kart</a></li>
@@ -59,7 +59,7 @@
                         </div>
                         <div class="nav col-3">
                             <ul class="navbar-nav ms-auto justify-content-end">
-                                <li class="nav-item dropdown test">
+                                <li class="xnav-item dropdown">
                                     <a class="headline1" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <img src="/static/img/default-profile.png" alt="Photo de profile" width="45" height="45" class="d-inline-block profile-pic ms-auto">
                                     </a>
@@ -81,18 +81,427 @@
 
     </header>
 
-<!--    <li class="nav-item">-->
-<!--        <a class="titre2 link" href="/login">Se connecter</a>-->
-<!--    </li>-->
-
     <section id="content">
 
         <div class="page-content">
+
 
             <div class="new-post-btn">
                 <form method="get" action="./newpost.html">
                     <button class="btn btn-outline-success btn-style buttonText" type="submit">Créer un nouveau post</button>
                 </form>
+            </div>
+
+            <div class="trending-posts">
+                <p class="titre2">Posts récents<p>
+                <div class="post-box scroller">
+
+                    <div class="post">
+
+                        <div class="user-account titre2">
+                            <img src="/static/img/default-profile.png" alt="Photo de profile" width="45" height="45" class="d-inline-block profile-pic ms-auto"> Auteur du post
+                        </div>
+
+                        <div class="post-title titre2">
+                            Titre du post
+                        </div>
+
+                        <div class="post-content post-text">
+                            Sed eget justo vitae sapien maximus gravida ac at ex. Cras in augue mauris. Morbi rutrum consequat ipsum, quis
+                            aliquam est rhoncus nec. Sed a facilisis eros. Donec euismod, est eu consequat finibus, orci lacus consequat est,
+                            ac luctus nisl metus eget neque. Nunc fringilla augue eu magna sodales, a tincidunt ligula elementum. Vestibulum
+                            non justo sit amet ex scelerisque egestas. Nullam at dignissim odio, id sagittis turpis. Aliquam vel aliquam turpis,
+                            id mollis ligula. Nulla vehicula semper dignissim. Mauris ac orci accumsan, ornare nulla eu, faucibus ex. Integer
+                            in purus laoreet, scelerisque metus ut, sodales tellus. Duis auctor ex vel bibendum cursus.
+                        </div>
+
+                    </div>
+
+                    <div class="box-divider"></div>
+
+                    <div class="post">
+
+                        <div class="user-account titre2">
+                            <img src="/static/img/default-profile.png" alt="Photo de profile" width="45" height="45" class="d-inline-block profile-pic ms-auto"> Auteur du post
+                        </div>
+
+                        <div class="post-title titre2">
+                            Titre du post
+                        </div>
+
+                        <div class="post-content post-text">
+                            Sed eget justo vitae sapien maximus gravida ac at ex. Cras in augue mauris. Morbi rutrum consequat ipsum, quis
+                            aliquam est rhoncus nec. Sed a facilisis eros. Donec euismod, est eu consequat finibus, orci lacus consequat est,
+                            ac luctus nisl metus eget neque. Nunc fringilla augue eu magna sodales, a tincidunt ligula elementum. Vestibulum
+                            non justo sit amet ex scelerisque egestas. Nullam at dignissim odio, id sagittis turpis. Aliquam vel aliquam turpis,
+                            id mollis ligula. Nulla vehicula semper dignissim. Mauris ac orci accumsan, ornare nulla eu, faucibus ex. Integer
+                            in purus laoreet, scelerisque metus ut, sodales tellus. Duis auctor ex vel bibendum cursus.
+                            Sed eget justo vitae sapien maximus gravida ac at ex. Cras in augue mauris. Morbi rutrum consequat ipsum, quis
+                            aliquam est rhoncus nec. Sed a facilisis eros. Donec euismod, est eu consequat finibus, orci lacus consequat est,
+                            ac luctus nisl metus eget neque. Nunc fringilla augue eu magna sodales, a tincidunt ligula elementum. Vestibulum
+                            non justo sit amet ex scelerisque egestas. Nullam at dignissim odio, id sagittis turpis. Aliquam vel aliquam turpis,
+                            id mollis ligula. Nulla vehicula semper dignissim. Mauris ac orci accumsan, ornare nulla eu, faucibus ex. Integer
+                            in purus laoreet, scelerisque metus ut, sodales tellus. Duis auctor ex vel bibendum cursus.
+                        </div>
+
+                        <div class="row likes-comments">
+
+                            <div class="col-1">
+
+                                <form method="get" action="./newLike">
+                                    <button class="btn like-btn" type="submit">
+                                        <span class="icon-Like"><t class="headline2">12</t></span>
+                                    </button>
+                                </form>
+
+                            </div>
+                            <div class="col-1">
+
+                                <button type="button" class="btn comment-btn" data-bs-toggle="modal" data-bs-target="#myModal">
+                                    <span class="icon-Comments"><t class="headline2">12</t></span>
+                                </button>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="box-divider"></div>
+
+                    <div class="post">
+
+                        <div class="user-account titre2">
+                            <img src="/static/img/default-profile.png" alt="Photo de profile" width="45" height="45" class="d-inline-block profile-pic ms-auto"> Auteur du post
+                        </div>
+
+                        <div class="post-title titre2">
+                            Titre du post
+                        </div>
+
+                        <div class="post-content post-text">
+                            Sed eget justo vitae sapien maximus gravida ac at ex. Cras in augue mauris. Morbi rutrum consequat ipsum, quis
+                            aliquam est rhoncus nec. Sed a facilisis eros. Donec euismod, est eu consequat finibus, orci lacus consequat est,
+                            ac luctus nisl metus eget neque. Nunc fringilla augue eu magna sodales, a tincidunt ligula elementum. Vestibulum
+                            non justo sit amet ex scelerisque egestas. Nullam at dignissim odio, id sagittis turpis. Aliquam vel aliquam turpis,
+                            id mollis ligula. Nulla vehicula semper dignissim. Mauris ac orci accumsan, ornare nulla eu, faucibus ex. Integer
+                            in purus laoreet, scelerisque metus ut, sodales tellus. Duis auctor ex vel bibendum cursus.
+                        </div>
+
+                        <div class="row likes-comments">
+
+                            <div class="col-1">
+
+                                <form method="get" action="./newLike">
+                                    <button class="btn like-btn" type="submit">
+                                        <span class="icon-Like"><t class="headline2">12</t></span>
+                                    </button>
+                                </form>
+
+                            </div>
+                            <div class="col-1">
+
+                                <button type="button" class="btn comment-btn" data-bs-toggle="modal" data-bs-target="#myModal">
+                                    <span class="icon-Comments"><t class="headline2">12</t></span>
+                                </button>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="box-divider"></div>
+
+                    <div class="post">
+
+                        <div class="user-account titre2">
+                            <img src="/static/img/default-profile.png" alt="Photo de profile" width="45" height="45" class="d-inline-block profile-pic ms-auto"> Auteur du post
+                        </div>
+
+                        <div class="post-title titre2">
+                            Titre du post
+                        </div>
+
+                        <div class="post-content post-text">
+                            Sed eget justo vitae sapien maximus gravida ac at ex. Cras in augue mauris. Morbi rutrum consequat ipsum, quis
+                            aliquam est rhoncus nec. Sed a facilisis eros. Donec euismod, est eu consequat finibus, orci lacus consequat est,
+                            ac luctus nisl metus eget neque. Nunc fringilla augue eu magna sodales, a tincidunt ligula elementum. Vestibulum
+                            non justo sit amet ex scelerisque egestas. Nullam at dignissim odio, id sagittis turpis. Aliquam vel aliquam turpis,
+                            id mollis ligula. Nulla vehicula semper dignissim. Mauris ac orci accumsan, ornare nulla eu, faucibus ex. Integer
+                            in purus laoreet, scelerisque metus ut, sodales tellus. Duis auctor ex vel bibendum cursus.
+                        </div>
+
+                        <div class="row likes-comments">
+
+                            <div class="col-1">
+
+                                <form method="get" action="./newLike">
+                                    <button class="btn like-btn" type="submit">
+                                        <span class="icon-Like"><t class="headline2">12</t></span>
+                                    </button>
+                                </form>
+
+                            </div>
+                            <div class="col-1">
+
+                                <button type="button" class="btn comment-btn" data-bs-toggle="modal" data-bs-target="#myModal">
+                                    <span class="icon-Comments"><t class="headline2">12</t></span>
+                                </button>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="box-divider"></div>
+
+                    <div class="post">
+
+                        <div class="user-account titre2">
+                            <img src="/static/img/default-profile.png" alt="Photo de profile" width="45" height="45" class="d-inline-block profile-pic ms-auto"> Auteur du post
+                        </div>
+
+                        <div class="post-title titre2">
+                            Titre du post
+                        </div>
+
+                        <div class="post-content post-text">
+                            Sed eget justo vitae sapien maximus gravida ac at ex. Cras in augue mauris. Morbi rutrum consequat ipsum, quis
+                            aliquam est rhoncus nec. Sed a facilisis eros. Donec euismod, est eu consequat finibus, orci lacus consequat est,
+                            ac luctus nisl metus eget neque. Nunc fringilla augue eu magna sodales, a tincidunt ligula elementum. Vestibulum
+                            non justo sit amet ex scelerisque egestas. Nullam at dignissim odio, id sagittis turpis. Aliquam vel aliquam turpis,
+                            id mollis ligula. Nulla vehicula semper dignissim. Mauris ac orci accumsan, ornare nulla eu, faucibus ex. Integer
+                            in purus laoreet, scelerisque metus ut, sodales tellus. Duis auctor ex vel bibendum cursus.
+                        </div>
+
+                        <div class="row likes-comments">
+
+                            <div class="col-1">
+
+                                <form method="get" action="./newLike">
+                                    <button class="btn like-btn" type="submit">
+                                        <span class="icon-Like"><t class="headline2">12</t></span>
+                                    </button>
+                                </form>
+
+                            </div>
+                            <div class="col-1">
+
+                                <button type="button" class="btn comment-btn" data-bs-toggle="modal" data-bs-target="#myModal">
+                                    <span class="icon-Comments"><t class="headline2">12</t></span>
+                                </button>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="trending-posts">
+                <p class="titre2">Posts populaires<p>
+                <div class="post-box scroller">
+
+                    <div class="post">
+
+                        <div class="user-account titre2">
+                            <img src="/static/img/default-profile.png" alt="Photo de profile" width="45" height="45" class="d-inline-block profile-pic ms-auto"> Auteur du post
+                        </div>
+
+                        <div class="post-title titre2">
+                            Titre du post
+                        </div>
+
+                        <div class="post-content post-text">
+                            Sed eget justo vitae sapien maximus gravida ac at ex. Cras in augue mauris. Morbi rutrum consequat ipsum, quis
+                            aliquam est rhoncus nec. Sed a facilisis eros. Donec euismod, est eu consequat finibus, orci lacus consequat est,
+                            ac luctus nisl metus eget neque. Nunc fringilla augue eu magna sodales, a tincidunt ligula elementum. Vestibulum
+                            non justo sit amet ex scelerisque egestas. Nullam at dignissim odio, id sagittis turpis. Aliquam vel aliquam turpis,
+                            id mollis ligula. Nulla vehicula semper dignissim. Mauris ac orci accumsan, ornare nulla eu, faucibus ex. Integer
+                            in purus laoreet, scelerisque metus ut, sodales tellus. Duis auctor ex vel bibendum cursus.
+                        </div>
+
+                    </div>
+
+                    <div class="box-divider"></div>
+
+                    <div class="post">
+
+                        <div class="user-account titre2">
+                            <img src="/static/img/default-profile.png" alt="Photo de profile" width="45" height="45" class="d-inline-block profile-pic ms-auto"> Auteur du post
+                        </div>
+
+                        <div class="post-title titre2">
+                            Titre du post
+                        </div>
+
+                        <div class="post-content post-text">
+                            Sed eget justo vitae sapien maximus gravida ac at ex. Cras in augue mauris. Morbi rutrum consequat ipsum, quis
+                            aliquam est rhoncus nec. Sed a facilisis eros. Donec euismod, est eu consequat finibus, orci lacus consequat est,
+                            ac luctus nisl metus eget neque. Nunc fringilla augue eu magna sodales, a tincidunt ligula elementum. Vestibulum
+                            non justo sit amet ex scelerisque egestas. Nullam at dignissim odio, id sagittis turpis. Aliquam vel aliquam turpis,
+                            id mollis ligula. Nulla vehicula semper dignissim. Mauris ac orci accumsan, ornare nulla eu, faucibus ex. Integer
+                            in purus laoreet, scelerisque metus ut, sodales tellus. Duis auctor ex vel bibendum cursus.
+                            Sed eget justo vitae sapien maximus gravida ac at ex. Cras in augue mauris. Morbi rutrum consequat ipsum, quis
+                            aliquam est rhoncus nec. Sed a facilisis eros. Donec euismod, est eu consequat finibus, orci lacus consequat est,
+                            ac luctus nisl metus eget neque. Nunc fringilla augue eu magna sodales, a tincidunt ligula elementum. Vestibulum
+                            non justo sit amet ex scelerisque egestas. Nullam at dignissim odio, id sagittis turpis. Aliquam vel aliquam turpis,
+                            id mollis ligula. Nulla vehicula semper dignissim. Mauris ac orci accumsan, ornare nulla eu, faucibus ex. Integer
+                            in purus laoreet, scelerisque metus ut, sodales tellus. Duis auctor ex vel bibendum cursus.
+                        </div>
+
+                        <div class="row likes-comments">
+
+                            <div class="col-1">
+
+                                <form method="get" action="./newLike">
+                                    <button class="btn like-btn" type="submit">
+                                        <span class="icon-Like"><t class="headline2">12</t></span>
+                                    </button>
+                                </form>
+
+                            </div>
+                            <div class="col-1">
+
+                                <button type="button" class="btn comment-btn" data-bs-toggle="modal" data-bs-target="#myModal">
+                                    <span class="icon-Comments"><t class="headline2">12</t></span>
+                                </button>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="box-divider"></div>
+
+                    <div class="post">
+
+                        <div class="user-account titre2">
+                            <img src="/static/img/default-profile.png" alt="Photo de profile" width="45" height="45" class="d-inline-block profile-pic ms-auto"> Auteur du post
+                        </div>
+
+                        <div class="post-title titre2">
+                            Titre du post
+                        </div>
+
+                        <div class="post-content post-text">
+                            Sed eget justo vitae sapien maximus gravida ac at ex. Cras in augue mauris. Morbi rutrum consequat ipsum, quis
+                            aliquam est rhoncus nec. Sed a facilisis eros. Donec euismod, est eu consequat finibus, orci lacus consequat est,
+                            ac luctus nisl metus eget neque. Nunc fringilla augue eu magna sodales, a tincidunt ligula elementum. Vestibulum
+                            non justo sit amet ex scelerisque egestas. Nullam at dignissim odio, id sagittis turpis. Aliquam vel aliquam turpis,
+                            id mollis ligula. Nulla vehicula semper dignissim. Mauris ac orci accumsan, ornare nulla eu, faucibus ex. Integer
+                            in purus laoreet, scelerisque metus ut, sodales tellus. Duis auctor ex vel bibendum cursus.
+                        </div>
+
+                        <div class="row likes-comments">
+
+                            <div class="col-1">
+
+                                <form method="get" action="./newLike">
+                                    <button class="btn like-btn" type="submit">
+                                        <span class="icon-Like"><t class="headline2">12</t></span>
+                                    </button>
+                                </form>
+
+                            </div>
+                            <div class="col-1">
+
+                                <button type="button" class="btn comment-btn" data-bs-toggle="modal" data-bs-target="#myModal">
+                                    <span class="icon-Comments"><t class="headline2">12</t></span>
+                                </button>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="box-divider"></div>
+
+                    <div class="post">
+
+                        <div class="user-account titre2">
+                            <img src="/static/img/default-profile.png" alt="Photo de profile" width="45" height="45" class="d-inline-block profile-pic ms-auto"> Auteur du post
+                        </div>
+
+                        <div class="post-title titre2">
+                            Titre du post
+                        </div>
+
+                        <div class="post-content post-text">
+                            Sed eget justo vitae sapien maximus gravida ac at ex. Cras in augue mauris. Morbi rutrum consequat ipsum, quis
+                            aliquam est rhoncus nec. Sed a facilisis eros. Donec euismod, est eu consequat finibus, orci lacus consequat est,
+                            ac luctus nisl metus eget neque. Nunc fringilla augue eu magna sodales, a tincidunt ligula elementum. Vestibulum
+                            non justo sit amet ex scelerisque egestas. Nullam at dignissim odio, id sagittis turpis. Aliquam vel aliquam turpis,
+                            id mollis ligula. Nulla vehicula semper dignissim. Mauris ac orci accumsan, ornare nulla eu, faucibus ex. Integer
+                            in purus laoreet, scelerisque metus ut, sodales tellus. Duis auctor ex vel bibendum cursus.
+                        </div>
+
+                        <div class="row likes-comments">
+
+                            <div class="col-1">
+
+                                <form method="get" action="./newLike">
+                                    <button class="btn like-btn" type="submit">
+                                        <span class="icon-Like"><t class="headline2">12</t></span>
+                                    </button>
+                                </form>
+
+                            </div>
+                            <div class="col-1">
+
+                                <button type="button" class="btn comment-btn" data-bs-toggle="modal" data-bs-target="#myModal">
+                                    <span class="icon-Comments"><t class="headline2">12</t></span>
+                                </button>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="box-divider"></div>
+
+                    <div class="post">
+
+                        <div class="user-account titre2">
+                            <img src="/static/img/default-profile.png" alt="Photo de profile" width="45" height="45" class="d-inline-block profile-pic ms-auto"> Auteur du post
+                        </div>
+
+                        <div class="post-title titre2">
+                            Titre du post
+                        </div>
+
+                        <div class="post-content post-text">
+                            Sed eget justo vitae sapien maximus gravida ac at ex. Cras in augue mauris. Morbi rutrum consequat ipsum, quis
+                            aliquam est rhoncus nec. Sed a facilisis eros. Donec euismod, est eu consequat finibus, orci lacus consequat est,
+                            ac luctus nisl metus eget neque. Nunc fringilla augue eu magna sodales, a tincidunt ligula elementum. Vestibulum
+                            non justo sit amet ex scelerisque egestas. Nullam at dignissim odio, id sagittis turpis. Aliquam vel aliquam turpis,
+                            id mollis ligula. Nulla vehicula semper dignissim. Mauris ac orci accumsan, ornare nulla eu, faucibus ex. Integer
+                            in purus laoreet, scelerisque metus ut, sodales tellus. Duis auctor ex vel bibendum cursus.
+                        </div>
+
+                        <div class="row likes-comments">
+
+                            <div class="col-1">
+
+                                <form method="get" action="./newLike">
+                                    <button class="btn like-btn" type="submit">
+                                        <span class="icon-Like"><t class="headline2">12</t></span>
+                                    </button>
+                                </form>
+
+                            </div>
+                            <div class="col-1">
+
+                                <button type="button" class="btn comment-btn" data-bs-toggle="modal" data-bs-target="#myModal">
+                                    <span class="icon-Comments"><t class="headline2">12</t></span>
+                                </button>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
             </div>
 
             <div class="posts">
@@ -101,62 +510,62 @@
                     <div class="row">
                         <div class="col-3 py-2 grid"><b>Titre</b></div>
                         <div class="col-2 py-2 grid"><b>Auteur</b></div>
-                        <div class="col-4 py-2 grid"><b>Contenu</b></div>
-                        <div class="col-3 py-2 grid"></div>
+                        <div class="col-5 py-2 grid"><b>Contenu</b></div>
+                        <div class="col-2 py-2 grid"></div>
+                    </div>
+                    <div class="row table-row">
+                        <div class="col-3 py-2 grid"><a href="post.html">Premier post</a></div>
+                        <div class="col-2 py-2 grid"><a href="post.html">Adminnnnnnnnnnn</a></div>
+                        <div class="col-5 py-2 grid"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. Vestibulum hendrerit nec enim id gravida. Duis elementum aliquet nulla id pellentesque. Praesent nec pharetra mauris.</a></div>
+                        <div class="col-2 py-2 grid"><a href="post.html">Il y a 10min</a></div>
                     </div>
                     <div class="row table-row">
                         <div class="col-3 py-2 grid"><a href="post.html">Premier post</a></div>
                         <div class="col-2 py-2 grid"><a href="post.html">Admin</a></div>
-                        <div class="col-4 py-2 grid"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. Vestibulum hendrerit nec enim id gravida. Duis elementum aliquet nulla id pellentesque. Praesent nec pharetra mauris.</a></div>
-                        <div class="col-3 py-2 grid"><a href="post.html">Il y a 10min</a></div>
+                        <div class="col-5 py-2 grid"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. ...</a></div>
+                        <div class="col-2 py-2 grid"><a href="post.html">Il y a 10min</a></div>
                     </div>
                     <div class="row table-row">
                         <div class="col-3 py-2 grid"><a href="post.html">Premier post</a></div>
                         <div class="col-2 py-2 grid"><a href="post.html">Admin</a></div>
-                        <div class="col-4 py-2 grid"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. ...</a></div>
-                        <div class="col-3 py-2 grid"><a href="post.html">Il y a 10min</a></div>
+                        <div class="col-5 py-2 grid"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. ...</a></div>
+                        <div class="col-2 py-2 grid"><a href="post.html">Il y a 10min</a></div>
                     </div>
                     <div class="row table-row">
                         <div class="col-3 py-2 grid"><a href="post.html">Premier post</a></div>
                         <div class="col-2 py-2 grid"><a href="post.html">Admin</a></div>
-                        <div class="col-4 py-2 grid"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. ...</a></div>
-                        <div class="col-3 py-2 grid"><a href="post.html">Il y a 10min</a></div>
+                        <div class="col-5 py-2 grid"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. ...</a></div>
+                        <div class="col-2 py-2 grid"><a href="post.html">Il y a 10min</a></div>
                     </div>
                     <div class="row table-row">
                         <div class="col-3 py-2 grid"><a href="post.html">Premier post</a></div>
                         <div class="col-2 py-2 grid"><a href="post.html">Admin</a></div>
-                        <div class="col-4 py-2 grid"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. ...</a></div>
-                        <div class="col-3 py-2 grid"><a href="post.html">Il y a 10min</a></div>
+                        <div class="col-5 py-2 grid"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. ...</a></div>
+                        <div class="col-2 py-2 grid"><a href="post.html">Il y a 10min</a></div>
                     </div>
                     <div class="row table-row">
                         <div class="col-3 py-2 grid"><a href="post.html">Premier post</a></div>
                         <div class="col-2 py-2 grid"><a href="post.html">Admin</a></div>
-                        <div class="col-4 py-2 grid"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. ...</a></div>
-                        <div class="col-3 py-2 grid"><a href="post.html">Il y a 10min</a></div>
+                        <div class="col-5 py-2 grid"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. ...</a></div>
+                        <div class="col-2 py-2 grid"><a href="post.html">Il y a 10min</a></div>
                     </div>
                     <div class="row table-row">
                         <div class="col-3 py-2 grid"><a href="post.html">Premier post</a></div>
                         <div class="col-2 py-2 grid"><a href="post.html">Admin</a></div>
-                        <div class="col-4 py-2 grid"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. ...</a></div>
-                        <div class="col-3 py-2 grid"><a href="post.html">Il y a 10min</a></div>
+                        <div class="col-5 py-2 grid"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. ...</a></div>
+                        <div class="col-2 py-2 grid"><a href="post.html">Il y a 10min</a></div>
                     </div>
                     <div class="row table-row">
                         <div class="col-3 py-2 grid"><a href="post.html">Premier post</a></div>
                         <div class="col-2 py-2 grid"><a href="post.html">Admin</a></div>
-                        <div class="col-4 py-2 grid"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. ...</a></div>
-                        <div class="col-3 py-2 grid"><a href="post.html">Il y a 10min</a></div>
+                        <div class="col-5 py-2 grid"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. ...</a></div>
+                        <div class="col-2 py-2 grid"><a href="post.html">Il y a 10min</a></div>
                     </div>
                     <div class="row table-row">
                         <div class="col-3 py-2 grid"><a href="post.html">Premier post</a></div>
                         <div class="col-2 py-2 grid"><a href="post.html">Admin</a></div>
-                        <div class="col-4 py-2 grid"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. ...</a></div>
-                        <div class="col-3 py-2 grid"><a href="post.html">Il y a 10min</a></div>
-                    </div>
-                    <div class="row table-row">
-                        <div class="col-3 py-2 grid"><a href="post.html">Premier post</a></div>
-                        <div class="col-2 py-2 grid"><a href="post.html">Admin</a></div>
-                        <div class="col-4 py-2 grid"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. ...</a></div>
-                        <div class="col-3 py-2 grid"><a href="post.html">Il y a 10min</a></div>
+                        <div class="col-5 py-2 grid"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. ...</a></div>
+                        <div class="col-2 py-2 grid"><a href="post.html">Il y a 10min</a></div>
                     </div>
                 </div>
             </div>
@@ -167,62 +576,62 @@
                     <div class="row">
                         <div class="col-3 py-2 grid"><b>Titre</b></div>
                         <div class="col-2 py-2 grid"><b>Auteur</b></div>
-                        <div class="col-4 py-2 grid"><b>Contenu</b></div>
-                        <div class="col-3 py-2 grid"></div>
+                        <div class="col-5 py-2 grid"><b>Contenu</b></div>
+                        <div class="col-2 py-2 grid"></div>
                     </div>
                     <div class="row table-row">
                         <div class="col-3 py-2 grid"><a href="test">Premier post</a></div>
                         <div class="col-2 py-2 grid"><a href="test">Admin</a></div>
-                        <div class="col-4 py-2 grid"><a href="test">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. Vestibulum hendrerit nec enim id gravida. Duis elementum aliquet nulla id pellentesque. Praesent nec pharetra mauris.</a></div>
-                        <div class="col-3 py-2 grid"><a href="test">Il y a 10min</a></div>
+                        <div class="col-5 py-2 grid"><a href="test">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. Vestibulum hendrerit nec enim id gravida. Duis elementum aliquet nulla id pellentesque. Praesent nec pharetra mauris.</a></div>
+                        <div class="col-2 py-2 grid"><a href="test">Il y a 10min</a></div>
                     </div>
                     <div class="row table-row">
                         <div class="col-3 py-2 grid"><a href="test">Premier post</a></div>
                         <div class="col-2 py-2 grid"><a href="test">Admin</a></div>
-                        <div class="col-4 py-2 grid"><a href="test">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. ...</a></div>
-                        <div class="col-3 py-2 grid"><a href="test">Il y a 10min</a></div>
+                        <div class="col-5 py-2 grid"><a href="test">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. ...</a></div>
+                        <div class="col-2 py-2 grid"><a href="test">Il y a 10min</a></div>
                     </div>
                     <div class="row table-row">
                         <div class="col-3 py-2 grid"><a href="test">Premier post</a></div>
                         <div class="col-2 py-2 grid"><a href="test">Admin</a></div>
-                        <div class="col-4 py-2 grid"><a href="test">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. ...</a></div>
-                        <div class="col-3 py-2 grid"><a href="test">Il y a 10min</a></div>
+                        <div class="col-5 py-2 grid"><a href="test">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. ...</a></div>
+                        <div class="col-2 py-2 grid"><a href="test">Il y a 10min</a></div>
                     </div>
                     <div class="row table-row">
                         <div class="col-3 py-2 grid"><a href="test">Premier post</a></div>
                         <div class="col-2 py-2 grid"><a href="test">Admin</a></div>
-                        <div class="col-4 py-2 grid"><a href="test">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. ...</a></div>
-                        <div class="col-3 py-2 grid"><a href="test">Il y a 10min</a></div>
+                        <div class="col-5 py-2 grid"><a href="test">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. ...</a></div>
+                        <div class="col-2 py-2 grid"><a href="test">Il y a 10min</a></div>
                     </div>
                     <div class="row table-row">
                         <div class="col-3 py-2 grid"><a href="test">Premier post</a></div>
                         <div class="col-2 py-2 grid"><a href="test">Admin</a></div>
-                        <div class="col-4 py-2 grid"><a href="test">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. ...</a></div>
-                        <div class="col-3 py-2 grid"><a href="test">Il y a 10min</a></div>
+                        <div class="col-5 py-2 grid"><a href="test">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. ...</a></div>
+                        <div class="col-2 py-2 grid"><a href="test">Il y a 10min</a></div>
                     </div>
                     <div class="row table-row">
                         <div class="col-3 py-2 grid"><a href="test">Premier post</a></div>
                         <div class="col-2 py-2 grid"><a href="test">Admin</a></div>
-                        <div class="col-4 py-2 grid"><a href="test">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. ...</a></div>
-                        <div class="col-3 py-2 grid"><a href="test">Il y a 10min</a></div>
+                        <div class="col-5 py-2 grid"><a href="test">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. ...</a></div>
+                        <div class="col-2 py-2 grid"><a href="test">Il y a 10min</a></div>
                     </div>
                     <div class="row table-row">
                         <div class="col-3 py-2 grid"><a href="test">Premier post</a></div>
                         <div class="col-2 py-2 grid"><a href="test">Admin</a></div>
-                        <div class="col-4 py-2 grid"><a href="test">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. ...</a></div>
-                        <div class="col-3 py-2 grid"><a href="test">Il y a 10min</a></div>
+                        <div class="col-5 py-2 grid"><a href="test">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. ...</a></div>
+                        <div class="col-2 py-2 grid"><a href="test">Il y a 10min</a></div>
                     </div>
                     <div class="row table-row">
                         <div class="col-3 py-2 grid"><a href="test">Premier post</a></div>
                         <div class="col-2 py-2 grid"><a href="test">Admin</a></div>
-                        <div class="col-4 py-2 grid"><a href="test">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. ...</a></div>
-                        <div class="col-3 py-2 grid"><a href="test">Il y a 10min</a></div>
+                        <div class="col-5 py-2 grid"><a href="test">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. ...</a></div>
+                        <div class="col-2 py-2 grid"><a href="test">Il y a 10min</a></div>
                     </div>
                     <div class="row table-row">
                         <div class="col-3 py-2 grid"><a href="test">Premier post</a></div>
                         <div class="col-2 py-2 grid"><a href="test">Admin</a></div>
-                        <div class="col-4 py-2 grid"><a href="test">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. ...</a></div>
-                        <div class="col-3 py-2 grid"><a href="test">Il y a 10min</a></div>
+                        <div class="col-5 py-2 grid"><a href="test">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. ...</a></div>
+                        <div class="col-2 py-2 grid"><a href="test">Il y a 10min</a></div>
                     </div>
                 </div>
             </div>
