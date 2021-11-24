@@ -218,6 +218,30 @@ button#theme-toggle{
 /* Navbar styling */
 
 
+/** newpost.css **/
+
+.titleArea {
+    margin-top: 40px;
+}
+.contentArea {
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+.newpost-title {
+    width: 100%;
+    border-radius: 10px !important;
+}
+.newpost-content.formTextArea {
+    width: 100%;
+    height: 350px;
+    border-radius: 10px !important;
+}
+
+/** profile.css **/
+.profile-page{
+    background-color: var(--secondary-bg-color);
+    border-radius: 15px;
+}
 
 /* All pages styling */
 .page-content{
