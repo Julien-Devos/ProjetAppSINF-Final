@@ -81,29 +81,29 @@
 
     </header>
 
+
     <section id="content">
+
 
         <div class="page-content">
 
+            <form method="get" action="./newpost.html">
+                <button class="btn btn-outline-success btn-style buttonText" type="submit">Créer un nouveau post</button>
+            </form>
 
-            <div class="new-post-btn">
-                <form method="get" action="./newpost.html">
-                    <button class="btn btn-outline-success btn-style buttonText" type="submit">Créer un nouveau post</button>
-                </form>
-            </div>
+            <div class="home-page-posts">
+                <label for="recent-posts" class="form-label titre2">Posts récents</label>
+                <div class="post-box scroller" id="recent-posts">
 
-            <div class="trending-posts">
-                <p class="titre2">Posts récents<p>
-                <div class="post-box scroller">
-
-                    <div class="post">
+                    <a class="post" href="post.html">
 
                         <div class="user-account titre2">
-                            <img src="/static/img/default-profile.png" alt="Photo de profile" width="45" height="45" class="d-inline-block profile-pic ms-auto"> Auteur du post
+                            <img src="/static/img/ex-profile.png" alt="Photo de profile" class="d-inline-block profile-pic"> Nazeo
                         </div>
 
                         <div class="post-title titre2">
-                            Titre du post
+                            Game / Titre du post
+                            <p class="headline2 post-time">• Il y a 10min</p>
                         </div>
 
                         <div class="post-content post-text">
@@ -115,18 +115,33 @@
                             in purus laoreet, scelerisque metus ut, sodales tellus. Duis auctor ex vel bibendum cursus.
                         </div>
 
-                    </div>
+                        <div class="row">
+
+                            <div class="col-1">
+
+                                <span class="icon-Like"><t class="headline2">12</t></span>
+
+                            </div>
+                            <div class="col-1">
+
+                                <span class="icon-Comments"><t class="headline2">12</t></span>
+
+                            </div>
+                        </div>
+
+                    </a>
 
                     <div class="box-divider"></div>
 
-                    <div class="post">
+                    <a class="post" href="post.html">
 
                         <div class="user-account titre2">
-                            <img src="/static/img/default-profile.png" alt="Photo de profile" width="45" height="45" class="d-inline-block profile-pic ms-auto"> Auteur du post
+                            <img src="/static/img/profile.png" alt="Photo de profile" class="d-inline-block profile-pic ms-auto"> ShyNin'
                         </div>
 
                         <div class="post-title titre2">
-                            Titre du post
+                            Game / Titre du post
+                            <p class="headline2 post-time">• Il y a 10min</p>
                         </div>
 
                         <div class="post-content post-text">
@@ -136,46 +151,35 @@
                             non justo sit amet ex scelerisque egestas. Nullam at dignissim odio, id sagittis turpis. Aliquam vel aliquam turpis,
                             id mollis ligula. Nulla vehicula semper dignissim. Mauris ac orci accumsan, ornare nulla eu, faucibus ex. Integer
                             in purus laoreet, scelerisque metus ut, sodales tellus. Duis auctor ex vel bibendum cursus.
-                            Sed eget justo vitae sapien maximus gravida ac at ex. Cras in augue mauris. Morbi rutrum consequat ipsum, quis
-                            aliquam est rhoncus nec. Sed a facilisis eros. Donec euismod, est eu consequat finibus, orci lacus consequat est,
-                            ac luctus nisl metus eget neque. Nunc fringilla augue eu magna sodales, a tincidunt ligula elementum. Vestibulum
-                            non justo sit amet ex scelerisque egestas. Nullam at dignissim odio, id sagittis turpis. Aliquam vel aliquam turpis,
-                            id mollis ligula. Nulla vehicula semper dignissim. Mauris ac orci accumsan, ornare nulla eu, faucibus ex. Integer
-                            in purus laoreet, scelerisque metus ut, sodales tellus. Duis auctor ex vel bibendum cursus.
                         </div>
 
-                        <div class="row likes-comments">
+                        <div class="row">
 
                             <div class="col-1">
 
-                                <form method="get" action="./newLike">
-                                    <button class="btn like-btn" type="submit">
-                                        <span class="icon-Like"><t class="headline2">12</t></span>
-                                    </button>
-                                </form>
+                                <span class="icon-Like"><t class="headline2">12</t></span>
 
                             </div>
                             <div class="col-1">
 
-                                <button type="button" class="btn comment-btn" data-bs-toggle="modal" data-bs-target="#myModal">
-                                    <span class="icon-Comments"><t class="headline2">12</t></span>
-                                </button>
+                                <span class="icon-Comments"><t class="headline2">12</t></span>
 
                             </div>
                         </div>
 
-                    </div>
+                    </a>
 
                     <div class="box-divider"></div>
 
-                    <div class="post">
+                    <a class="post" href="post.html">
 
                         <div class="user-account titre2">
-                            <img src="/static/img/default-profile.png" alt="Photo de profile" width="45" height="45" class="d-inline-block profile-pic ms-auto"> Auteur du post
+                            <img src="/static/img/profile2.png" alt="Photo de profile" class="d-inline-block profile-pic ms-auto"> Nizehonore
                         </div>
 
                         <div class="post-title titre2">
-                            Titre du post
+                            Game / Titre du post
+                            <p class="headline2 post-time">• Il y a 10min</p>
                         </div>
 
                         <div class="post-content post-text">
@@ -187,38 +191,33 @@
                             in purus laoreet, scelerisque metus ut, sodales tellus. Duis auctor ex vel bibendum cursus.
                         </div>
 
-                        <div class="row likes-comments">
+                        <div class="row">
 
                             <div class="col-1">
 
-                                <form method="get" action="./newLike">
-                                    <button class="btn like-btn" type="submit">
-                                        <span class="icon-Like"><t class="headline2">12</t></span>
-                                    </button>
-                                </form>
+                                <span class="icon-Like"><t class="headline2">12</t></span>
 
                             </div>
                             <div class="col-1">
 
-                                <button type="button" class="btn comment-btn" data-bs-toggle="modal" data-bs-target="#myModal">
-                                    <span class="icon-Comments"><t class="headline2">12</t></span>
-                                </button>
+                                <span class="icon-Comments"><t class="headline2">12</t></span>
 
                             </div>
                         </div>
 
-                    </div>
+                    </a>
 
                     <div class="box-divider"></div>
 
-                    <div class="post">
+                    <a class="post" href="post.html">
 
                         <div class="user-account titre2">
-                            <img src="/static/img/default-profile.png" alt="Photo de profile" width="45" height="45" class="d-inline-block profile-pic ms-auto"> Auteur du post
+                            <img src="/static/img/default-profile.png" alt="Photo de profile" class="d-inline-block profile-pic ms-auto"> Auteur du post
                         </div>
 
                         <div class="post-title titre2">
-                            Titre du post
+                            Game / Titre du post
+                            <p class="headline2 post-time">• Il y a 10min</p>
                         </div>
 
                         <div class="post-content post-text">
@@ -230,38 +229,33 @@
                             in purus laoreet, scelerisque metus ut, sodales tellus. Duis auctor ex vel bibendum cursus.
                         </div>
 
-                        <div class="row likes-comments">
+                        <div class="row">
 
                             <div class="col-1">
 
-                                <form method="get" action="./newLike">
-                                    <button class="btn like-btn" type="submit">
-                                        <span class="icon-Like"><t class="headline2">12</t></span>
-                                    </button>
-                                </form>
+                                <span class="icon-Like"><t class="headline2">12</t></span>
 
                             </div>
                             <div class="col-1">
 
-                                <button type="button" class="btn comment-btn" data-bs-toggle="modal" data-bs-target="#myModal">
-                                    <span class="icon-Comments"><t class="headline2">12</t></span>
-                                </button>
+                                <span class="icon-Comments"><t class="headline2">12</t></span>
 
                             </div>
                         </div>
 
-                    </div>
+                    </a>
 
                     <div class="box-divider"></div>
 
-                    <div class="post">
+                    <a class="post" href="post.html">
 
                         <div class="user-account titre2">
-                            <img src="/static/img/default-profile.png" alt="Photo de profile" width="45" height="45" class="d-inline-block profile-pic ms-auto"> Auteur du post
+                            <img src="/static/img/default-profile.png" alt="Photo de profile" class="d-inline-block profile-pic ms-auto"> Auteur du post
                         </div>
 
                         <div class="post-title titre2">
-                            Titre du post
+                            Game / Titre du post
+                            <p class="headline2 post-time">• Il y a 10min</p>
                         </div>
 
                         <div class="post-content post-text">
@@ -273,43 +267,38 @@
                             in purus laoreet, scelerisque metus ut, sodales tellus. Duis auctor ex vel bibendum cursus.
                         </div>
 
-                        <div class="row likes-comments">
+                        <div class="row">
 
                             <div class="col-1">
 
-                                <form method="get" action="./newLike">
-                                    <button class="btn like-btn" type="submit">
-                                        <span class="icon-Like"><t class="headline2">12</t></span>
-                                    </button>
-                                </form>
+                                <span class="icon-Like"><t class="headline2">12</t></span>
 
                             </div>
                             <div class="col-1">
 
-                                <button type="button" class="btn comment-btn" data-bs-toggle="modal" data-bs-target="#myModal">
-                                    <span class="icon-Comments"><t class="headline2">12</t></span>
-                                </button>
+                                <span class="icon-Comments"><t class="headline2">12</t></span>
 
                             </div>
                         </div>
 
-                    </div>
+                    </a>
 
                 </div>
             </div>
 
-            <div class="trending-posts">
-                <p class="titre2">Posts populaires<p>
-                <div class="post-box scroller">
+            <div class="home-page-posts">
+                <label for="trending-posts" class="form-label titre2">Posts populaires</label>
+                <div class="post-box scroller" id="trending-posts">
 
-                    <div class="post">
+                    <a class="post" href="post.html">
 
                         <div class="user-account titre2">
-                            <img src="/static/img/default-profile.png" alt="Photo de profile" width="45" height="45" class="d-inline-block profile-pic ms-auto"> Auteur du post
+                            <img src="/static/img/default-profile.png" alt="Photo de profile" class="d-inline-block profile-pic ms-auto"> Auteur du post
                         </div>
 
                         <div class="post-title titre2">
-                            Titre du post
+                            Game / Titre du post
+                            <p class="headline2 post-time">• Il y a 10min</p>
                         </div>
 
                         <div class="post-content post-text">
@@ -321,18 +310,33 @@
                             in purus laoreet, scelerisque metus ut, sodales tellus. Duis auctor ex vel bibendum cursus.
                         </div>
 
-                    </div>
+                        <div class="row">
+
+                            <div class="col-1">
+
+                                <span class="icon-Like"><t class="headline2">12</t></span>
+
+                            </div>
+                            <div class="col-1">
+
+                                <span class="icon-Comments"><t class="headline2">12</t></span>
+
+                            </div>
+                        </div>
+
+                    </a>
 
                     <div class="box-divider"></div>
 
-                    <div class="post">
+                    <a class="post" href="post.html">
 
                         <div class="user-account titre2">
-                            <img src="/static/img/default-profile.png" alt="Photo de profile" width="45" height="45" class="d-inline-block profile-pic ms-auto"> Auteur du post
+                            <img src="/static/img/default-profile.png" alt="Photo de profile" class="d-inline-block profile-pic ms-auto"> Auteur du post
                         </div>
 
                         <div class="post-title titre2">
-                            Titre du post
+                            Game / Titre du post
+                            <p class="headline2 post-time">• Il y a 10min</p>
                         </div>
 
                         <div class="post-content post-text">
@@ -342,46 +346,35 @@
                             non justo sit amet ex scelerisque egestas. Nullam at dignissim odio, id sagittis turpis. Aliquam vel aliquam turpis,
                             id mollis ligula. Nulla vehicula semper dignissim. Mauris ac orci accumsan, ornare nulla eu, faucibus ex. Integer
                             in purus laoreet, scelerisque metus ut, sodales tellus. Duis auctor ex vel bibendum cursus.
-                            Sed eget justo vitae sapien maximus gravida ac at ex. Cras in augue mauris. Morbi rutrum consequat ipsum, quis
-                            aliquam est rhoncus nec. Sed a facilisis eros. Donec euismod, est eu consequat finibus, orci lacus consequat est,
-                            ac luctus nisl metus eget neque. Nunc fringilla augue eu magna sodales, a tincidunt ligula elementum. Vestibulum
-                            non justo sit amet ex scelerisque egestas. Nullam at dignissim odio, id sagittis turpis. Aliquam vel aliquam turpis,
-                            id mollis ligula. Nulla vehicula semper dignissim. Mauris ac orci accumsan, ornare nulla eu, faucibus ex. Integer
-                            in purus laoreet, scelerisque metus ut, sodales tellus. Duis auctor ex vel bibendum cursus.
                         </div>
 
-                        <div class="row likes-comments">
+                        <div class="row">
 
                             <div class="col-1">
 
-                                <form method="get" action="./newLike">
-                                    <button class="btn like-btn" type="submit">
-                                        <span class="icon-Like"><t class="headline2">12</t></span>
-                                    </button>
-                                </form>
+                                <span class="icon-Like"><t class="headline2">12</t></span>
 
                             </div>
                             <div class="col-1">
 
-                                <button type="button" class="btn comment-btn" data-bs-toggle="modal" data-bs-target="#myModal">
-                                    <span class="icon-Comments"><t class="headline2">12</t></span>
-                                </button>
+                                <span class="icon-Comments"><t class="headline2">12</t></span>
 
                             </div>
                         </div>
 
-                    </div>
+                    </a>
 
                     <div class="box-divider"></div>
 
-                    <div class="post">
+                    <a class="post" href="post.html">
 
                         <div class="user-account titre2">
-                            <img src="/static/img/default-profile.png" alt="Photo de profile" width="45" height="45" class="d-inline-block profile-pic ms-auto"> Auteur du post
+                            <img src="/static/img/default-profile.png" alt="Photo de profile" class="d-inline-block profile-pic ms-auto"> Auteur du post
                         </div>
 
                         <div class="post-title titre2">
-                            Titre du post
+                            Game / Titre du post
+                            <p class="headline2 post-time">• Il y a 10min</p>
                         </div>
 
                         <div class="post-content post-text">
@@ -393,38 +386,33 @@
                             in purus laoreet, scelerisque metus ut, sodales tellus. Duis auctor ex vel bibendum cursus.
                         </div>
 
-                        <div class="row likes-comments">
+                        <div class="row">
 
                             <div class="col-1">
 
-                                <form method="get" action="./newLike">
-                                    <button class="btn like-btn" type="submit">
-                                        <span class="icon-Like"><t class="headline2">12</t></span>
-                                    </button>
-                                </form>
+                                <span class="icon-Like"><t class="headline2">12</t></span>
 
                             </div>
                             <div class="col-1">
 
-                                <button type="button" class="btn comment-btn" data-bs-toggle="modal" data-bs-target="#myModal">
-                                    <span class="icon-Comments"><t class="headline2">12</t></span>
-                                </button>
+                                <span class="icon-Comments"><t class="headline2">12</t></span>
 
                             </div>
                         </div>
 
-                    </div>
+                    </a>
 
                     <div class="box-divider"></div>
 
-                    <div class="post">
+                    <a class="post" href="post.html">
 
                         <div class="user-account titre2">
-                            <img src="/static/img/default-profile.png" alt="Photo de profile" width="45" height="45" class="d-inline-block profile-pic ms-auto"> Auteur du post
+                            <img src="/static/img/default-profile.png" alt="Photo de profile" class="d-inline-block profile-pic ms-auto"> Auteur du post
                         </div>
 
                         <div class="post-title titre2">
-                            Titre du post
+                            Game / Titre du post
+                            <p class="headline2 post-time">• Il y a 10min</p>
                         </div>
 
                         <div class="post-content post-text">
@@ -436,38 +424,33 @@
                             in purus laoreet, scelerisque metus ut, sodales tellus. Duis auctor ex vel bibendum cursus.
                         </div>
 
-                        <div class="row likes-comments">
+                        <div class="row">
 
                             <div class="col-1">
 
-                                <form method="get" action="./newLike">
-                                    <button class="btn like-btn" type="submit">
-                                        <span class="icon-Like"><t class="headline2">12</t></span>
-                                    </button>
-                                </form>
+                                <span class="icon-Like"><t class="headline2">12</t></span>
 
                             </div>
                             <div class="col-1">
 
-                                <button type="button" class="btn comment-btn" data-bs-toggle="modal" data-bs-target="#myModal">
-                                    <span class="icon-Comments"><t class="headline2">12</t></span>
-                                </button>
+                                <span class="icon-Comments"><t class="headline2">12</t></span>
 
                             </div>
                         </div>
 
-                    </div>
+                    </a>
 
                     <div class="box-divider"></div>
 
-                    <div class="post">
+                    <a class="post" href="post.html">
 
                         <div class="user-account titre2">
-                            <img src="/static/img/default-profile.png" alt="Photo de profile" width="45" height="45" class="d-inline-block profile-pic ms-auto"> Auteur du post
+                            <img src="/static/img/default-profile.png" alt="Photo de profile" class="d-inline-block profile-pic ms-auto"> Auteur du post
                         </div>
 
                         <div class="post-title titre2">
-                            Titre du post
+                            Game / Titre du post
+                            <p class="headline2 post-time">• Il y a 10min</p>
                         </div>
 
                         <div class="post-content post-text">
@@ -479,160 +462,22 @@
                             in purus laoreet, scelerisque metus ut, sodales tellus. Duis auctor ex vel bibendum cursus.
                         </div>
 
-                        <div class="row likes-comments">
+                        <div class="row">
 
                             <div class="col-1">
 
-                                <form method="get" action="./newLike">
-                                    <button class="btn like-btn" type="submit">
-                                        <span class="icon-Like"><t class="headline2">12</t></span>
-                                    </button>
-                                </form>
+                                <span class="icon-Like"><t class="headline2">12</t></span>
 
                             </div>
                             <div class="col-1">
 
-                                <button type="button" class="btn comment-btn" data-bs-toggle="modal" data-bs-target="#myModal">
-                                    <span class="icon-Comments"><t class="headline2">12</t></span>
-                                </button>
+                                <span class="icon-Comments"><t class="headline2">12</t></span>
 
                             </div>
                         </div>
 
-                    </div>
+                    </a>
 
-                </div>
-            </div>
-
-            <div class="posts">
-                <p class="titre2">Derniers posts<p>
-                <div class="custom-table post-text">
-                    <div class="row">
-                        <div class="col-3 py-2 grid"><b>Titre</b></div>
-                        <div class="col-2 py-2 grid"><b>Auteur</b></div>
-                        <div class="col-5 py-2 grid"><b>Contenu</b></div>
-                        <div class="col-2 py-2 grid"></div>
-                    </div>
-                    <div class="row table-row">
-                        <div class="col-3 py-2 grid"><a href="post.html">Premier post</a></div>
-                        <div class="col-2 py-2 grid"><a href="post.html">Adminnnnnnnnnnn</a></div>
-                        <div class="col-5 py-2 grid"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. Vestibulum hendrerit nec enim id gravida. Duis elementum aliquet nulla id pellentesque. Praesent nec pharetra mauris.</a></div>
-                        <div class="col-2 py-2 grid"><a href="post.html">Il y a 10min</a></div>
-                    </div>
-                    <div class="row table-row">
-                        <div class="col-3 py-2 grid"><a href="post.html">Premier post</a></div>
-                        <div class="col-2 py-2 grid"><a href="post.html">Admin</a></div>
-                        <div class="col-5 py-2 grid"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. ...</a></div>
-                        <div class="col-2 py-2 grid"><a href="post.html">Il y a 10min</a></div>
-                    </div>
-                    <div class="row table-row">
-                        <div class="col-3 py-2 grid"><a href="post.html">Premier post</a></div>
-                        <div class="col-2 py-2 grid"><a href="post.html">Admin</a></div>
-                        <div class="col-5 py-2 grid"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. ...</a></div>
-                        <div class="col-2 py-2 grid"><a href="post.html">Il y a 10min</a></div>
-                    </div>
-                    <div class="row table-row">
-                        <div class="col-3 py-2 grid"><a href="post.html">Premier post</a></div>
-                        <div class="col-2 py-2 grid"><a href="post.html">Admin</a></div>
-                        <div class="col-5 py-2 grid"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. ...</a></div>
-                        <div class="col-2 py-2 grid"><a href="post.html">Il y a 10min</a></div>
-                    </div>
-                    <div class="row table-row">
-                        <div class="col-3 py-2 grid"><a href="post.html">Premier post</a></div>
-                        <div class="col-2 py-2 grid"><a href="post.html">Admin</a></div>
-                        <div class="col-5 py-2 grid"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. ...</a></div>
-                        <div class="col-2 py-2 grid"><a href="post.html">Il y a 10min</a></div>
-                    </div>
-                    <div class="row table-row">
-                        <div class="col-3 py-2 grid"><a href="post.html">Premier post</a></div>
-                        <div class="col-2 py-2 grid"><a href="post.html">Admin</a></div>
-                        <div class="col-5 py-2 grid"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. ...</a></div>
-                        <div class="col-2 py-2 grid"><a href="post.html">Il y a 10min</a></div>
-                    </div>
-                    <div class="row table-row">
-                        <div class="col-3 py-2 grid"><a href="post.html">Premier post</a></div>
-                        <div class="col-2 py-2 grid"><a href="post.html">Admin</a></div>
-                        <div class="col-5 py-2 grid"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. ...</a></div>
-                        <div class="col-2 py-2 grid"><a href="post.html">Il y a 10min</a></div>
-                    </div>
-                    <div class="row table-row">
-                        <div class="col-3 py-2 grid"><a href="post.html">Premier post</a></div>
-                        <div class="col-2 py-2 grid"><a href="post.html">Admin</a></div>
-                        <div class="col-5 py-2 grid"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. ...</a></div>
-                        <div class="col-2 py-2 grid"><a href="post.html">Il y a 10min</a></div>
-                    </div>
-                    <div class="row table-row">
-                        <div class="col-3 py-2 grid"><a href="post.html">Premier post</a></div>
-                        <div class="col-2 py-2 grid"><a href="post.html">Admin</a></div>
-                        <div class="col-5 py-2 grid"><a href="post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. ...</a></div>
-                        <div class="col-2 py-2 grid"><a href="post.html">Il y a 10min</a></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="posts">
-                <p class="titre2">Posts populaires<p>
-                <div class="custom-table post-text">
-                    <div class="row">
-                        <div class="col-3 py-2 grid"><b>Titre</b></div>
-                        <div class="col-2 py-2 grid"><b>Auteur</b></div>
-                        <div class="col-5 py-2 grid"><b>Contenu</b></div>
-                        <div class="col-2 py-2 grid"></div>
-                    </div>
-                    <div class="row table-row">
-                        <div class="col-3 py-2 grid"><a href="test">Premier post</a></div>
-                        <div class="col-2 py-2 grid"><a href="test">Admin</a></div>
-                        <div class="col-5 py-2 grid"><a href="test">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. Vestibulum hendrerit nec enim id gravida. Duis elementum aliquet nulla id pellentesque. Praesent nec pharetra mauris.</a></div>
-                        <div class="col-2 py-2 grid"><a href="test">Il y a 10min</a></div>
-                    </div>
-                    <div class="row table-row">
-                        <div class="col-3 py-2 grid"><a href="test">Premier post</a></div>
-                        <div class="col-2 py-2 grid"><a href="test">Admin</a></div>
-                        <div class="col-5 py-2 grid"><a href="test">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. ...</a></div>
-                        <div class="col-2 py-2 grid"><a href="test">Il y a 10min</a></div>
-                    </div>
-                    <div class="row table-row">
-                        <div class="col-3 py-2 grid"><a href="test">Premier post</a></div>
-                        <div class="col-2 py-2 grid"><a href="test">Admin</a></div>
-                        <div class="col-5 py-2 grid"><a href="test">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. ...</a></div>
-                        <div class="col-2 py-2 grid"><a href="test">Il y a 10min</a></div>
-                    </div>
-                    <div class="row table-row">
-                        <div class="col-3 py-2 grid"><a href="test">Premier post</a></div>
-                        <div class="col-2 py-2 grid"><a href="test">Admin</a></div>
-                        <div class="col-5 py-2 grid"><a href="test">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. ...</a></div>
-                        <div class="col-2 py-2 grid"><a href="test">Il y a 10min</a></div>
-                    </div>
-                    <div class="row table-row">
-                        <div class="col-3 py-2 grid"><a href="test">Premier post</a></div>
-                        <div class="col-2 py-2 grid"><a href="test">Admin</a></div>
-                        <div class="col-5 py-2 grid"><a href="test">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. ...</a></div>
-                        <div class="col-2 py-2 grid"><a href="test">Il y a 10min</a></div>
-                    </div>
-                    <div class="row table-row">
-                        <div class="col-3 py-2 grid"><a href="test">Premier post</a></div>
-                        <div class="col-2 py-2 grid"><a href="test">Admin</a></div>
-                        <div class="col-5 py-2 grid"><a href="test">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. ...</a></div>
-                        <div class="col-2 py-2 grid"><a href="test">Il y a 10min</a></div>
-                    </div>
-                    <div class="row table-row">
-                        <div class="col-3 py-2 grid"><a href="test">Premier post</a></div>
-                        <div class="col-2 py-2 grid"><a href="test">Admin</a></div>
-                        <div class="col-5 py-2 grid"><a href="test">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. ...</a></div>
-                        <div class="col-2 py-2 grid"><a href="test">Il y a 10min</a></div>
-                    </div>
-                    <div class="row table-row">
-                        <div class="col-3 py-2 grid"><a href="test">Premier post</a></div>
-                        <div class="col-2 py-2 grid"><a href="test">Admin</a></div>
-                        <div class="col-5 py-2 grid"><a href="test">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. ...</a></div>
-                        <div class="col-2 py-2 grid"><a href="test">Il y a 10min</a></div>
-                    </div>
-                    <div class="row table-row">
-                        <div class="col-3 py-2 grid"><a href="test">Premier post</a></div>
-                        <div class="col-2 py-2 grid"><a href="test">Admin</a></div>
-                        <div class="col-5 py-2 grid"><a href="test">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis dui a rhoncus blandit. Ut ut cursus massa. ...</a></div>
-                        <div class="col-2 py-2 grid"><a href="test">Il y a 10min</a></div>
-                    </div>
                 </div>
             </div>
 

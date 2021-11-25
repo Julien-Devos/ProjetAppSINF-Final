@@ -55,13 +55,13 @@
     content: "\e903";
 }
 .icon-Like{
-    font-size: 25px;
+    font-size: 20px;
 }
 .icon-Comments:before {
     content: "\e904";
 }
 .icon-Comments{
-    font-size: 25px;
+    font-size: 20px;
 }
 .icon-Time:before {
     content: "\e905";
@@ -126,7 +126,6 @@
     font-weight: normal;
     font-style: normal;
 }
-
 .post-text{
     font-family: 'Montserrat', sans-serif;
     font-size: 18px;

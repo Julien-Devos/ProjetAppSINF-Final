@@ -1,12 +1,13 @@
 /* All colors variables */
+
 :root{
     --primary-text-color: #2A2D34;
     --primary-text-hover-color: #1E222C;
     --primary-text-active-color: #717885;
     --primary-text-transparent-color: rgba(42, 45, 52, 0.5);
     --primary-bg-color: #EDEEF0;
-    --primary-blue-color: #336984; /*#93B5C6*/
-    --primary-blue-hover-color: #255371; /*#83A1B0*/
+    --primary-blue-color: #336984;
+    --primary-blue-hover-color: #255371;
 
     --secondary-text-color: #FCFCFC;
     --secondary-bg-color: #FCFCFC;
@@ -47,11 +48,13 @@
     --comment-color: #5982EB;
     --comment-stroke-color: #4F73CF;
 }
+
 /* All colors variables */
 
 
 
 /* Design for the scroll bar */
+
 ::-webkit-scrollbar{
     width: 5px;
     background-color: rgba(255, 255, 255, 0);
@@ -70,11 +73,15 @@
     scrollbar-color: var(--scroller-color) rgba(255, 255, 255, 0);
     scrollbar-width: thin;
 }
+
 /* Design for the scroll bar */
 
 
+/****************************************************  General  *******************************************************/
 
-/* For all elems */
+
+/* General */
+
 body{
     background-color: var(--primary-bg-color);
     overflow-x: hidden;
@@ -85,11 +92,47 @@ a{
     text-decoration: none;
     color: var(--primary-text-color);
 }
-/* For all elems */
+a:hover{
+    color: var(--primary-text-hover-color);
+}
+a.link:hover{
+    text-decoration: underline;
+    color: var(--primary-text-hover-color);
+}
+.page-content{
+    margin: 81px 160px 50px 160px;
+    padding: 50px 5px 50px 5px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* General */
 
 
+/**************************************************  Profile pictures  ************************************************/
 
-/* Navbar styling */
+
+/* Profile pictures */
+
+.profile-pic{
+    width: 45px;
+    height: 45px;
+    border-radius: 50px;
+    margin-bottom: 3px;
+}
+.post img.profile-pic{
+    width: 50px;
+    height: 50px;
+}
+
+/* Profile pictures */
+
+
+/****************************************************  Navbar  ********************************************************/
+
+
+/* Navbar */
+
 .navbar{
     width: 100%;
     height: 61px;
@@ -110,8 +153,8 @@ a{
 }
 
 
+/* Game dropdown */
 
-/* game dropdown styling */
 ul.navbar-nav{
     width: 100%;
 }
@@ -157,11 +200,12 @@ li.dropdown a.span{
     overflow: auto;
     border-radius: 10px 0px 0px 10px !important;
 }
-/* game dropdown styling */
+
+/* Game dropdown */
 
 
+/* Search bar */
 
-/* search bar styling */
 form .form-control{
     height: 40px;
     background-color: var(--darker-bg-color);
@@ -197,16 +241,12 @@ form.search-bar input:hover{
 ::placeholder{
     color: var(--primary-text-transparent-color) !important;
 }
-/* search bar styling */
+
+/* Search bar */
 
 
+/* Account */
 
-/* account styling */
-.profile-pic{
-    border-radius: 50px;
-    border: 3px solid var(--primary-blue-color);
-    margin-bottom: 3px;
-}
 .dropdown-profile-menu{
     width: 200px;
     margin-top: 10px;
@@ -214,11 +254,16 @@ form.search-bar input:hover{
 button#theme-toggle{
     color: var(--primary-text-color);
 }
+
 /* account styling */
+
 /* Navbar styling */
 
 
-/** newpost.css **/
+/***************************************************  New-post page  **************************************************/
+
+
+/** newpost page **/
 
 .titleArea {
     margin-top: 40px;
@@ -237,17 +282,27 @@ button#theme-toggle{
     border-radius: 10px !important;
 }
 
-/** profile.css **/
+/** newpost page **/
+
+
+/***************************************************  Profile page  ***************************************************/
+
+
+/** profile page style **/
+
 .profile-page{
     background-color: var(--secondary-bg-color);
     border-radius: 15px;
 }
 
-/* All pages styling */
-.page-content{
-    margin: 81px 160px 50px 160px;
-    overflow: auto;
-}
+/** profile page style **/
+
+
+/****************************************************  Dropdowns  *****************************************************/
+
+
+/* Dropdowns */
+
 .dropdown-menu{
     margin-top: 8px !important;
 }
@@ -268,6 +323,15 @@ button#theme-toggle{
     background-color: var(--secondary-bg-color);
     border: 0px !important;
 }
+
+/* Dropdowns */
+
+
+/*****************************************************  Buttons  ******************************************************/
+
+
+/* Buttons style */
+
 .btn-style{
     border-radius: 8px;
     height: 50px;
@@ -282,34 +346,56 @@ button#theme-toggle{
     background-color: var(--primary-blue-hover-color) !important;
     box-shadow: none !important;
 }
-a.link {
-    text-decoration: none;
+
+/* Buttons style */
+
+
+/****************************************************  Posts  *********************************************************/
+
+
+/* Styling for posts */
+
+.post-content{
+    margin: 15px 0px 15px 0px;
 }
-a.link:hover, .custom-table a:hover {
-    text-decoration: underline;
-    color: var(--primary-text-hover-color);
+.user-account{
+    margin-bottom: 15px;
 }
-.new-post-btn {
-    margin-top: 45px;
+.post-time{
+    display: inline-block;
+    margin-left: 20px;
+    color: var(--primary-text-transparent-color) !important;
 }
-div.posts {
-    margin-top: 50px;
+span t.headline2{
+    margin-left: 10px;
 }
-.row{
-    display: flex !important;
+.comment-btn span.icon-Comments, .like-btn span.icon-Like{
+    color: var(--primary-text-color);
+}
+.comment-btn:hover span.icon-Comments{
+    color: var(--comment-color);
+}
+.like-btn:hover span.icon-Like, .liked span.icon-Like{
+    color: var(--like-color);
+}
+.like-btn:focus, .comment-btn:focus{
+    box-shadow: none;
+}
+.comments{
+    margin-left: 100px;
+}
+.comment{
+    margin-top: 40px;
+}
+
+
+/* add comment modal */
+.modal-header{
+    border-bottom: 2px solid var(--secondary-bg-color);
 }
 .modal-content {
     background-color: var(--primary-bg-color);
     border-radius: 15px;
-}
-.modal-header{
-    border-bottom: 2px solid var(--secondary-bg-color);
-}
-.modal-footer{
-    border-top: 2px solid var(--secondary-bg-color);
-}
-form .modal-body .form-control.formTextArea {
-    background-color: var(--secondary-bg-color);
 }
 .modal-dialog{
     max-width: 1000px;
@@ -320,6 +406,16 @@ form .modal-body .form-control.formTextArea {
 .modal-body .formTextArea{
     height: 300px;
     border-radius: 10px;
+}
+form .modal-body .form-control.formTextArea {
+    background-color: var(--secondary-bg-color);
+}
+.modal .modal-body .form-control:focus{
+    border: 0 !important;
+    background-color: var(--secondary-bg-color) !important;
+}
+.modal-footer{
+    border-top: 2px solid var(--secondary-bg-color);
 }
 button.btn-close {
     width: 5%;
@@ -334,42 +430,12 @@ button.btn-close {
 .btn-close:focus {
     box-shadow: none;
 }
-.comment-btn span.icon-Comments, .like-btn span.icon-Like{
-    color: var(--primary-text-color);
-}
-.comment-btn:hover span.icon-Comments{
-    color: var(--comment-color);
-}
-.like-btn:hover span.icon-Like, .liked span.icon-Like{
-    color: var(--like-color);
-}
-.like-btn:focus, .comment-btn:focus{
-    box-shadow: none;
-}
-.likes-comments.row{
-    padding-left: 0 !important;
-}
-.post-content{
-    margin: 15px 0px 15px 0px;
-}
-.user-account{
-    margin-bottom: 15px;
-}
-.post{
-    margin-top: 30px;
-}
-t.headline2{
-    margin-left: 10px;
-}
-.modal .modal-body .form-control:focus{
-    border: 0 !important;
-    background-color: var(--secondary-bg-color) !important;
-}
-.comments{
-    margin-left: 100px;
-}
-.comment{
-    margin-top: 40px;
+/* add comment modal */
+
+
+/* Home page posts */
+.home-page-posts{
+    margin: 50px 0 50px 0;
 }
 .post-box{
     width: 100%;
@@ -380,48 +446,20 @@ t.headline2{
     padding: 25px;
     border-radius: 10px 0 0 10px;
 }
-.trending-posts{
-    margin: 50px 0 50px 0;
-}
 .box-divider{
-    margin: 20px 100px 20px 100px;
+    margin: 40px 100px 40px 100px;
     background-color: var(--primary-blue-color);
     height: 2px;
 }
-/* All pages styling */
+/* Home page posts */
+
+/* Styling for posts */
 
 
-
-/* Custom tables styling */
-.custom-table{
-    border: 1px solid var(--primary-blue-color);
-    background-color: var(--secondary-bg-color);
-}
-.grid{
-    border: 0.5px solid var(--primary-blue-color);
-}
-.row{
-    margin: 0px !important;
-}
-.nav.col1, nav.col4{
-    width: 20%;
-}
-.nav.col2{
-    width: 15%;
-}
-.nav.col3{
-    width: 45%;
-}
-.table-row:hover{
-    background-color: var(--secondary-bg-hover-color);
-}
-/* Custom tables styling */
-
-
+/*************************************************  Breakpoints  ******************************************************/
 
 
 /* All the above is for XXL screens since the website is desktop first designed */
-
 /*X-Large devices (large desktops, less than 1400px)*/
 @media (max-width: 1399.98px) {
     body{
@@ -486,6 +524,13 @@ t.headline2{
     .nav.col-3, .nav.col-6{
         width: 80%;
     }
+
+
+    /* Posts */
+    .post-box{
+        height: 100%;
+        border-radius: 10px;
+    }
 }
 
 /*Small devices (landscape phones, less than 768px)*/
@@ -502,8 +547,5 @@ t.headline2{
 @media (max-width: 575.98px) {
     body{
         background-color: magenta;
-    }
-    .post-box{
-        height: 100%;
     }
 }
