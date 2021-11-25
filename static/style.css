@@ -151,6 +151,9 @@ a.link:hover{
 .bg-light{
     background-color: var(--secondary-bg-color) !important;
 }
+.navbar-collapse.row{
+    margin-left: 0 !important;
+}
 
 
 /* Game dropdown */
@@ -387,6 +390,13 @@ span t.headline2{
 .comment{
     margin-top: 40px;
 }
+.nb-likes{
+    display: inline-block;
+}
+.nb-comms{
+    display: inline-block;
+    margin-left: 60px;
+}
 
 
 /* add comment modal */
@@ -525,11 +535,13 @@ button.btn-close {
         width: 80%;
     }
 
-
     /* Posts */
     .post-box{
         height: 100%;
         border-radius: 10px;
+    }
+    .comments{
+        margin-left: 50px;
     }
 }
 
@@ -537,6 +549,10 @@ button.btn-close {
 @media (max-width: 767.98px) {
     body{
         background-color: pink;
+    }
+    .post-time{
+        display: block;
+        margin-left: 0;
     }
     .page-content{
         margin: 61px 50px 50px 50px;
