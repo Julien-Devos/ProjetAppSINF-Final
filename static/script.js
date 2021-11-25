@@ -46,11 +46,13 @@ window.addEventListener('load', function() {
     let themeBtn = document.getElementById("theme-toggle");
     let themetxt = document.getElementById("theme-txt");
     let icon = document.getElementById("theme-icon");
+    let logo = document.getElementById("logo");
     let theme = getCookie("theme");
 
     if (theme === "dark"){
         document.body.classList.toggle("dark-theme");
         themetxt.textContent = "Mode jour";
+        logo.src = "./img/logos/dark-logo.svg"
         icon.classList.toggle("icon-Light-Mode");
         icon.classList.remove("icon-Dark-Mode");
     }
@@ -60,12 +62,14 @@ window.addEventListener('load', function() {
             if(document.body.classList.contains("dark-theme")){
                 setCookie("theme","dark")
                 themetxt.textContent = "Mode jour";
+                logo.src = "./img/logos/dark-logo.svg"
                 icon.classList.toggle("icon-Light-Mode");
                 icon.classList.remove("icon-Dark-Mode");
             }
             else{
                 setCookie("theme","light")
                 themetxt.textContent = "Mode nuit";
+                logo.src = "./img/logos/light-logo.svg"
                 icon.classList.toggle("icon-Dark-Mode");
                 icon.classList.remove("icon-Light-Mode");
             }

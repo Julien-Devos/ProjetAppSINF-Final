@@ -126,6 +126,17 @@
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'stringlab';
+    src:  url('fonts/Stringlabs.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+.title{
+    font-family: 'stringlab', sans-serif;
+    font-size: 40px;
+    color: var(--primary-text-color) !important;
+}
 .post-text{
     font-family: 'Montserrat', sans-serif;
     font-size: 18px;

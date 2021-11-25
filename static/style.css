@@ -143,10 +143,18 @@ a.link:hover{
     box-shadow: 0 0 4px 1px var(--shadow-color);
 }
 .navbar-brand{
-    height: 61px;
-    margin-top: 5px;
-    margin-bottom: 4px;
-    margin-left: 0px;
+    /*height: 61px;*/
+    margin-top: 10px;
+    /*margin-bottom: 4px;*/
+    margin-left: 10px;
+}
+.navbar-brand img{
+    width: 100px;
+    height: 60px;
+}
+.navbar-brand p{
+    display: inline-block;
+    margin-bottom: 10px;
 }
 .bg-light{
     background-color: var(--secondary-bg-color) !important;
