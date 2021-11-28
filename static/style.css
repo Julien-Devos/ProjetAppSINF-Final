@@ -143,18 +143,16 @@ a.link:hover{
     box-shadow: 0 0 4px 1px var(--shadow-color);
 }
 .navbar-brand{
-    /*height: 61px;*/
-    margin-top: 10px;
-    /*margin-bottom: 4px;*/
+    height: 61px;
     margin-left: 10px;
+    margin-top: 5px;
 }
 .navbar-brand img{
     width: 100px;
-    height: 60px;
+    height: 45px;
 }
 .navbar-brand p{
     display: inline-block;
-    margin-bottom: 10px;
 }
 .bg-light{
     background-color: var(--secondary-bg-color) !important;
@@ -192,6 +190,8 @@ li.dropdown a:focus, li.dropdown button:focus{
 }
 a.dropdown-item{
     color: var(--primary-text-color);
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 a.dropdown-item:hover, li.dropdown button:hover, button#theme-toggle.dropdown-item:hover{
     color: var(--primary-text-hover-color);
@@ -224,7 +224,7 @@ form .form-control{
     border-radius: 10px 0px 0px 10px;
 }
 form .form-control:focus, form button.search-button:focus, form button.search-button:active{
-    border: 1px solid var(--darker-bg-hover-color) !important;
+    color: var(--primary-text-color);
     box-shadow: 0px 0px 4px 2px var(--darker-bg-hover-color) !important;
     background-color: var(--primary-bg-color) !important;
 }
@@ -242,7 +242,8 @@ form button.search-button{
     margin-left: 4px;
     color: var(--primary-text-color);
 }
-form button.search-button:hover{
+form button.search-button:hover {
+    color: var(--primary-text-color);
     background-color: var(--darker-bg-hover-color);
     border: none;
 }
@@ -371,11 +372,15 @@ button#theme-toggle{
 }
 .user-account{
     margin-bottom: 15px;
+    word-break: break-all;
 }
 .post-time{
     display: inline-block;
     margin-left: 20px;
     color: var(--primary-text-transparent-color) !important;
+}
+.post-title{
+    word-break: break-word;
 }
 span t.headline2{
     margin-left: 10px;
@@ -413,22 +418,26 @@ span t.headline2{
 }
 .modal-content {
     background-color: var(--primary-bg-color);
+    border: 2px solid var(--primary-blue-color);
     border-radius: 15px;
 }
 .modal-dialog{
     max-width: 1000px;
-    margin-top: 200px;
-    border: 2px solid var(--primary-blue-color);
-    border-radius: 15px;
+    margin: 10vh auto 0 auto;
 }
 .modal-body .formTextArea{
-    height: 300px;
+    height: 400px;
     border-radius: 10px;
 }
 form .modal-body .form-control.formTextArea {
     background-color: var(--secondary-bg-color);
 }
+.modal .modal-body .form-control{
+    resize: none;
+    transition: 0.25s;
+}
 .modal .modal-body .form-control:focus{
+    transition: 0.25s;
     border: 0 !important;
     background-color: var(--secondary-bg-color) !important;
 }
@@ -466,10 +475,55 @@ button.btn-close {
 }
 .box-divider{
     margin: 40px 100px 40px 100px;
-    background-color: var(--primary-blue-color);
+    background-color: var(--primary-text-transparent-color);
     height: 2px;
 }
 /* Home page posts */
+
+
+/* All posts page */
+
+.all-posts .post-box{
+    border-radius: 10px;
+    height: 100%;
+    border: 0;
+}
+nav ul.pagination{
+    margin-top: 20px;
+}
+.page-item.active .page-link {
+    color: var(--secondary-bg-color);
+    background-color: var(--primary-blue-color);
+    border-color: var(--primary-blue-color);
+}
+.page-link{
+    color: var(--primary-blue-color);
+    background-color: var(--secondary-bg-color);
+    border-color: var(--secondary-bg-hover-color);
+}
+.page-link:hover{
+    color: var(--primary-blue-color);
+    background-color: var(--secondary-bg-hover-color);
+    border-color: var(--secondary-bg-color);
+}
+.page-item.disabled .page-link{
+    color: var(--primary-text-transparent-color);
+    background-color: var(--secondary-bg-color);
+    border-color: var(--secondary-bg-hover-color);
+}
+.page-link:focus {
+    color: var(--primary-blue-color);
+    background-color: var(--secondary-bg-hover-color);
+    box-shadow: 0 0 0 0.25rem var(--shadow-color);
+}
+.page-item:first-child .page-link {
+    border-radius: 10px 0 0 10px;
+}
+.page-item:last-child .page-link {
+    border-radius: 0 10px 10px 0;
+}
+
+/* All posts page */
 
 /* Styling for posts */
 
@@ -547,6 +601,7 @@ button.btn-close {
     .post-box{
         height: 100%;
         border-radius: 10px;
+        border: 0;
     }
     .comments{
         margin-left: 50px;
