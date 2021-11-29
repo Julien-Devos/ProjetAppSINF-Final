@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--  Import Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/bad5ba018c.js" crossorigin="anonymous"></script>
+    <!-- Import jquery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="font-style.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <title>Post - Titre du post</title>
+</head>
+<body id="body">
+
+  <header class="header" id="nav">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand titre1" href="/">
+          <img src="img/logos/light-logo.svg" alt="logo" id="logo" class="d-inline-block align-text-top">
+          <p>Game talks</p>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="icon-Bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div class="navbar-collapse row">
+            <div class="nav col-3">
+              <ul class="navbar-nav game">
+                <li class="nav-item dropdown me-auto">
+                  <a class="nav-link titre2" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Jeux <span class="icon-Dropdown"></span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-game-menu dropdown-window-menu headline1 scroller" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="posts">Undertale</a></li>
+                    <li><a class="dropdown-item" href="posts">Minecraft</a></li>
+                    <li><a class="dropdown-item" href="posts">Mario kart</a></li>
+                    <li><a class="dropdown-item" href="posts">CS-GO</a></li>
+                    <li><a class="dropdown-item" href="posts">Genshin impact</a></li>
+                    <li><a class="dropdown-item" href="posts">Example of too long game name</a></li>
+                    <li><a class="dropdown-item" href="posts">Animal crossing</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div class="nav col-6">
+              <form class="d-flex search-bar" method="get" action="posts" autocomplete="off">
+                <input class="form-control titre2" type="search" name="search" placeholder="Rechercher" aria-label="Search">
+                <button class="btn btn-outline-success search-button" type="submit"><span class="icon-Search"></span></button>
+              </form>
+            </div>
+            <div class="nav col-3">
+              {{^logged}}
+              <ul class="navbar-nav ms-auto justify-content-end">
+                <li class="nav-item">
+                  <a class="titre2 link" href="log">Se connecter</a>
+                </li>
+              </ul>
+              {{/logged}}
+              {{#logged}}
+              <ul class="navbar-nav ms-auto justify-content-end">
+                <li class="nav-item dropdown">
+                  <a class="headline1" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="img/default-profile.png" alt="Photo de profile" class="d-inline-block profile-pic ms-auto">
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-lg-end dropdown-window-menu dropdown-profile-menu headline1" aria-labelledby="accountDropdown">
+                    <li><a class="dropdown-item" href="user-profile"><span class="icon-Profile"></span> Profile</a></li>
+                    <li><button class="dropdown-item" id="theme-toggle"><span class="icon-Dark-Mode" id="theme-icon"></span> <t id="theme-txt">Mode nuit</t></button></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="logout"><span class="icon-disconnect"></span> Se déconnecter</a></li>
+                    </form>
+                  </ul>
+                </li>
+              </ul>
+              {{/logged}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+  </header>
+
+
+    <section id="content">
+
+
+        <div class="page-content">
+
+            <div class="post">
+
+              <div class="user-account titre2">
+                <img src="img/profile.png" alt="Photo de profile" width="45" height="45" class="d-inline-block profile-pic ms-auto"> ShyNin'
+              </div>
+
+              <div class="post-title titre2">
+                Jeux / Titre du post
+                <p class="headline2 post-time">• Il y a 20min</p>
+              </div>
+
+              <div class="post-content post-text">
+                Sed eget justo vitae sapien maximus gravida ac at ex. Cras in augue mauris. Morbi rutrum consequat ipsum, quis
+                aliquam est rhoncus nec. Sed a facilisis eros. Donec euismod, est eu consequat finibus, orci lacus consequat est,
+                ac luctus nisl metus eget neque. Nunc fringilla augue eu magna sodales, a tincidunt ligula elementum. Vestibulum
+                non justo sit amet ex scelerisque egestas. Nullam at dignissim odio, id sagittis turpis. Aliquam vel aliquam turpis,
+                id mollis ligula. Nulla vehicula semper dignissim. Mauris ac orci accumsan, ornare nulla eu, faucibus ex. Integer
+                in purus laoreet, scelerisque metus ut, sodales tellus. Duis auctor ex vel bibendum cursus.
+              </div>
+
+              <div class="nb-likes">
+                <button class="btn like-btn" type="submit">
+                  <span class="icon-Like"><t class="headline2">12</t></span>
+                </button>
+              </div>
+              <div class="nb-comms">
+                <button type="button" class="btn comment-btn" data-bs-toggle="modal" data-bs-target="#myModal">
+                  <span class="icon-Comments"><t class="headline2">12</t></span>
+                </button>
+              </div>
+
+            </div>
+
+            <div class="comments">
+
+              <div class="comment">
+
+                <div class="user-account titre2">
+                  <img src="img/ex-profile.png" alt="Photo de profile" width="45" height="45" class="d-inline-block profile-pic ms-auto"> Nazeo
+                  <p class="headline2 post-time">• Il y a 2min</p>
+                </div>
+
+                <div class="post-content post-text">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras imperdiet mattis urna, vitae scelerisque ante
+                  blandit ut. Aliquam viverra velit metus, vitae placerat felis accumsan non. Nam et risus ut.
+                </div>
+
+                <div class="nb-likes">
+                  <button class="btn like-btn" type="submit">
+                    <span class="icon-Like"><t class="headline2">12</t></span>
+                  </button>
+                </div>
+
+              </div>
+
+              <div class="comment">
+
+                <div class="user-account titre2">
+                  <img src="img/profile2.png" alt="Photo de profile" width="45" height="45" class="d-inline-block profile-pic ms-auto"> Nizehonore
+                  <p class="headline2 post-time">• Il y a 2min</p>
+                </div>
+
+                <div class="post-content post-text">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras imperdiet mattis urna, vitae scelerisque ante
+                  blandit ut. Aliquam viverra velit metus, vitae placerat felis accumsan non. Nam et risus ut.
+                </div>
+
+                <div class="nb-likes">
+                <button class="btn like-btn" type="submit">
+                  <span class="icon-Like"><t class="headline2">12</t></span>
+                </button>
+              </div>
+
+              </div>
+
+              <div class="comment">
+
+                <div class="user-account titre2">
+                  <img src="img/default-profile.png" alt="Photo de profile" width="45" height="45" class="d-inline-block profile-pic ms-auto"> Auteur du commentaire
+                  <p class="headline2 post-time">• Il y a 2min</p>
+                </div>
+
+                <div class="post-content post-text">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras imperdiet mattis urna, vitae scelerisque ante
+                  blandit ut. Aliquam viverra velit metus, vitae placerat felis accumsan non. Nam et risus ut.
+                </div>
+
+                <div class="nb-likes">
+                <button class="btn like-btn" type="submit">
+                  <span class="icon-Like"><t class="headline2">12</t></span>
+                </button>
+              </div>
+
+              </div>
+
+              <div class="comment">
+
+                <div class="user-account titre2">
+                  <img src="img/default-profile.png" alt="Photo de profile" width="45" height="45" class="d-inline-block profile-pic ms-auto"> Auteur du commentaire
+                  <p class="headline2 post-time">• Il y a 2min</p>
+                </div>
+
+                <div class="post-content post-text">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras imperdiet mattis urna, vitae scelerisque ante
+                  blandit ut. Aliquam viverra velit metus, vitae placerat felis accumsan non. Nam et risus ut.
+                </div>
+
+                <div class="nb-likes">
+                <button class="btn like-btn" type="submit">
+                  <span class="icon-Like"><t class="headline2">12</t></span>
+                </button>
+              </div>
+
+              </div>
+
+              <div class="comment">
+
+                <div class="user-account titre2">
+                  <img src="img/default-profile.png" alt="Photo de profile" width="45" height="45" class="d-inline-block profile-pic ms-auto"> Auteur du commentaire
+                  <p class="headline2 post-time">• Il y a 2min</p>
+                </div>
+
+                <div class="post-content post-text">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras imperdiet mattis urna, vitae scelerisque ante
+                  blandit ut. Aliquam viverra velit metus, vitae placerat felis accumsan non. Nam et risus ut.
+                </div>
+
+                <div class="nb-likes">
+                <button class="btn like-btn" type="submit">
+                  <span class="icon-Like"><t class="headline2">12</t></span>
+                </button>
+              </div>
+
+              </div>
+
+              <div class="comment">
+
+                <div class="user-account titre2">
+                  <img src="img/default-profile.png" alt="Photo de profile" width="45" height="45" class="d-inline-block profile-pic ms-auto"> Auteur du commentaire
+                  <p class="headline2 post-time">• Il y a 2min</p>
+                </div>
+
+                <div class="post-content post-text">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras imperdiet mattis urna, vitae scelerisque ante
+                  blandit ut. Aliquam viverra velit metus, vitae placerat felis accumsan non. Nam et risus ut.
+                </div>
+
+                <div class="nb-likes">
+                <button class="btn like-btn" type="submit">
+                  <span class="icon-Like"><t class="headline2">12</t></span>
+                </button>
+              </div>
+
+              </div>
+
+              <div class="comment">
+
+                <div class="user-account titre2">
+                  <img src="img/default-profile.png" alt="Photo de profile" width="45" height="45" class="d-inline-block profile-pic ms-auto"> Auteur du commentaire
+                  <p class="headline2 post-time">• Il y a 2min</p>
+                </div>
+
+                <div class="post-content post-text">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras imperdiet mattis urna, vitae scelerisque ante
+                  blandit ut. Aliquam viverra velit metus, vitae placerat felis accumsan non. Nam et risus ut.
+                </div>
+
+                <div class="nb-likes">
+                <button class="btn like-btn" type="submit">
+                  <span class="icon-Like"><t class="headline2">12</t></span>
+                </button>
+              </div>
+
+              </div>
+
+              <div class="comment">
+
+                <div class="user-account titre2">
+                  <img src="img/default-profile.png" alt="Photo de profile" width="45" height="45" class="d-inline-block profile-pic ms-auto"> Auteur du commentaire
+                  <p class="headline2 post-time">• Il y a 2min</p>
+                </div>
+
+                <div class="post-content post-text">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras imperdiet mattis urna, vitae scelerisque ante
+                  blandit ut. Aliquam viverra velit metus, vitae placerat felis accumsan non. Nam et risus ut.
+                </div>
+
+                <div class="nb-likes">
+                <button class="btn like-btn" type="submit">
+                  <span class="icon-Like"><t class="headline2">12</t></span>
+                </button>
+              </div>
+
+              </div>
+
+
+            </div>
+
+            <div class="modal" id="myModal">
+
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <form class="needs-validation" action="add-comment" method="post" novalidate>
+
+                    <div class="modal-header">
+                      <h1 class="titre1" >Ajouter un commentaire</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal"><span class="icon-Quit"></span></button>
+                    </div>
+
+                    <div class="modal-body">
+
+                      <div class="mb-3 form-floating">
+                        <textarea class="form-control formTextArea post-text" placeholder="Commentaire" id="floatingTextarea1" name="comm" required></textarea>
+                        <div class="invalid-feedback">
+                          Veuillez entrer un commentaire.
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <div class="modal-footer">
+
+                        <button class="btn btn-outline-success btn-style buttonText" type="submit">Soumettre</button>
+
+                    </div>
+
+                  </form>
+                </div>
+              </div>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+</body>
+</html>

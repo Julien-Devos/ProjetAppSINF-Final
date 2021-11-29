@@ -51,27 +51,33 @@ window.addEventListener('load', function() {
 
     if (theme === "dark"){
         document.body.classList.toggle("dark-theme");
-        themetxt.textContent = "Mode jour";
         logo.src = "./img/logos/dark-logo.svg"
-        icon.classList.toggle("icon-Light-Mode");
-        icon.classList.remove("icon-Dark-Mode");
+        if (themetxt != null){
+            themetxt.textContent = "Mode jour";
+            icon.classList.toggle("icon-Light-Mode");
+            icon.classList.remove("icon-Dark-Mode");
+        }
     }
     if (themeBtn !== null){
         themeBtn.onclick = function (){
             document.body.classList.toggle("dark-theme");
             if(document.body.classList.contains("dark-theme")){
                 setCookie("theme","dark")
-                themetxt.textContent = "Mode jour";
                 logo.src = "./img/logos/dark-logo.svg"
-                icon.classList.toggle("icon-Light-Mode");
-                icon.classList.remove("icon-Dark-Mode");
+                if (themetxt != null){
+                    themetxt.textContent = "Mode jour";
+                    icon.classList.toggle("icon-Light-Mode");
+                    icon.classList.remove("icon-Dark-Mode");
+                }
             }
             else{
                 setCookie("theme","light")
-                themetxt.textContent = "Mode nuit";
                 logo.src = "./img/logos/light-logo.svg"
-                icon.classList.toggle("icon-Dark-Mode");
-                icon.classList.remove("icon-Light-Mode");
+                if (themetxt != null){
+                    themetxt.textContent = "Mode nuit";
+                    icon.classList.toggle("icon-Dark-Mode");
+                    icon.classList.remove("icon-Light-Mode");
+                }
             }
         }
     }
