@@ -1,1 +1,1 @@
-{ "id" : 0, "game_id" : 0, "author_id" : 0, "title" : "Premier post du site", "content" : "Ceci est un post sur le jeu minecraft.", "date" : "29/11/2021", "likes" : 15}
+{ "id" : 0, "game_id" : 0, "author_id" : 0, "title" : "Premier post du site", "content" : "Ceci est un post sur le jeu minecraft.", "date" : "29/11/2021", "likes" : 15, "comments" : 1}

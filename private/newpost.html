@@ -30,35 +30,22 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <div class="navbar-collapse row">
-                        <div class="nav col-3">
-                            <ul class="navbar-nav game">
-                                <li class="nav-item dropdown me-auto">
-                                    <a class="nav-link titre2" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Jeux <span class="icon-Dropdown"></span>
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-game-menu dropdown-window-menu headline1 scroller" aria-labelledby="navbarDropdown">
-                                        <li><a class="dropdown-item" href="posts">Undertale</a></li>
-                                        <li><a class="dropdown-item" href="posts">Minecraft</a></li>
-                                        <li><a class="dropdown-item" href="posts">Mario kart</a></li>
-                                        <li><a class="dropdown-item" href="posts">CS-GO</a></li>
-                                        <li><a class="dropdown-item" href="posts">Genshin impact</a></li>
-                                        <li><a class="dropdown-item" href="posts">Example of too long game name</a></li>
-                                        <li><a class="dropdown-item" href="posts">Animal crossing</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="nav col-6">
+                        <div class="nav col-11 justify-content-center">
                             <form class="d-flex search-bar" method="get" action="posts" autocomplete="off">
-                                <input class="form-control titre2" type="search" name="search" placeholder="Rechercher" aria-label="Search">
+                                <select class="selectpicker titre2 game-select" name="filter" data-live-search="true" title="Filtre de jeu" data-selected-text-format="count > 1" data-width="200px" multiple>
+                                    {{#games}}
+                                    <option>{{name}}</option>
+                                    {{/games}}
+                                </select>
+                                <input class="form-control titre2 bar" type="search" name="search" placeholder="Rechercher" aria-label="Search">
                                 <button class="btn btn-outline-success search-button" type="submit"><span class="icon-Search"></span></button>
                             </form>
                         </div>
-                        <div class="nav col-3">
+                        <div class="nav col-1">
                             {{^logged}}
                             <ul class="navbar-nav ms-auto justify-content-end">
                                 <li class="nav-item">
-                                    <a class="titre2 link" href="log">Se connecter</a>
+                                    <a class="headline1 link" href="log">S'identifier</a>
                                 </li>
                             </ul>
                             {{/logged}}

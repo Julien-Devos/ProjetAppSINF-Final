@@ -83,6 +83,14 @@ window.addEventListener('load', function() {
     }
 
 
+    let filter_search = document.querySelector(".bs-searchbox .form-control");
+    if (filter_search != null){
+        filter_search.placeholder = "Rechercher";
+    }
+    let search_dropdown = document.querySelector(".game-select ul.dropdown-menu.inner");
+    if (search_dropdown != null){
+        search_dropdown.classList.toggle("scroller");
+    }
 
     // prevent leaving the dropdown-menu when clicking on it
     $(function() {
