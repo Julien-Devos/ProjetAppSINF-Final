@@ -167,6 +167,15 @@ input[type="search"]::-webkit-search-cancel-button {
 /* Search bar */
 
 /* Game dropdown */
+a.dropdown-item{
+    color: var(--primary-text-color);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+a.dropdown-item:hover{
+    color: var(--primary-text-hover-color);
+    background-color: var(--primary-bg-color) !important;
+}
 div.game-select .btn.dropdown-toggle{
     height: 40px;
     background-color: var(--darker-bg-color);

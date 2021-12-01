@@ -1,12 +1,11 @@
-let express = require('express');
-let consolidate = require('consolidate');
-let MongoClient = require('mongodb').MongoClient;
-let favicon = require('serve-favicon');
-let session = require('express-session');
-let bodyParser = require("body-parser");
-let https = require('https');
-let fs = require('fs');
-const {response} = require("express");
+const express = require('express');
+const consolidate = require('consolidate');
+const MongoClient = require('mongodb').MongoClient;
+const favicon = require('serve-favicon');
+const session = require('express-session');
+const bodyParser = require("body-parser");
+const https = require('https');
+const fs = require('fs');
 
 
 let app = express ();
@@ -38,40 +37,74 @@ MongoClient.connect('mongodb://localhost:27017/', function(err, db) {
 
     let dataBase = db.db("finalAppSinf");
 
+    function comments(post_id,posts,games,f){
+        let comments = [];
+        dataBase.collection('comments').find({"post_id":parseInt(post_id)}).toArray(function(err, comms){
+            for (let j=0; j<comms.length; j++){
+                comments[j] = {};
+                comments[j]["content"] = comms[j]["content"];
+                comments[j]["date"] = comms[j]["date"];
+                comments[j]["likes"] = comms[j]["likes"];
+
+                dataBase.collection('users').find({"id":parseInt(comms[j]["author_id"])}).toArray(function(err, user){
+                    comments[j]["author"] = user[0]["username"];
+                }); //TODO users dont work
+
+            }
+
+            f(posts,games,comments)
+
+        });
+    }
+
+    function posts(f,post_id=null){
+        let arg = {};
+        if (post_id != null){
+            arg = {"id":parseInt(post_id)};
+        }
+        dataBase.collection('posts').find(arg).toArray(function(err, posts){
+            if (err) throw err;
+
+            dataBase.collection('games').find().toArray(function(err, games){
+                if (err) throw err;
+
+                for (let i = 0; i<posts.length; i++) {
+                    let game_id = posts[i]["game_id"];
+                    let user_id = posts[i]["author_id"]
+
+                    posts[i]["game_id"] = games[game_id]["name"];
+
+                    dataBase.collection('users').find({"id":parseInt(user_id)}).toArray(function(err, user){
+                        posts[i]["author"] = user[0]["username"];
+                    });
+
+                }
+
+                if (post_id != null){
+                    comments(post_id,posts,games,f)
+                }
+                else{
+                    f(posts,games)
+                }
+
+            });
+
+        });
+    }
+
 
     // GET request for "/"
     app.get('/', function(req, res) {
-        // let results = [];
-        // let games = [];
-        //
-        // dataBase.collection('posts').find().toArray(function(err, db_res){
-        //     if (err) throw err;
-        //
-        //     for (let i=0; i<db_res.length; i++){
-        //         results[i] = db_res[i]
-        //     }
-        //
-        // });
-        // dataBase.collection('games').find().toArray(function(err, db_res){
-        //     if (err) throw err;
-        //
-        //     games = db_res;
-        // });
-        //
-        // console.log(results);
-        // console.log(games);
-        //
-        // for (let result in results) {
-        //     console.log("1")
-        //     let author_id = result["author_id"];
-        //     result["author_id"] = games[author_id];
-        // }
 
-        let data = {
-            "logged" : false,
-            // "posts" : results
-        }
-        res.render("home.html",data)
+        posts(function (posts,games){
+            let data = {
+                "logged" : false,
+                "posts" : posts,
+                "games" : games
+            }
+            res.render("home.html",data)
+        });
+
     });
 
 
@@ -86,10 +119,15 @@ MongoClient.connect('mongodb://localhost:27017/', function(err, db) {
 
     app.get('/post', function(req, res) {
 
-        let data = {
-            "logged" : true
-        }
-        res.render("post.html", data)
+        posts(function (posts,games,comments){
+            let data = {
+                "logged" : true,
+                "posts" : posts,
+                "games" : games,
+                "comments" : comments
+            }
+            res.render("post.html",data);
+        },req.query.id);
 
     });
 
@@ -98,8 +136,9 @@ MongoClient.connect('mongodb://localhost:27017/', function(err, db) {
         let data = {
             "logged" : true
         }
-        console.log(req.body.search)
-        res.render("all_posts.html", data)
+        console.log(req.query.search);
+        console.log(req.query.filter);
+        res.render("all_posts.html",data);
 
     });
 
