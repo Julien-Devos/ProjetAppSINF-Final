@@ -172,7 +172,7 @@ a.dropdown-item{
     overflow: hidden;
     text-overflow: ellipsis;
 }
-a.dropdown-item:hover{
+a.dropdown-item:hover, button.dropdown-item:hover{
     color: var(--primary-text-hover-color);
     background-color: var(--primary-bg-color) !important;
 }
@@ -208,7 +208,12 @@ div.game-select .btn.dropdown-toggle:hover{
     margin-top: 12px !important;
 }
 .game-select div.inner.show{
-    height: 290px;
+    height: 240px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.game-select .dropdown-menu.show{
+    height: 300px;
 }
 .bootstrap-select .dropdown-menu.inner{
     margin-top: 0 !important;
@@ -408,6 +413,7 @@ button#theme-toggle{
 }
 .dropdown-item:focus{
     background-color: var(--primary-bg-color);
+    color: var(--primary-text-hover-color);
 }
 .dropdown-window-menu{
     position: absolute;
@@ -491,6 +497,9 @@ span t.headline2{
 .nb-comms{
     display: inline-block;
     margin-left: 60px;
+}
+.post-box .box-divider:last-child{
+    display: none;
 }
 
 

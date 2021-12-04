@@ -2,7 +2,9 @@
   "name": "projetappsinf-final",
   "version": "1.0.0",
   "description": "",
-  "scripts": {},
+  "scripts": {
+    "start": "nodemon app.js"
+  },
   "author": "Groupe F",
   "license": "Apache 2.0",
   "private": true,
@@ -14,6 +16,8 @@
     "hogan": "^1.0.2",
     "https": "^1.0.0",
     "mongodb": "^4.2.0",
+    "mongoose": "^6.0.14",
+    "nodemon": "^2.0.15",
     "serve-favicon": "^2.5.0"
   }
 }

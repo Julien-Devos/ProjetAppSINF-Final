@@ -51,7 +51,7 @@ window.addEventListener('load', function() {
 
     if (theme === "dark"){
         document.body.classList.toggle("dark-theme");
-        logo.src = "./img/logos/dark-logo.svg"
+        logo.src = "/img/logos/dark-logo.svg"
         if (themetxt != null){
             themetxt.textContent = "Mode jour";
             icon.classList.toggle("icon-Light-Mode");
@@ -63,7 +63,7 @@ window.addEventListener('load', function() {
             document.body.classList.toggle("dark-theme");
             if(document.body.classList.contains("dark-theme")){
                 setCookie("theme","dark")
-                logo.src = "./img/logos/dark-logo.svg"
+                logo.src = "/img/logos/dark-logo.svg"
                 if (themetxt != null){
                     themetxt.textContent = "Mode jour";
                     icon.classList.toggle("icon-Light-Mode");
@@ -72,7 +72,7 @@ window.addEventListener('load', function() {
             }
             else{
                 setCookie("theme","light")
-                logo.src = "./img/logos/light-logo.svg"
+                logo.src = "/img/logos/light-logo.svg"
                 if (themetxt != null){
                     themetxt.textContent = "Mode nuit";
                     icon.classList.toggle("icon-Dark-Mode");

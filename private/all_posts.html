@@ -46,7 +46,7 @@
                             {{^logged}}
                             <ul class="navbar-nav ms-auto justify-content-end">
                                 <li class="nav-item">
-                                    <a class="headline1 link" href="log">S'identifier</a>
+                                    <a class="headline1 link" href="/login">S'identifier</a>
                                 </li>
                             </ul>
                             {{/logged}}
@@ -85,158 +85,33 @@
 
                 <div class="post-box scroller">
 
-                    <a class="post" href="post.html">
+                    {{#posts}}
+                    <a class="post" href="/post?id={{_id}}">
 
                         <div class="user-account titre2">
-                            <img src="img/ex-profile.png" alt="Photo de profile" class="d-inline-block profile-pic"> Nazeo
+                            <img src="img/ex-profile.png" alt="Photo de profile" class="d-inline-block profile-pic">
+                            {{author}}
                         </div>
 
                         <div class="post-title titre2">
-                            Game / Titre du post assez long pour avoir un exemple
-                            <p class="headline2 post-time">• Il y a 10min</p>
+                            {{game}} / {{title}}
+                            <p class="headline2 post-time">• {{date}}</p>
                         </div>
 
                         <div class="post-content post-text">
-                            Sed eget justo vitae sapien maximus gravida ac at ex. Cras in augue mauris. Morbi rutrum consequat ipsum, quis
-                            aliquam est rhoncus nec. Sed a facilisis eros. Donec euismod, est eu consequat finibus, orci lacus consequat est,
-                            ac luctus nisl metus eget neque. Nunc fringilla augue eu magna sodales, a tincidunt ligula elementum. Vestibulum
-                            non justo sit amet ex scelerisque egestas. Nullam at dignissim odio, id sagittis turpis. Aliquam vel aliquam turpis,
-                            id mollis ligula. Nulla vehicula semper dignissim. Mauris ac orci accumsan, ornare nulla eu, faucibus ex. Integer
-                            in purus laoreet, scelerisque metus ut, sodales tellus. Duis auctor ex vel bibendum cursus.
+                            {{content}}
                         </div>
 
                         <div class="nb-likes">
-                            <span class="icon-Like"><t class="headline2">12</t></span>
+                            <span class="icon-Like"><t class="headline2">{{likes}}</t></span>
                         </div>
                         <div class="nb-comms">
-                            <span class="icon-Comments"><t class="headline2">12</t></span>
+                            <span class="icon-Comments"><t class="headline2">{{comments}}</t></span>
                         </div>
 
                     </a>
-
                     <div class="box-divider"></div>
-
-                    <a class="post" href="post.html">
-
-                        <div class="user-account titre2">
-                            <img src="img/profile.png" alt="Photo de profile" class="d-inline-block profile-pic ms-auto"> ShyNin'
-                        </div>
-
-                        <div class="post-title titre2">
-                            Game / Titre du post
-                            <p class="headline2 post-time">• Il y a 10min</p>
-                        </div>
-
-                        <div class="post-content post-text">
-                            Sed eget justo vitae sapien maximus gravida ac at ex. Cras in augue mauris. Morbi rutrum consequat ipsum, quis
-                            aliquam est rhoncus nec. Sed a facilisis eros. Donec euismod, est eu consequat finibus, orci lacus consequat est,
-                            ac luctus nisl metus eget neque. Nunc fringilla augue eu magna sodales, a tincidunt ligula elementum. Vestibulum
-                            non justo sit amet ex scelerisque egestas. Nullam at dignissim odio, id sagittis turpis. Aliquam vel aliquam turpis,
-                            id mollis ligula. Nulla vehicula semper dignissim. Mauris ac orci accumsan, ornare nulla eu, faucibus ex. Integer
-                            in purus laoreet, scelerisque metus ut, sodales tellus. Duis auctor ex vel bibendum cursus.
-                        </div>
-
-                        <div class="nb-likes">
-                            <span class="icon-Like"><t class="headline2">12</t></span>
-                        </div>
-                        <div class="nb-comms">
-                            <span class="icon-Comments"><t class="headline2">12</t></span>
-                        </div>
-
-                    </a>
-
-                    <div class="box-divider"></div>
-
-                    <a class="post" href="post.html">
-
-                        <div class="user-account titre2">
-                            <img src="img/profile2.png" alt="Photo de profile" class="d-inline-block profile-pic ms-auto"> Nizehonore
-                        </div>
-
-                        <div class="post-title titre2">
-                            Game / Titre du post
-                            <p class="headline2 post-time">• Il y a 10min</p>
-                        </div>
-
-                        <div class="post-content post-text">
-                            Sed eget justo vitae sapien maximus gravida ac at ex. Cras in augue mauris. Morbi rutrum consequat ipsum, quis
-                            aliquam est rhoncus nec. Sed a facilisis eros. Donec euismod, est eu consequat finibus, orci lacus consequat est,
-                            ac luctus nisl metus eget neque. Nunc fringilla augue eu magna sodales, a tincidunt ligula elementum. Vestibulum
-                            non justo sit amet ex scelerisque egestas. Nullam at dignissim odio, id sagittis turpis. Aliquam vel aliquam turpis,
-                            id mollis ligula. Nulla vehicula semper dignissim. Mauris ac orci accumsan, ornare nulla eu, faucibus ex. Integer
-                            in purus laoreet, scelerisque metus ut, sodales tellus. Duis auctor ex vel bibendum cursus.
-                        </div>
-
-                        <div class="nb-likes">
-                            <span class="icon-Like"><t class="headline2">12</t></span>
-                        </div>
-                        <div class="nb-comms">
-                            <span class="icon-Comments"><t class="headline2">12</t></span>
-                        </div>
-
-                    </a>
-
-                    <div class="box-divider"></div>
-
-                    <a class="post" href="post.html">
-
-                        <div class="user-account titre2">
-                            <img src="img/default-profile.png" alt="Photo de profile" class="d-inline-block profile-pic ms-auto"> Auteur du post
-                        </div>
-
-                        <div class="post-title titre2">
-                            Game / Titre du post
-                            <p class="headline2 post-time">• Il y a 10min</p>
-                        </div>
-
-                        <div class="post-content post-text">
-                            Sed eget justo vitae sapien maximus gravida ac at ex. Cras in augue mauris. Morbi rutrum consequat ipsum, quis
-                            aliquam est rhoncus nec. Sed a facilisis eros. Donec euismod, est eu consequat finibus, orci lacus consequat est,
-                            ac luctus nisl metus eget neque. Nunc fringilla augue eu magna sodales, a tincidunt ligula elementum. Vestibulum
-                            non justo sit amet ex scelerisque egestas. Nullam at dignissim odio, id sagittis turpis. Aliquam vel aliquam turpis,
-                            id mollis ligula. Nulla vehicula semper dignissim. Mauris ac orci accumsan, ornare nulla eu, faucibus ex. Integer
-                            in purus laoreet, scelerisque metus ut, sodales tellus. Duis auctor ex vel bibendum cursus.
-                        </div>
-
-                        <div class="nb-likes">
-                            <span class="icon-Like"><t class="headline2">12</t></span>
-                        </div>
-                        <div class="nb-comms">
-                            <span class="icon-Comments"><t class="headline2">12</t></span>
-                        </div>
-
-                    </a>
-
-                    <div class="box-divider"></div>
-
-                    <a class="post" href="post.html">
-
-                        <div class="user-account titre2">
-                            <img src="img/default-profile.png" alt="Photo de profile" class="d-inline-block profile-pic ms-auto"> Auteur du post
-                        </div>
-
-                        <div class="post-title titre2">
-                            Game / Titre du post
-                            <p class="headline2 post-time">• Il y a 10min</p>
-                        </div>
-
-                        <div class="post-content post-text">
-                            Sed eget justo vitae sapien maximus gravida ac at ex. Cras in augue mauris. Morbi rutrum consequat ipsum, quis
-                            aliquam est rhoncus nec. Sed a facilisis eros. Donec euismod, est eu consequat finibus, orci lacus consequat est,
-                            ac luctus nisl metus eget neque. Nunc fringilla augue eu magna sodales, a tincidunt ligula elementum. Vestibulum
-                            non justo sit amet ex scelerisque egestas. Nullam at dignissim odio, id sagittis turpis. Aliquam vel aliquam turpis,
-                            id mollis ligula. Nulla vehicula semper dignissim. Mauris ac orci accumsan, ornare nulla eu, faucibus ex. Integer
-                            in purus laoreet, scelerisque metus ut, sodales tellus. Duis auctor ex vel bibendum cursus.
-                        </div>
-
-                        <div class="nb-likes">
-                            <span class="icon-Like"><t class="headline2">12</t></span>
-                        </div>
-                        <div class="nb-comms">
-                            <span class="icon-Comments"><t class="headline2">12</t></span>
-                        </div>
-
-                    </a>
+                    {{/posts}}
 
                 </div>
             </div>

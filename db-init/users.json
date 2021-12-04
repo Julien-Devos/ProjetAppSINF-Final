@@ -1,1 +1,2 @@
-{ "id" : 0, "username" : "Admin", "password" : "admin", "mail" : "admin@gmail.com" }
+{"username" : "Admin", "password" : "admin", "mail" : "admin@gmail.com", "_id" : {"$oid":"61a9f5c5490a21e66cf33c1b"}}
+{"username": "User-Test-1", "password": "usr1", "mail": "usr1@gmail.com", "_id": {"$oid":"61a9f8ebd422064907881668"}}
