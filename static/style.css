@@ -109,6 +109,13 @@ a.link:hover{
 input[type="search"]::-webkit-search-cancel-button {
     -webkit-appearance: none;
 }
+/* used to hide a form input to get data from the page */
+.hide {
+    position: absolute !important;
+    top: -9999px !important;
+    left: -9999px !important;
+    visibility: hidden !important;
+}
 /* General */
 
 
@@ -298,6 +305,9 @@ form.search-bar input:hover{
 .dropdown-profile-menu{
     width: 200px;
     margin-top: 10px;
+}
+.dropdown-profile-menu .dropdown-item{
+    padding-left: 10px;
 }
 button#theme-toggle{
     color: var(--primary-text-color);
@@ -614,7 +624,10 @@ nav ul.pagination{
 .page-item:last-child .page-link {
     border-radius: 0 10px 10px 0;
 }
-
+.nbrResults{
+    margin-top: 25px;
+    text-align: right;
+}
 /* All posts page */
 
 /* Styling for posts */
@@ -657,7 +670,7 @@ nav ul.pagination{
 /*Medium devices (tablets, less than 992px)  Navbar goes in mobile mode  */
 @media (max-width: 991.98px) {
     body{
-        background-color: yellow;
+        /*background-color: yellow;*/
     }
     button.navbar-toggler {
         border: 0;
@@ -703,7 +716,7 @@ nav ul.pagination{
 /*Small devices (landscape phones, less than 768px)*/
 @media (max-width: 767.98px) {
     body{
-        background-color: pink;
+        /*background-color: pink;*/
     }
     .post-time{
         display: block;
@@ -717,6 +730,6 @@ nav ul.pagination{
 /*X-Small devices (portrait phones, less than 576px)*/
 @media (max-width: 575.98px) {
     body{
-        background-color: magenta;
+        /*background-color: magenta;*/
     }
 }

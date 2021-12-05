@@ -5,35 +5,31 @@ const User = require('../models/User');
 const Game = require('../models/Game');
 const Comment = require('../models/Comment');
 const utils = require('../utils/utils');
-const {execMap} = require("nodemon/lib/config/defaults");
 
 router.get('/', async (req, res) => {
     try{
-        let post = await Post.findOne({"_id":req.query.id});
+        let post = await Post.find({"_id":req.query.id});
 
-        post["displayedDate"] = utils.dateToTime(post["date"]);
-
-        let user = await User.findOne({'_id': post["author_id"]});
-
-        post["author"] = user["username"];
-
-        let game = await Game.findOne({'_id': post["game_id"]});
-
-        post["game"] = game["name"];
+        // complete the posts with date, username and game
+        await utils.completePost(post,function (result){
+            post = result;
+        });
 
         let comments = await Comment.find({'post_id': req.query.id});
 
-        for (i in comments){
-            let user = await User.findOne({'_id': comments[i]["author_id"]});
-            comments[i]["author"] = user["username"];
-            comments[i]["displayedDate"] = utils.dateToTime(comments[i]["date"]);
-        }
+        // get all the comments for the post and complete them with author and date
+        await utils.addPostComments(comments,function (result){
+            comments = result;
+        });
 
+        // find all the games for the navbar game filter
+        const games = await Game.find();
         let data = {
             "logged" : true,
+            "games" : games,
             "post" : post,
-            "comments": comments,
-            "games" : false
+            "post_id": req.query.id,
+            "comments": comments
         }
 
         res.render('post.html',data);
@@ -69,18 +65,17 @@ router.post('/like', async (req,res) => {
 });
 
 router.post('/addComment', async (req,res) => {
-    const comment = new Comment({
-        post_id: req.body.post_id,
-        author_id: req.body.author_id,
-        content: req.body.content
-    });
+    // const comment = new Comment({
+    //     post_id: req.body.post_id,
+    //     author_id: "61a9f5c5490a21e66cf33c1b",
+    //     content: req.body.content
+    // });
 
-    await Post.updateOne({"_id":req.body.post_id},{$inc:{"comments":1}})
+    // await Post.updateOne({"_id":req.body.post_id},{$inc:{"comments":1}})
 
     try {
-        const savedComment = await comment.save();
-        res.json(savedComment);
-        // res.redirect("/post?id="+req.query.post_id);
+        // await comment.save();
+        res.redirect("/post?id="+req.body.post_id);
     } catch (err) {
         if (err) throw err;
     }
@@ -93,7 +88,6 @@ router.delete('/delComment', async (req,res) => {
     try {
         const savedComment = await comment.save();
         res.json(savedComment);
-        // res.redirect("/post?id="+req.query.post_id);
     } catch (err) {
         if (err) throw err;
     }

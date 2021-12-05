@@ -79,7 +79,7 @@
 
         <div class="page-content">
 
-          {{#posts}}
+          {{#post}}
           <div class="post">
 
             <div class="user-account titre2">
@@ -88,8 +88,8 @@
             </div>
 
             <div class="post-title titre2">
-              {{game_id}} / {{title}}
-              <p class="headline2 post-time">• {{date}}</p>
+              {{game}} / {{title}}
+              <p class="headline2 post-time">• {{displayedDate}}</p>
             </div>
 
             <div class="post-content post-text">
@@ -97,9 +97,11 @@
             </div>
 
             <div class="nb-likes">
-              <button class="btn like-btn" type="submit">
-                <span class="icon-Like"><t class="headline2">{{likes}}</t></span>
-              </button>
+              <form method="post" action="/post/like?id={{id}}">
+                <button class="btn like-btn" type="submit">
+                  <span class="icon-Like"><t class="headline2">{{likes}}</t></span>
+                </button>
+              </form>
             </div>
             <div class="nb-comms">
               <button type="button" class="btn comment-btn" data-bs-toggle="modal" data-bs-target="#myModal">
@@ -108,7 +110,7 @@
             </div>
 
           </div>
-          {{/posts}}
+          {{/post}}
 
           {{#comments}}
           <div class="comments">
@@ -116,9 +118,9 @@
               <div class="comment">
 
                 <div class="user-account titre2">
-                  <img src="img/ex-profile.png" alt="Photo de profile" width="45" height="45" class="d-inline-block profile-pic ms-auto">
+                  <img src="img/users-pp/{{author_id}}.png" alt="Photo de profile" width="45" height="45" class="d-inline-block profile-pic ms-auto">
                   {{author}}
-                  <p class="headline2 post-time">• {{date}}</p>
+                  <p class="headline2 post-time">• {{displayedDate}}</p>
                 </div>
 
                 <div class="post-content post-text">
@@ -141,7 +143,7 @@
 
             <div class="modal-dialog">
               <div class="modal-content">
-                <form class="needs-validation" action="add-comment" method="post" novalidate>
+                <form class="needs-validation" action="/post/addComment?post_id=test" method="post" novalidate>
 
                   <div class="modal-header">
                     <h1 class="titre1" >Ajouter un commentaire</h1>
@@ -151,7 +153,8 @@
                   <div class="modal-body">
 
                     <div class="mb-3 form-floating">
-                      <textarea class="form-control formTextArea post-text" placeholder="Commentaire" id="floatingTextarea1" name="comm" required></textarea>
+                      <textarea class="form-control formTextArea post-text" placeholder="Commentaire" id="floatingTextarea1" name="content" required></textarea>
+                      <input class="hide" name="post_id" value="{{post_id}}">
                       <div class="invalid-feedback">
                         Veuillez entrer un commentaire.
                       </div>

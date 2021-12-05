@@ -17,6 +17,7 @@ app.set('views', __dirname + '/private');
 app.use(express.static(__dirname + '/static'));
 app.use(favicon(__dirname + '/static/img/logos/favicon.ico'));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 
 // Import all routes

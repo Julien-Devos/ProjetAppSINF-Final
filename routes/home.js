@@ -1,49 +1,35 @@
 const express = require('express');
 const router = express.Router();
-const Post = require('../models/Post');
-const User = require('../models/User');
-const Game = require('../models/Game');
 const utils = require('../utils/utils');
-const {execMap} = require("nodemon/lib/config/defaults");
+const Post = require('../models/Post');
+const Game = require('../models/Game');
 
 router.get('/', async (req, res) => {
     try{
-        const recentPosts = await Post.find().sort({ "date" : -1}).limit(5);
+        let recentPosts = await Post.find().sort({ "date" : -1}).limit(5);
 
-        for (i in recentPosts){
-            const user = await User.findOne({"_id": recentPosts[i]['author_id'] });
+        // complete the posts with date, username and game
+        await utils.completePost(recentPosts,function (result){
+            recentPosts = result;
+        });
 
-            recentPosts[i]["displayedDate"] = utils.dateToTime(recentPosts[i]["date"]);
+        let trendingPosts = await Post.find().sort({ "likes" : -1}).limit(5);
 
-            recentPosts[i]['author'] = user['username'];
-            const game = await Game.findOne({'_id':recentPosts[i]['game_id']});
-            recentPosts[i]['game'] = game['name']
+        // complete the posts with date, username and game
+        await utils.completePost(trendingPosts,function (result){
+            trendingPosts = result;
+        });
 
-        }
-
-        const trendingPosts = await Post.find().sort({ "likes" : 1}).limit(5);
-
-        for (i in trendingPosts){
-            const user = await User.findOne({"_id": trendingPosts[i]['author_id'] });
-
-            trendingPosts[i]["displayedDate"] = utils.dateToTime(trendingPosts[i]["date"]);
-
-            trendingPosts[i]['author'] = user['username'];
-            const game = await Game.findOne({'_id':trendingPosts[i]['game_id']});
-            trendingPosts[i]['game'] = game['name']
-
-        }
-
+        // find all the games for the navbar game filter
         const games = await Game.find();
         let data = {
             "logged" : true,
+            "games" : games,
             "recentPosts" : recentPosts,
-            "trendingPosts" : trendingPosts,
-            "games" : games
+            "trendingPosts" : trendingPosts
         }
 
         res.render('home.html',data);
-
     } catch (err) {
         if (err) throw err;
     }
