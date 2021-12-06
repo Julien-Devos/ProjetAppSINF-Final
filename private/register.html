@@ -77,49 +77,30 @@
     <div class="container-fluid profile-page position-absolute top-50 start-50 translate-middle">
         <div class="profile-page-content">
 
-
-            <!--                <label for="formFile" class="headline1">Changer votre photo de profil.</label>-->
-            <!--                <input class="form-control" id="formFile" type="file">-->
-
-
-            <div class="email">
-                <label for="mail" class="titre2">Nom d'Utilisateur</label>
-                <input class="form-control post-text postTit" id="mail" placeholder="Adresse e-mail">
-            </div>
-            <div class="email">
-                <label for="username" class="titre2">Nom d'Utilisateur</label>
-                <input class="form-control post-text postTit" id="username" placeholder="Nom d'utilasateur">
-            </div>
-            <div class="password">
-                <label for="password" class="titre2">Mot de passe</label>
-                <input class="form-control post-text postTit" id="password" placeholder="Mot de passe">
-            </div>
-            <div class="password">
-                <label for="password" class="titre2">Confirmation du mot de passe</label>
-                <input class="form-control post-text postTit" id="password" placeholder="Mot de passe">
-            <div class="likencomments">
-                <div class="d-inline-block">
-                    <p class="headline2">1</p> <span class="icon-Like"></span>
+            <form method="post" action="/register/reg">
+                <div class="email">
+                    <label for="mail" class="titre2">E-mail</label>
+                    <input class="form-control post-text postTit" id="mail" name="mail" placeholder="Adresse e-mail">
                 </div>
-                <div class="d-inline-block">
-                    <p class="headline2">1</p> <span class="icon-Comments"></span>
+                <div class="email">
+                    <label for="username" class="titre2">Nom d'Utilisateur</label>
+                    <input class="form-control post-text postTit" id="username" name="username" placeholder="Nom d'utilasateur">
                 </div>
-                <p>
-                <p>
-                <p>
-
-                </p>
-
-
-
+                <div class="password">
+                    <label for="password" class="titre2">Mot de passe</label>
+                    <input class="form-control post-text postTit" id="password" name="password" placeholder="Mot de passe">
+                </div>
+                <div class="password">
+                    <label for="password" class="titre2">Confirmation du mot de passe</label>
+                    <input class="form-control post-text postTit" id="passwordConf" name="passwordConf" placeholder="Mot de passe">
+                </div>
 
 
                 <button type="submit" class="btn btn-outline-success btn-style buttonText">Création du compte </button>
-                <h1></h1>
+
+            </form>
 
 
-                </form>
-            </div>
         </div>
     </div>
 </section>

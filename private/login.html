@@ -13,63 +13,96 @@
     <link rel="stylesheet" href="font-style.css">
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
-    <title>Login</title>
-
+    <title>Profile</title>
 </head>
 <body id="body">
-    <header class="header" id="nav">
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <a class="navbar-brand titre1" href="/">
-                    <img src="img/logos/light-logo.svg" alt="logo" id="logo" class="d-inline-block align-text-top">
-                    <p>Game talks</p>
-                </a>
+<header class="header" id="nav">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand titre1" href="/">
+                <img src="img/logos/light-logo.svg" alt="logo" id="logo" class="d-inline-block align-text-top">
+                <p>Game talks</p>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="icon-Bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="navbar-collapse row">
+                    <div class="nav col-11 justify-content-center">
+                        <form class="d-flex search-bar" method="get" action="posts" autocomplete="off">
+                            <select class="selectpicker titre2 game-select" name="filter" data-live-search="true" title="Filtre de jeu" data-selected-text-format="count > 1" data-width="200px" multiple>
+                                {{#games}}
+                                <option>{{name}}</option>
+                                {{/games}}
+                            </select>
+                            <input class="form-control titre2 bar" type="search" name="search" placeholder="Rechercher" aria-label="Search">
+                            <button class="btn btn-outline-success search-button" type="submit"><span class="icon-Search"></span></button>
+                        </form>
+                    </div>
+                    <div class="nav col-1">
+                        {{^logged}}
+                        <ul class="navbar-nav ms-auto justify-content-end">
+                            <li class="nav-item">
+                                <a class="headline1 link" href="log">S'identifier</a>
+                            </li>
+                        </ul>
+                        {{/logged}}
+                        {{#logged}}
+                        <ul class="navbar-nav ms-auto justify-content-end">
+                            <li class="nav-item dropdown">
+                                <a class="headline1" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="img/default-profile.png" alt="Photo de profile" class="d-inline-block profile-pic ms-auto">
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-lg-end dropdown-window-menu dropdown-profile-menu headline1" aria-labelledby="accountDropdown">
+                                    <li><a class="dropdown-item" href="user-profile"><span class="icon-Profile"></span> Profile</a></li>
+                                    <li><button class="dropdown-item" id="theme-toggle"><span class="icon-Dark-Mode" id="theme-icon"></span> <t id="theme-txt">Mode nuit</t></button></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="logout"><span class="icon-disconnect"></span> Se déconnecter</a></li>
+                                    </form>
+                                </ul>
+                            </li>
+                        </ul>
+                        {{/logged}}
+                    </div>
+                </div>
             </div>
-        </nav>
+        </div>
+    </nav>
 
-    </header>
+</header>
 
+<section id="content">
+    <div class="container-fluid profile-page position-absolute top-50 start-50 translate-middle">
+        <div class="profile-page-content">
 
-    <section id="content">
+            {{#logError}}
+            <div class="alert alert-primary" role="alert">
+                {{message}}
+            </div>
+            {{/logError}}
 
-
-        <div class="page-content">
-
-            <p class="titre3-Underlined">Connection</p>
-
-
-
-            <form class="Connexion">
-                <div class="titleArea">
-                    <label for="post-title" class="form-label titre2">Nom d'utilisateur</label>
-                    <input class="form-control post-text postTit" id="post-title" placeholder="Nom d'utilasateur">
+            <form method="post" action="/login/log">
+                <div class="email">
+                    <label for="post-title" class="titre2">Nom d'Utilisateur</label>
+                    <input class="form-control headline1" id="post-title" name="username" placeholder="Nom d'utilisateur">
                 </div>
-                <div class="titleArea">
-                    <label for="post-title" class="form-label titre2">Mot de Passe</label>
-                    <input class="form-control post-text postTit" id="post-title" placeholder="Mot de passe">
+                <div class="password">
+                    <label for="password" class="titre2">Mot de passe</label>
+                    <input class="form-control headline1" id="password" name="password" placeholder="Mot de passe">
                 </div>
-                <p>
-                <p>
-                <p>
-
-                </p>
-
-
-
-
 
                 <button type="submit" class="btn btn-outline-success btn-style buttonText">Connexion</button>
-                <h1></h1>
-                <button type="submit" class="btn btn-outline-success btn-style buttonText">Crée un nouveau compte</button>
             </form>
 
+
+                <button type="button" class="btn btn-outline-success btn-style buttonText">Crée un nouveau compte</button>
         </div>
+    </div>
+</section>
 
-
-    </section>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta2/dist/js/bootstrap-select.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta2/dist/js/bootstrap-select.min.js"></script>
 </body>
 </html>

@@ -23,7 +23,7 @@ router.get('/', async (req, res) => {
         // find all the games for the navbar game filter
         const games = await Game.find();
         let data = {
-            "logged" : true,
+            "logged" : false,
             "games" : games,
             "recentPosts" : recentPosts,
             "trendingPosts" : trendingPosts

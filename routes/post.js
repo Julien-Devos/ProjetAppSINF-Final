@@ -8,6 +8,8 @@ const utils = require('../utils/utils');
 
 router.get('/', async (req, res) => {
     try{
+        console.log("username= "+ req.session.username)
+
         let post = await Post.find({"_id":req.query.id});
 
         // complete the posts with date, username and game

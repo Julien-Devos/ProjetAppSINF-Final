@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const bodyParser = require("body-parser");
 const consolidate = require('consolidate');
 const favicon = require("serve-favicon");
+const session = require('express-session');
 const https = require("https");
 const fs = require("fs");
 
@@ -18,6 +19,16 @@ app.use(express.static(__dirname + '/static'));
 app.use(favicon(__dirname + '/static/img/logos/favicon.ico'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(session({
+    secret: "randompass",
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        path: '/',
+        httpsOnly: true,
+        maxAge: 3600000
+    }
+}));
 
 
 // Import all routes
