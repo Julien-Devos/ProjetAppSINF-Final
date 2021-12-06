@@ -81,29 +81,11 @@
 
             <p class="titre3-Underlined">Nouveau post</p>
 
-            <div class="dropdown">
-                <input class="nav-link titre2" id="dropdown-game" role="button" data-bs-toggle="dropdown" placeholder="Jeux">
-                <div class="dropdown-menu dropdown-game-menu dropdown-window-menu headline1 scroller" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#">Undertale</a></li>
-                    <li><a class="dropdown-item" href="#">Minecraft</a></li>
-                    <li><a class="dropdown-item" href="#">Mario kart</a></li>
-                    <li><a class="dropdown-item" href="#">CS-GO</a></li>
-                    <li><a class="dropdown-item" href="#">Genshin impact</a></li>
-                    <li><a class="dropdown-item" href="#">Minecraft</a></li>
-                    <li><a class="dropdown-item" href="#">Undertale</a></li>
-                    <li><a class="dropdown-item" href="#">Minecraft</a></li>
-                    <li><a class="dropdown-item" href="#">Undertale</a></li>
-                    <li><a class="dropdown-item" href="#">Minecraft</a></li>
-                    <li><a class="dropdown-item" href="#">Undertale</a></li>
-                    <li><a class="dropdown-item" href="#">Minecraft</a></li>
-                </div>
-            </div>
-
-            <form class="newPost" action="#">
+            <form class="newPost" method="get" action="/">
 
                 <div class="game-select">
-                    <label for="games" class="titre2">Sélectionner un jeu:</label>
-                    <select id="games" class="selectpicker headline1" data-live-search="true">
+                    <label for="games" class="select-label titre2">Sélectionner un jeu:</label>
+                    <select id="games" class="selectpicker headline1" data-live-search="true" placeholder="Jeux">
                         <option value="gameid_1">Undertale</option>
                         <option value="gameid_2">Minecraft</option>
                         <option value="gameid_3">Mario kart</option>

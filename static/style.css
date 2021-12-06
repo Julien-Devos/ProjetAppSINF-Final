@@ -330,28 +330,29 @@ button#theme-toggle{
     margin-top: 50px;
     margin-bottom: 40px;
 }
+.newPost div.game-select .btn.dropdown-toggle{
+    border-radius: 10px;
+}
+.newPost .game-select {
+    display: inline-block;
+}
+.select-label {
+    padding: 30px 25px 10px 0;
+}
 .newpost-title {
     width: 100%;
     border-radius: 10px !important;
+    background-color: var(--darker-bg-color);
+    border: none;
 }
-/*.game-select select{*/
-/*    border-radius: 10px;*/
-/*    background-color: var(--darker-bg-color);*/
-/*    width: 10%;*/
-/*    height: 35px;*/
-/*}*/
-/*.game-select select:hover{*/
-/*    border: none;*/
-
-/*}*/
-/*.game-select select option{*/
-/*    color: var(--primary-text-color);*/
-/*    display: inline-block;*/
-/*}*/
+.newpost-content{
+    border: none;
+}
 .newpost-content.formTextArea {
     width: 100%;
-    height: 350px;
+    height: 250px;
     border-radius: 10px !important;
+    background-color: var(--darker-bg-color);
 }
 
 /** newpost page **/
@@ -412,9 +413,6 @@ button#theme-toggle{
 }
 .likencomments p {
     display: inline-block;
-}
-.bg-main {
-    background: var(--primary-blue-color);
 }
 
 /** profile page style **/
