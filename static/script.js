@@ -82,6 +82,9 @@ window.addEventListener('load', function() {
         }
     }
 
+    document.getElementById("formFile").onchange= () => {
+        document.getElementById("profilePicForm").submit();
+    };
 
     let filter_search = document.querySelector(".bs-searchbox .form-control");
     if (filter_search != null){

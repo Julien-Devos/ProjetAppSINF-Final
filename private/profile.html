@@ -76,10 +76,19 @@
     <section id="content">
         <div class="container-fluid profile-page position-absolute top-50 start-50 translate-middle">
             <div class="profile-page-content">
+
+                {{#user}}
                 <div class="profile-picture profile-pic-div">
 
-                        <img src="/img/default-profile.png" alt="Photo de profile"
-                             class="d-block profile-pic mx-auto" id="photo">
+                    <img src="/img/users-pp/{{id}}.png" alt="Photo de profile"
+                         class="d-block profile-pic mx-auto badge">
+
+                    <form method="post" action="/user/profile/update" id="profilePicForm" enctype="multipart/form-data">
+                        <label class="EditBtn btn btn-outline-success btn-style">
+                            <input class="form-control" id="formFile" type="file" accept="image/*" name="file">
+                            <span class="icon-Edit"></span>
+                        </label>
+                    </form>
 
                 </div>
 
@@ -88,15 +97,15 @@
 
                 <div class="username">
                     <label for="username" class="titre2">Nom d'utilisateur</label>
-                    <input class="headline1" placeholder="Nom d'utilisateur" id="username" disabled>
-                </div>
-                <div class="email">
-                    <label for="mail" class="titre2">Adresse e-mail</label>
-                    <input class="headline1" placeholder="Adresse e-mail" id="mail" disabled>
+                    <input class="headline1" placeholder="{{name}}" id="username" disabled>
                 </div>
                 <div class="password">
                     <label for="password" class="titre2">Mot de passe</label>
-                    <input placeholder="********" id="password" disabled>
+                    <input placeholder="{{password}}" id="password" disabled>
+                </div>
+                <div class="email">
+                    <label for="mail" class="titre2">Adresse e-mail</label>
+                    <input class="headline1" placeholder="{{mail}}" id="mail" disabled>
                 </div>
                 <div class="likencomments">
                     <div class="d-inline-block">
@@ -106,6 +115,7 @@
                         <p class="headline2">1</p> <span class="icon-Comments"></span>
                     </div>
                 </div>
+                {{/user}}
             </div>
         </div>
     </section>

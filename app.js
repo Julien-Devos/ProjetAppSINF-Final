@@ -6,7 +6,7 @@ const favicon = require("serve-favicon");
 const session = require('express-session');
 const https = require("https");
 const fs = require("fs");
-
+const upload = require('express-fileupload');
 
 // Create app and set the used port for the server
 const app = express();
@@ -19,6 +19,7 @@ app.use(express.static(__dirname + '/static'));
 app.use(favicon(__dirname + '/static/img/logos/favicon.ico'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(upload());
 app.use(session({
     secret: "randompass",
     resave: false,

@@ -382,6 +382,19 @@ button#theme-toggle{
     height: 150px;
     border-radius: 100px;
 }
+.EditBtn{
+    position: absolute;
+    left: 335px;
+    top: 160px;
+    border-radius: 100px !important;
+    height: 37px !important;
+    font-size: small;
+    display: flex;
+    align-items: center;
+}
+#formFile{
+    display: none;
+}
 .profile-picture{
     padding: 0 50px 0 50px;
     margin-top: 4%;
