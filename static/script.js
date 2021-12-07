@@ -77,6 +77,25 @@ window.addEventListener('load', function() {
     }
 
 
+    let showPassBtn = document.getElementById("profilePass");
+    let profilePassInput = document.getElementById("password");
+    let profileEyeIcon = document.querySelector(".icon-eye");
+    if (showPassBtn !== null){
+        let password = profilePassInput.placeholder;
+        profilePassInput.placeholder = "*".repeat(password.length);
+        profileEyeIcon.classList.toggle("icon-eye");
+        profileEyeIcon.classList.toggle("icon-eye-slash");
+        showPassBtn.onclick = () => {
+            if (profilePassInput.placeholder === password){
+                profilePassInput.placeholder = "*".repeat(password.length);
+            } else{
+                profilePassInput.placeholder = password;
+            }
+            profileEyeIcon.classList.toggle("icon-eye-slash");
+            profileEyeIcon.classList.toggle("icon-eye");
+        }
+    }
+
 
     // Apply dark theme or light theme when button is clicked
     let themeBtn = document.getElementById("theme-toggle");
@@ -143,12 +162,26 @@ window.addEventListener('load', function() {
 
 
     // prevent leaving the dropdown-menu when clicking on it
-    $(function() {
-
-        $('.dropdown-menu').on('click', function(event) {
+    let dropdowns = document.querySelectorAll(".dropdown-menu");
+    Array.prototype.slice.call(dropdowns).forEach( (form) => {
+        form.addEventListener('click', (event) => {
             event.stopPropagation();
         });
+    });
 
+
+    // Find forms that needs validation and validate them
+    // From bootstrap 5 doc https://getbootstrap.com/docs/5.0/forms/validation/#how-it-works
+    let forms = document.querySelectorAll('.needs-validation')
+    Array.prototype.slice.call(forms).forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+            }
+
+            form.classList.add('was-validated')
+        }, false)
     });
 
 });

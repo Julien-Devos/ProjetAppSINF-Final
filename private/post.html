@@ -45,7 +45,7 @@
               {{^logged}}
               <ul class="navbar-nav ms-auto justify-content-end">
                 <li class="nav-item">
-                  <a class="headline1 link" href="log">S'identifier</a>
+                  <a class="headline1 link" href="/login">S'identifier</a>
                 </li>
               </ul>
               {{/logged}}
@@ -53,7 +53,7 @@
               <ul class="navbar-nav ms-auto justify-content-end">
                 <li class="nav-item dropdown">
                   <a class="headline1" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="img/default-profile.png" alt="Photo de profile" class="d-inline-block profile-pic ms-auto">
+                    <img src="img/users-pfp/{{user_id}}.png" class="d-inline-block profile-pic ms-auto" onerror="this.src='/img/users-pfp/default-pfp.png';">
                   </a>
                   <ul class="dropdown-menu dropdown-menu-lg-end dropdown-window-menu dropdown-profile-menu headline1" aria-labelledby="accountDropdown">
                     <li><a class="dropdown-item" href="user-profile"><span class="icon-Profile"></span> Profile</a></li>
@@ -83,7 +83,7 @@
           <div class="post">
 
             <div class="user-account titre2">
-              <img src="img/users-pp/{{author_id}}.png" alt="Photo de profile" width="45" height="45" class="d-inline-block profile-pic ms-auto">
+              <img src="img/users-pfp/{{author_id}}.png" class="d-inline-block profile-pic ms-auto" onerror="this.src='/img/users-pfp/default-pfp.png';">
               {{author}}
             </div>
 
@@ -118,7 +118,7 @@
               <div class="comment">
 
                 <div class="user-account titre2">
-                  <img src="img/users-pp/{{author_id}}.png" alt="Photo de profile" width="45" height="45" class="d-inline-block profile-pic ms-auto">
+                  <img src="img/users-pfp/{{author_id}}.png" class="d-inline-block profile-pic ms-auto" onerror="this.src='/img/users-pfp/default-pfp.png';">
                   {{author}}
                   <p class="headline2 post-time">• {{displayedDate}}</p>
                 </div>

@@ -32,29 +32,35 @@
 
 <section id="content">
 
-    <div class="login-page">
+    {{#logError}}
+    <div class="alert alert-danger headline1" role="alert">
+        {{message}}
+    </div>
+    {{/logError}}
 
-<!--        {{#logError}}-->
-<!--        <div class="alert alert-primary" role="alert">-->
-<!--            {{message}}-->
-<!--        </div>-->
-<!--        {{/logError}}-->
+    <div class="login-page">
 
         <h1 class="titre3-Underlined">
             Connexion
         </h1>
 
-        <form method="post" action="/login/log">
+        <form class="needs-validation" method="post" action="/login/log" autocomplete="off" novalidate>
 
             <div class="form-item">
                 <label for="post-title" class="titre2">Nom d'utilisateur</label>
-                <input class="form-control headline1" id="post-title" name="username" placeholder="Nom d'utilisateur" autocomplete="off">
+                <input class="form-control headline1" id="post-title" name="username" placeholder="Nom d'utilisateur" required>
+                <div class="invalid-feedback">
+                    Veuillez rentrer votre nom d'utilisateur.
+                </div>
             </div>
 
             <div class="form-item">
                 <label for="password" class="titre2">Mot de passe</label>
-                <input class="form-control headline1" id="password" name="password" type="password" placeholder="Mot de passe" autocomplete="off">
+                <input class="form-control headline1" id="password" name="password" type="password" placeholder="Mot de passe" required>
                 <button class="toggle-password" type="button" id="logPass" title="Afficher le mot de passe"><span class="icon-eye-slash"></span></button>
+                <div class="invalid-feedback">
+                    Veuillez rentrer votre mot de passe.
+                </div>
             </div>
 
             <div class="form-button">

@@ -3,7 +3,6 @@ const router = express.Router();
 const utils = require('../utils/utils');
 const Post = require('../models/Post');
 const Game = require('../models/Game');
-const {log} = require("nodemon/lib/utils");
 
 router.get('/', async (req, res) => {
     try{
@@ -52,6 +51,7 @@ router.get('/newPost', async (req, res) => {
         }
         let data = {
             "logged" : logged,
+            "user_id": req.session.user_id,
         }
 
         res.render('newpost.html',data);

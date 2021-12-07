@@ -31,7 +31,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <div class="navbar-collapse row">
                         <div class="nav col-11 justify-content-center">
-                            <form class="d-flex search-bar" method="get" action="posts" autocomplete="off">
+                            <form class="d-flex search-bar" method="get" action="/posts" autocomplete="off">
                                 <select class="selectpicker titre2 game-select" name="filter" data-live-search="true" title="Filtre de jeu" data-selected-text-format="count > 1" data-width="200px" multiple>
                                     {{#games}}
                                     <option>{{name}}</option>
@@ -53,7 +53,7 @@
                             <ul class="navbar-nav ms-auto justify-content-end">
                                 <li class="nav-item dropdown">
                                     <a class="headline1" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <img src="img/default-profile.png" alt="Photo de profile" class="d-inline-block profile-pic ms-auto">
+                                        <img src="/img/users-pfp/{{user_id}}.png" class="d-inline-block profile-pic ms-auto" onerror="this.src='/img/users-pfp/default-pfp.png';">
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-lg-end dropdown-window-menu dropdown-profile-menu headline1" aria-labelledby="accountDropdown">
                                         <li><a class="dropdown-item" href="user-profile"><span class="icon-Profile"></span> Profile</a></li>
@@ -80,8 +80,7 @@
                 {{#user}}
                 <div class="profile-picture profile-pic-div">
 
-                    <img src="/img/users-pp/{{id}}.png" alt="Photo de profile"
-                         class="d-block profile-pic mx-auto badge">
+                    <img src="/img/users-pfp/{{id}}.png" class="d-block profile-pic mx-auto badge" onerror="this.src='/img/users-pfp/default-pfp.png';">
 
                     <form method="post" action="/user/profile/update" id="profilePicForm" enctype="multipart/form-data">
                         <label class="EditBtn btn btn-outline-success btn-style">
@@ -114,6 +113,7 @@
                     </div>
                 </div>
                 {{/user}}
+
             </div>
         </div>
     </section>

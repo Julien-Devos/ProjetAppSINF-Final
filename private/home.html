@@ -6,7 +6,7 @@
     <!--  Bootstrap import  -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/bad5ba018c.js" crossorigin="anonymous"></script>
-    <!-- Import jquery library -->
+    <!-- Import jquery library for boostrap-select -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Import Bootstrap-select library -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta2/dist/css/bootstrap-select.min.css">
@@ -53,9 +53,9 @@
                                 <ul class="navbar-nav ms-auto justify-content-end">
                                     <li class="nav-item dropdown">
                                         <a class="headline1" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <img src="/img/users-pp/{{user_id}}.png" alt="Photo de profile" class="d-inline-block profile-pic ms-auto">
+                                            <img src="/img/users-pfp/{{user_id}}.png" class="d-inline-block profile-pic ms-auto" onerror="this.src='/img/users-pfp/default-pfp.png';">
                                         </a>
-                                        <ul class="dropdown-menu dropdown-menu-lg-end dropdown-window-menu dropdown-profile-menu headline1" aria-labelledby="accountDropdown">
+                                        <ul class="dropdown-menu dropdown-menu-lg-end dropdown-window-menu dropdown-profile-menu headline1" id="test" aria-labelledby="accountDropdown">
                                             <li><a class="dropdown-item" href="/user/profile"><span class="icon-Profile"></span> Profile</a></li>
                                             <li><button class="dropdown-item" id="theme-toggle"><span class="icon-Dark-Mode" id="theme-icon"></span> <t id="theme-txt">Mode nuit</t></button></li>
                                             <li><hr class="dropdown-divider"></li>
@@ -91,7 +91,7 @@
                     <a class="post" href="post?id={{id}}">
 
                         <div class="user-account titre2">
-                            <img src="/img/users-pp/{{author_id}}.png" alt="Photo de profile" class="d-inline-block profile-pic">
+                            <img src="/img/users-pfp/{{author_id}}.png" class="d-inline-block profile-pic" onerror="this.src='/img/users-pfp/default-pfp.png';">
                             {{author}}
                         </div>
 
@@ -127,7 +127,7 @@
                     <a class="post" href="post?id={{id}}">
 
                         <div class="user-account titre2">
-                            <img src="/img/users-pp/{{author_id}}.png" alt="Photo de profile" class="d-inline-block profile-pic">
+                            <img src="/img/users-pfp/{{author_id}}.png"  class="d-inline-block profile-pic" onerror="this.src='/img/users-pfp/default-pfp.png';">
                             {{author}}
                         </div>
 

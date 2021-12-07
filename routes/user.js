@@ -1,12 +1,16 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
-const {execMap} = require("nodemon/lib/config/defaults");
-const fs = require('fs');
 
 router.get('/profile', async (req, res) => {
     try{
+        let logged = false;
+        if(req.session.username !== undefined){
+            logged = true;
+        }
         let data = {
+            "logged" : logged,
+            "user_id" : req.session.user_id,
             "user": {
                 "id": req.session.user_id,
                 "name": req.session.username,
@@ -23,14 +27,15 @@ router.get('/profile', async (req, res) => {
 
 router.post('/profile/update', async (req, res) => {
     try{
-        console.log(req.files);
+
         let file = req.files.file;
         let filename = req.session.user_id;
 
-        await file.mv('./static/img/users-pp/'+filename+'.png', function (err) {
+        await file.mv('./static/img/users-pfp/'+filename+'.png', function (err) {
             if (err) throw err;
             res.redirect("/user/profile");
         });
+
     } catch (err) {
         if (err) throw err;
     }

@@ -53,7 +53,7 @@
                             <ul class="navbar-nav ms-auto justify-content-end">
                                 <li class="nav-item dropdown">
                                     <a class="headline1" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <img src="img/default-profile.png" alt="Photo de profile" class="d-inline-block profile-pic ms-auto">
+                                        <img src="img/users-pfp/{{user_id}}.png" class="d-inline-block profile-pic ms-auto" onerror="this.src='/img/users-pfp/default-pfp.png';">
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-lg-end dropdown-window-menu dropdown-profile-menu headline1" aria-labelledby="accountDropdown">
                                         <li><a class="dropdown-item" href="user-profile"><span class="icon-Profile"></span> Profile</a></li>
@@ -79,7 +79,7 @@
 
         <div class="page-content">
 
-            <p class="titre3-Underlined">Nouveau post</p>
+            <p class="titre1">Nouveau post</p>
 
             <form class="newPost" method="get" action="/">
 

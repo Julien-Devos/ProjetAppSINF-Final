@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const Game = require('../models/Game');
-const {execMap} = require("nodemon/lib/config/defaults");
 
 
 router.get('/', async (req,res) => {

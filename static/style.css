@@ -17,10 +17,12 @@
     --scroller-color: #aeaeb0;
 
     --shadow-color: rgba(42, 45, 52, 0.25);
-    --alert-color: #D62442;
-    --correct-color: #6ed073;
-    --like-color: #EA5D68;
-    --like-stroke-color: #CE525D;
+    --alert-text-color: #FCFCFC;
+    --alert-color: rgba(236, 71, 96, 0.2);
+    --alert-border-color: rgba(213, 57, 83, 0.6);
+    --correct-color: rgba(110, 208, 115, 0.2);
+    --like-color: #EB5160;
+    --like-stroke-color: #BA1F33;
     --comment-color: #5982EB;
     --comment-stroke-color: #4F73CF;
 }
@@ -41,12 +43,6 @@
     --scroller-color: rgba(89, 89, 89, 0.5);
 
     --shadow-color: rgba(252, 252, 252, 0.15);
-    --alert-color: #D62442;
-    --correct-color: #6ed073;
-    --like-color: #EA5D68;
-    --like-stroke-color: #CE525D;
-    --comment-color: #5982EB;
-    --comment-stroke-color: #4F73CF;
 }
 
 /* All colors variables */
@@ -148,6 +144,48 @@ input{
 }
 
 /* Profile pictures */
+
+
+/**************************************************  Validation  ******************************************************/
+
+
+/* Validations */
+.alert-danger{
+    color: var(--primary-text-color) !important;
+    background-color: var(--alert-color) !important;
+    border-color: var(--alert-border-color) !important;
+}
+.alert{
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 19%;
+    width: 600px;
+    border-radius: 15px;
+}
+.register-alert.alert{
+    top: 15%;
+}
+.invalid-feedback{
+    position: absolute;
+    transition: 0.3s ease-in-out;
+}
+.was-validated .form-control:invalid{
+    background-position: right 98% center;
+}
+.was-validated .form-control:valid{
+    background-size: 0;
+}
+.was-validated .form-control::placeholder, .form-control.is-valid, .was-validated .form-control:valid::placeholder{
+    transition: 0.3s ease-in-out;
+}
+.was-validated .form-control{
+    text-indent: 25px;
+}
+.was-validated .form-control:valid{
+    text-indent: 0;
+}
+/* Validations */
 
 
 /****************************************************  Navbar  ********************************************************/
@@ -456,7 +494,7 @@ form.newPost div.game-select .btn.dropdown-toggle:hover, .newpost-content.formTe
     left: 50%;
     border-radius: 15px;
     /*backdrop-filter: blur(10px);*/
-    box-shadow: 0 0 5px 4px var(--secondary-text-color);
+    box-shadow: 0 0 5px 4px rgba(26, 25, 25, 0.2);
     padding: 40px 50px 20px;
     display: flex;
     justify-content: space-between;

@@ -1,16 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const Post = require('../models/Post');
-const User = require('../models/User');
 const Game = require('../models/Game');
 const Comment = require('../models/Comment');
 const utils = require('../utils/utils');
-const {log} = require("nodemon/lib/utils");
 
 router.get('/', async (req, res) => {
     try{
-        console.log("username= "+ req.session.username)
-
         let post = await Post.find({"_id":req.query.id});
 
         // complete the posts with date, username and game
@@ -34,6 +30,7 @@ router.get('/', async (req, res) => {
         }
         let data = {
             "logged" : logged,
+            "user_id" : req.session.user_id,
             "games" : games,
             "post" : post,
             "post_id": req.query.id,
@@ -73,28 +70,33 @@ router.post('/like', async (req,res) => {
 });
 
 router.post('/addComment', async (req,res) => {
-    // const comment = new Comment({
-    //     post_id: req.body.post_id,
-    //     author_id: "61a9f5c5490a21e66cf33c1b",
-    //     content: req.body.content
-    // });
-
-    // await Post.updateOne({"_id":req.body.post_id},{$inc:{"comments":1}})
-
     try {
-        // await comment.save();
-        res.redirect("/post?id="+req.body.post_id);
+        if (req.session.user_id !== undefined){
+            const comment = new Comment({
+                post_id: req.body.post_id,
+                author_id: req.session.user_id,
+                content: req.body.content
+            });
+            await comment.save();
+
+            await Post.updateOne({"_id":req.body.post_id},{$inc:{"comments":1}});
+            res.redirect("/post?id="+req.body.post_id);
+        }
+        else{
+            res.redirect("/post?id="+req.body.post_id);
+        }
+
+
     } catch (err) {
         if (err) throw err;
     }
 });
 
 router.delete('/delComment', async (req,res) => {
-
-    await Post.deleteOne({"_id":req.body.post_id},{$inc:{"comments":1}})
-
     try {
-        const savedComment = await comment.save();
+        await Post.updateOne({"_id":req.body.post_id},{$inc:{"comments":-1}});
+        await Comment.remove({"post_id":req.body.id});
+
         res.json(savedComment);
     } catch (err) {
         if (err) throw err;
