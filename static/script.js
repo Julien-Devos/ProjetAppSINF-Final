@@ -42,6 +42,42 @@ window.addEventListener('load', function() {
 
 
 
+    // used to show password in login forms
+    let showBtn = document.getElementById("logPass");
+    let showBtn2 = document.getElementById("regPass1");
+    let showBtn3 = document.getElementById("regPass2");
+    let passInput = document.getElementById("password");
+    let passInput2 = document.getElementById("passwordConf");
+    let eyeIcon = document.querySelector(".icon-eye-slash");
+    let eyeIcon2 = document.querySelector("#regPass2 .icon-eye-slash");
+    function togglePassword(input,icon) {
+        if (input.type === "password"){
+            input.type = "text";
+        }
+        else{
+            input.type = "password";
+        }
+        icon.classList.toggle("icon-eye-slash");
+        icon.classList.toggle("icon-eye");
+    }
+    if (showBtn !== null){
+        showBtn.onclick = () => {
+            togglePassword(passInput,eyeIcon)
+        }
+    }
+    if (showBtn2 !== null){
+        showBtn2.onclick = () => {
+            togglePassword(passInput,eyeIcon)
+        }
+    }
+    if (showBtn3 !== null){
+        showBtn3.onclick = () => {
+            togglePassword(passInput2,eyeIcon2)
+        }
+    }
+
+
+
     // Apply dark theme or light theme when button is clicked
     let themeBtn = document.getElementById("theme-toggle");
     let themetxt = document.getElementById("theme-txt");
@@ -82,9 +118,18 @@ window.addEventListener('load', function() {
         }
     }
 
-    document.getElementById("formFile").onchange= () => {
-        document.getElementById("profilePicForm").submit();
-    };
+
+
+    // used to submit profile picture when changed
+    let formFile = document.getElementById("formFile");
+    let form = document.getElementById("profilePicForm");
+    if (formFile !== null) {
+        formFile.onchange = () => {
+            form.submit();
+        };
+    }
+
+
 
     let filter_search = document.querySelector(".bs-searchbox .form-control");
     if (filter_search != null){
@@ -94,6 +139,8 @@ window.addEventListener('load', function() {
     if (search_dropdown != null){
         search_dropdown.classList.toggle("scroller");
     }
+
+
 
     // prevent leaving the dropdown-menu when clicking on it
     $(function() {

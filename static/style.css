@@ -116,6 +116,18 @@ input[type="search"]::-webkit-search-cancel-button {
     left: -9999px !important;
     visibility: hidden !important;
 }
+input.form-control{
+    background-color: var(--primary-bg-color);
+    border: 0;
+}
+input.form-control:focus{
+    background-color: var(--primary-bg-color);
+    border: 0;
+}
+input{
+    line-height: 40px !important;
+    border-radius: 10px !important;
+}
 /* General */
 
 
@@ -262,7 +274,7 @@ form.search-bar .form-control.bar{
     height: 40px;
     background-color: var(--darker-bg-color);
     border: 0 !important;
-    border-radius: 0;
+    border-radius: 0 !important;
     width: 70%;
     margin-left: 4px;
 }
@@ -342,7 +354,7 @@ button#theme-toggle{
 .newpost-title {
     width: 100%;
     border-radius: 10px !important;
-    background-color: var(--darker-bg-color);
+    background-color: var(--secondary-bg-color) !important;
     border: none;
 }
 .newpost-content{
@@ -352,7 +364,16 @@ button#theme-toggle{
     width: 100%;
     height: 250px;
     border-radius: 10px !important;
-    background-color: var(--darker-bg-color);
+    background-color: var(--secondary-bg-color);
+}
+.newpost-content.formTextArea:focus, .titleArea input:focus, form.newPost div.game-select .btn.dropdown-toggle {
+    background-color: var(--secondary-bg-color) !important;
+}
+form.newPost div.game-select .btn.dropdown-toggle:hover, .newpost-content.formTextArea:hover, .newpost-title:hover {
+    box-shadow: 0 0 4px 2px var(--darker-bg-hover-color) !important;
+}
+.newpost-content.formTextArea:hover textarea::placeholder, .newpost-title:hover input::placeholder {
+    color: var(--primary-text-color) !important;
 }
 
 /** newpost page **/
@@ -414,9 +435,73 @@ button#theme-toggle{
 .likencomments p {
     display: inline-block;
 }
+.toggle-password#profilePass{
+    top: 60.4%;
+    right: 23%;
+}
 
 /** profile page style **/
 
+
+/******************************************************  Login  *******************************************************/
+
+
+.login-page{
+    height: 700px;
+    width: 600px;
+    background-color: var(--secondary-bg-color);
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 15px;
+    /*backdrop-filter: blur(10px);*/
+    box-shadow: 0 0 5px 4px var(--secondary-text-color);
+    padding: 40px 50px 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.login-page.register-page {
+    height: 800px;
+}
+.login-page h1.titre3-Underlined, .loginLink, .login-page div.form-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-page .form-item{
+    margin-bottom: 80px;
+}
+.register-page .form-item{
+    margin-bottom: 40px;
+}
+.loginLink a{
+    text-decoration: underline;
+    color: var(--primary-blue-color);
+}
+.loginLink a:hover{
+    text-decoration: underline;
+    color: var(--primary-blue-hover-color);
+}
+.toggle-password {
+    position: absolute;
+    top: 56.8%;
+    right: 12%;
+    width: 20px;
+    height: 20px;
+    border: none;
+    background-color: transparent;
+    color: var(--primary-text-transparent-color);
+}
+.toggle-password#regPass1{
+    top: 55.85%;
+    right: 12%;
+}
+.toggle-password#regPass2{
+    top: 71.85%;
+    right: 12%;
+}
 
 /****************************************************  Dropdowns  *****************************************************/
 
@@ -537,15 +622,13 @@ span t.headline2{
     max-width: 1000px;
     margin: 10vh auto 0 auto;
 }
-.modal-body .formTextArea{
+.modal .modal-body .form-control.formTextArea{
     height: 400px;
     border-radius: 10px;
     border: 0;
 }
-form .modal-body .form-control.formTextArea {
+.modal .modal-body .form-control.formTextArea {
     background-color: var(--secondary-bg-color);
-}
-.modal .modal-body .form-control{
     resize: none;
     transition: 0.25s;
 }
@@ -651,7 +734,7 @@ nav ul.pagination{
 /*X-Large devices (large desktops, less than 1400px)*/
 @media (max-width: 1399.98px) {
     body{
-        /*background-color: red;*/
+        background-color: red;
     }
     ul.navbar-nav.game{
         margin-left: 10%;
@@ -664,7 +747,7 @@ nav ul.pagination{
 /*Large devices (desktops, less than 1200px)*/
 @media (max-width: 1199.98px) {
     body{
-        /*background-color: green;*/
+        background-color: green;
     }
     ul.navbar-nav.game{
         margin-left: 0;
@@ -681,7 +764,7 @@ nav ul.pagination{
 /*Medium devices (tablets, less than 992px)  Navbar goes in mobile mode  */
 @media (max-width: 991.98px) {
     body{
-        /*background-color: yellow;*/
+        background-color: yellow;
     }
     button.navbar-toggler {
         border: 0;
@@ -727,7 +810,7 @@ nav ul.pagination{
 /*Small devices (landscape phones, less than 768px)*/
 @media (max-width: 767.98px) {
     body{
-        /*background-color: pink;*/
+        background-color: pink;
     }
     .post-time{
         display: block;

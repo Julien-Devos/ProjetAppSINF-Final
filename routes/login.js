@@ -5,10 +5,10 @@ const User = require("../models/User");
 
 router.get('/', (req, res) => {
     try{
-        data = {
-            "logError": {"message":"Erreur"}
-        }
-        res.render('login.html',data);
+        // let data = {
+        //     "logError": {"message":"Erreur"}
+        // }
+        // res.render('login.html',data);
 
         res.render('login.html');
 

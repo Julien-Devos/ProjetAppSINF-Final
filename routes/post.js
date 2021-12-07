@@ -5,6 +5,7 @@ const User = require('../models/User');
 const Game = require('../models/Game');
 const Comment = require('../models/Comment');
 const utils = require('../utils/utils');
+const {log} = require("nodemon/lib/utils");
 
 router.get('/', async (req, res) => {
     try{
@@ -26,8 +27,13 @@ router.get('/', async (req, res) => {
 
         // find all the games for the navbar game filter
         const games = await Game.find();
+
+        let logged = false;
+        if(req.session.username !== undefined){
+            logged = true;
+        }
         let data = {
-            "logged" : true,
+            "logged" : logged,
             "games" : games,
             "post" : post,
             "post_id": req.query.id,

@@ -104,6 +104,12 @@
 .icons-Bars{
     font-size: 10px !important;
 }
+.icon-eye:before {
+    content: "\e90d";
+}
+.icon-eye-slash:before {
+    content: "\e90c";
+}
 
 /* All fonts and text styles used in the website */
 

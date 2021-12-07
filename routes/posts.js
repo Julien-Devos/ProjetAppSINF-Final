@@ -34,8 +34,13 @@ router.get('/', async (req, res) => {
 
         // find all the games for the navbar game filter
         const games = await Game.find();
+
+        let logged = false;
+        if(req.session.username !== undefined){
+            logged = true;
+        }
         let data = {
-            "logged" : false,
+            "logged" : logged,
             "games" : games,
             "posts" : posts,
             "searchResults" : searchResults,

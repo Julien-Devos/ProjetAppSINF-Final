@@ -10,7 +10,7 @@ router.get('/profile', async (req, res) => {
             "user": {
                 "id": req.session.user_id,
                 "name": req.session.username,
-                "password": '********',
+                "password": 'Mot de passe de test',
                 "mail": 'test@gmail.com'
             }
         }
