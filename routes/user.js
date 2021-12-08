@@ -1,9 +1,25 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
+const Post = require('../models/Post')
+
+
 
 router.get('/profile', async (req, res) => {
     try{
+        const user = await User.findOne({"_id":req.session.user_id})
+
+        const posts = await Post.find({"author_id":req.session.user_id})
+        console.log(posts)
+
+        let likes = 0;
+        let comments = 0;
+        for (i in posts){
+            likes += posts[i]["likes"];
+            comments += posts[i]["comments"];
+        }
+        console.log(likes,comments)
+
         let logged = false;
         if(req.session.username !== undefined){
             logged = true;
@@ -14,8 +30,11 @@ router.get('/profile', async (req, res) => {
             "user": {
                 "id": req.session.user_id,
                 "name": req.session.username,
-                "password": 'Mot de passe de test',
-                "mail": 'test@gmail.com'
+                "password": user["password"],
+                "mail": user["mail"],
+                "likes" : likes,
+                "comments" : comments,
+                "posts" : posts.length
             }
         }
         res.render('profile.html',data);

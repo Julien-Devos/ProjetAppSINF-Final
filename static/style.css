@@ -468,7 +468,7 @@ form.newPost div.game-select .btn.dropdown-toggle:hover, .newpost-content.formTe
     color: var(--primary-text-color);
 }
 .likencomments div{
-    margin-left: 25%;
+    margin-left: 17%;
 }
 .likencomments p {
     display: inline-block;

@@ -81,27 +81,25 @@
 
             <p class="titre1">Nouveau post</p>
 
-            <form class="newPost" method="get" action="/">
+            <form class="newPost" method="post" action="/post/add">
 
                 <div class="game-select">
                     <label for="games" class="select-label titre2">Sélectionner un jeu:</label>
-                    <select id="games" class="selectpicker headline1" data-live-search="true" placeholder="Jeux">
-                        <option value="gameid_1">Undertale</option>
-                        <option value="gameid_2">Minecraft</option>
-                        <option value="gameid_3">Mario kart</option>
-                        <option value="gameid_4">CS-GO</option>
-                        <option value="gameid_5">Genshin impact</option>
+                    <select id="games" name="game_id" class="selectpicker headline1" data-live-search="true" placeholder="Jeux">
+                        {{#games}}
+                        <option value="{{_id}}">{{name}}</option>
+                        {{/games}}
                     </select>
                 </div>
 
                 <div class="titleArea">
                     <label for="post-title" class="form-label titre2">Intitulé du post</label>
-                    <input class="form-control post-text newpost-title" id="post-title" placeholder="Titre du post...">
+                    <input name="title" class="form-control post-text newpost-title" id="post-title" placeholder="Titre du post...">
                 </div>
 
                 <div class="contentArea">
                     <label for="post-content" class="form-label titre2">Contenu du post</label>
-                    <textarea class="form-control post-text newpost-content formTextArea" id="post-content"
+                    <textarea name="content" class="form-control post-text newpost-content formTextArea" id="post-content"
                               placeholder="Contenu du post..." inputmode=""></textarea>
                 </div>
 

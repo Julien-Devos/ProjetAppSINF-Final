@@ -45,6 +45,8 @@ router.get('/', async (req, res) => {
 router.get('/newPost', async (req, res) => {
     try{
 
+        const games = await Game.find({});
+
         let logged = false;
         if(req.session.username !== undefined){
             logged = true;
@@ -52,6 +54,7 @@ router.get('/newPost', async (req, res) => {
         let data = {
             "logged" : logged,
             "user_id": req.session.user_id,
+            "games" : games
         }
 
         res.render('newpost.html',data);

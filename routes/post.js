@@ -46,14 +46,14 @@ router.get('/', async (req, res) => {
 router.post('/add', async (req,res) => {
     const post = new Post({
         game_id: req.body.game_id,
-        author_id: req.body.author_id,
+        author_id: req.session.user_id,
         title: req.body.title,
         content: req.body.content
     });
 
     try {
         const savedPost = await post.save();
-        res.json(savedPost);
+        res.redirect('/post?id='+savedPost["_id"])
     } catch (err) {
         res.json({ message:err });
     }
