@@ -23,21 +23,25 @@ router.get('/profile', async (req, res) => {
         let logged = false;
         if(req.session.username !== undefined){
             logged = true;
-        }
-        let data = {
-            "logged" : logged,
-            "user_id" : req.session.user_id,
-            "user": {
-                "id": req.session.user_id,
-                "name": req.session.username,
-                "password": user["password"],
-                "mail": user["mail"],
-                "likes" : likes,
-                "comments" : comments,
-                "posts" : posts.length
+
+            let data = {
+                "logged" : logged,
+                "user_id" : req.session.user_id,
+                "user": {
+                    "id": req.session.user_id,
+                    "name": req.session.username,
+                    "password": user["password"],
+                    "mail": user["mail"],
+                    "likes" : likes,
+                    "comments" : comments,
+                    "posts" : posts.length
+                }
             }
+            res.render('profile.html',data);
         }
-        res.render('profile.html',data);
+        else{
+            res.redirect("/login");
+        }
 
     } catch (err) {
         if (err) throw err;

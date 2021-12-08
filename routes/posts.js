@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
         let posts = await Post.find(filter).sort({ "date" : -1}).limit(5).skip((page - 1) * 5);
 
         // complete the post with the the displayed date, the author username and the game name
-        await utils.completePost(posts,function (result){
+        await utils.completePost(posts, req.session.user_id, function (result){
             posts = result;
         });
 

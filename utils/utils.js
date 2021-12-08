@@ -67,8 +67,18 @@ module.exports = {
         f(filter);
     },
 
-    completePost: async (posts, f) => {
+    completePost: async (posts, curr_user_id, f) => {
         for (let i in posts){
+
+            if(curr_user_id !== undefined){
+                const curr_user = await User.findOne({"_id":curr_user_id});
+
+                let indexOf = curr_user["liked"].indexOf(posts[i]["_id"].toString())
+                if (indexOf > -1){
+                    posts[i]["liked"] = "liked";
+                }
+            }
+
             const user = await User.findOne({"_id": posts[i]['author_id'] });
 
             posts[i]["displayedDate"] = module.exports.dateToTime(posts[i]["date"]);
@@ -81,8 +91,19 @@ module.exports = {
         f(posts);
     },
 
-    addPostComments: async (comments, f) => {
+    addPostComments: async (comments, curr_user_id, f) => {
         for (let i in comments){
+
+            if(curr_user_id !== undefined){
+                const curr_user = await User.findOne({"_id":curr_user_id});
+                console.log(curr_user)
+
+                let indexOf = curr_user["liked"].indexOf(comments[i]["_id"].toString())
+                if (indexOf > -1){
+                    comments[i]["liked"] = "liked";
+                }
+            }
+
             let user = await User.findOne({'_id': comments[i]["author_id"]});
 
             comments[i]["author"] = user["username"];

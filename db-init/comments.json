@@ -1,4 +1,4 @@
-{"post_id": "61a9f9ad244d2ab6c69edbb6", "author_id": "61a9f8ebd422064907881668", "content": "Commentaire de test !", "likes": 0, "_id": {"$oid":"61aab8994fdb81cac971733e"}, "date": "2021-11-25T00:38:49.141Z"}
-{"post_id": "61a9f9ad244d2ab6c69edbb6", "author_id": "61a9f5c5490a21e66cf33c1b", "content": "Commentaire de test 2 !", "likes": 0, "_id": {"$oid":"61aab91d4fdb81cac9717341"}, "date": "2021-12-04T00:41:01.947Z"}
-{"post_id": "61a9f9ef1161da9fc6e22182", "author_id": "61a9f8ebd422064907881668", "content": "Commentaire de test !", "likes": 0, "_id": {"$oid":"61aabc46f576d5b16b635edc"}, "date": "2021-12-04T00:38:49.141Z"}
-{"post_id": "61a9f9ef1161da9fc6e22182", "author_id": "61a9f5c5490a21e66cf33c1b", "content": "Commentaire de test 2 !", "likes": 0, "_id": {"$oid":"61aabc5c0bfabee79b468d60"}, "date": "2021-12-04T00:41:01.947Z"}
+{"post_id": "61a9f9ad244d2ab6c69edbb6", "author_id": "61a9f8ebd422064907881668", "content": "Commentaire de test !", "likes": 0, "liked": "", "_id": {"$oid":"61aab8994fdb81cac971733e"}, "date": "2021-11-25T00:38:49.141Z"}
+{"post_id": "61a9f9ad244d2ab6c69edbb6", "author_id": "61a9f5c5490a21e66cf33c1b", "content": "Commentaire de test 2 !", "likes": 0, "liked": "", "_id": {"$oid":"61aab91d4fdb81cac9717341"}, "date": "2021-12-04T00:41:01.947Z"}
+{"post_id": "61a9f9ef1161da9fc6e22182", "author_id": "61a9f8ebd422064907881668", "content": "Commentaire de test !", "likes": 0, "liked": "", "_id": {"$oid":"61aabc46f576d5b16b635edc"}, "date": "2021-12-04T00:38:49.141Z"}
+{"post_id": "61a9f9ef1161da9fc6e22182", "author_id": "61a9f5c5490a21e66cf33c1b", "content": "Commentaire de test 2 !", "likes": 0, "liked": "", "_id": {"$oid":"61aabc5c0bfabee79b468d60"}, "date": "2021-12-04T00:41:01.947Z"}

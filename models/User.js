@@ -13,6 +13,10 @@ const UserSchema = mongoose.Schema({
     mail: {
         type: String,
         required: true
+    },
+    liked: {
+        type: Array,
+        default: []
     }
 
 })

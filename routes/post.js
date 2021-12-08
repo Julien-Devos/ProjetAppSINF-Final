@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Post = require('../models/Post');
 const Game = require('../models/Game');
+const User = require('../models/User');
 const Comment = require('../models/Comment');
 const utils = require('../utils/utils');
 
@@ -10,14 +11,16 @@ router.get('/', async (req, res) => {
         let post = await Post.find({"_id":req.query.id});
 
         // complete the posts with date, username and game
-        await utils.completePost(post,function (result){
+        await utils.completePost(post, req.session.user_id, function (result){
             post = result;
         });
+
+        console.log(post);
 
         let comments = await Comment.find({'post_id': req.query.id});
 
         // get all the comments for the post and complete them with author and date
-        await utils.addPostComments(comments,function (result){
+        await utils.addPostComments(comments, req.session.user_id, function (result){
             comments = result;
         });
 
@@ -60,12 +63,66 @@ router.post('/add', async (req,res) => {
 });
 
 router.post('/like', async (req,res) => {
-    await Post.updateOne({"_id":req.query.id},{$inc:{"likes":1}})
-
     try {
-        res.redirect('/post?id='+req.query.id)
+
+        if (req.session.user_id !== undefined) {
+            const user = await User.findOne({"_id":req.session.user_id})
+
+            let userLiked = user["liked"];
+            let indexOf = userLiked.indexOf(req.query.id)
+            if (indexOf > -1){
+
+                userLiked.splice(indexOf, 1);
+                await Post.updateOne({"_id": req.query.id}, {$inc: {"likes": -1}})
+            }
+            else {
+
+                userLiked.push(req.query.id)
+                await Post.updateOne({"_id": req.query.id}, {$inc: {"likes": 1}})
+            }
+
+            await User.updateOne({"_id": req.session.user_id}, {$set: {"liked": userLiked}})
+            res.redirect('/post?id='+req.query.id)
+        }
+        else{
+            res.redirect('/login');
+        }
+
     } catch (err) {
-        res.json({ message:err });
+        if (err) throw err;
+    }
+});
+
+router.post('/likeComm', async (req,res) => {
+    try {
+
+        if (req.session.user_id !== undefined) {
+            const user = await User.findOne({"_id":req.session.user_id});
+
+            let userLiked = user["liked"];
+            let indexOf = userLiked.indexOf(req.query.id);
+            if (indexOf > -1){
+
+                userLiked.splice(indexOf, 1);
+                await Comment.updateOne({"_id": req.query.id}, {$inc: {"likes": -1}});
+            }
+            else {
+
+                userLiked.push(req.query.id)
+                await Comment.updateOne({"_id": req.query.id}, {$inc: {"likes": 1}});
+            }
+
+            await User.updateOne({"_id": req.session.user_id}, {$set: {"liked": userLiked}});
+            const comm = await Comment.findOne({"_id": req.query.id});
+
+            res.redirect('/post?id='+comm["post_id"])
+        }
+        else{
+            res.redirect('/login');
+        }
+
+    } catch (err) {
+        if (err) throw err;
     }
 });
 
@@ -83,7 +140,7 @@ router.post('/addComment', async (req,res) => {
             res.redirect("/post?id="+req.body.post_id);
         }
         else{
-            res.redirect("/post?id="+req.body.post_id);
+            res.redirect("/login");
         }
 
 

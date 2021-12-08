@@ -857,11 +857,29 @@ nav ul.pagination{
     .page-content{
         margin: 61px 50px 50px 50px;
     }
+    .login-page{
+        width: 500px;
+    }
+    .toggle-password {
+        top: 54.85%;
+        right: 14%;
+    }
+    .toggle-password#regPass1{
+        top: 55.85%;
+        right: 12%;
+    }
+    .toggle-password#regPass2{
+        top: 71.85%;
+        right: 12%;
+    }
 }
 
 /*X-Small devices (portrait phones, less than 576px)*/
 @media (max-width: 575.98px) {
     body{
-        /*background-color: magenta;*/
+        background-color: magenta;
+    }
+    .login-page{
+        width: 400px;
     }
 }

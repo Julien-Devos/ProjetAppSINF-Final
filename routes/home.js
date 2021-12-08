@@ -9,16 +9,17 @@ router.get('/', async (req, res) => {
         let recentPosts = await Post.find().sort({ "date" : -1}).limit(5);
 
         // complete the posts with date, username and game
-        await utils.completePost(recentPosts,function (result){
+        await utils.completePost(recentPosts, req.session.user_id, function (result){
             recentPosts = result;
         });
 
         let trendingPosts = await Post.find().sort({ "likes" : -1}).limit(5);
 
         // complete the posts with date, username and game
-        await utils.completePost(trendingPosts,function (result){
+        await utils.completePost(trendingPosts, req.session.user_id, function (result){
             trendingPosts = result;
         });
+        console.log(recentPosts)
 
         // find all the games for the navbar game filter
         const games = await Game.find();
@@ -50,14 +51,17 @@ router.get('/newPost', async (req, res) => {
         let logged = false;
         if(req.session.username !== undefined){
             logged = true;
-        }
-        let data = {
-            "logged" : logged,
-            "user_id": req.session.user_id,
-            "games" : games
-        }
+            let data = {
+                "logged" : logged,
+                "user_id": req.session.user_id,
+                "games" : games
+            }
 
-        res.render('newpost.html',data);
+            res.render('newpost.html',data);
+        }
+        else{
+            res.redirect('/login');
+        }
 
     } catch (err) {
         if (err) throw err;

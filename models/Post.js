@@ -41,7 +41,13 @@ const PostSchema = mongoose.Schema({
     comments: {
         type: Number,
         default: 0
+    },
+    liked: {
+        type: String,
+        required: false,
+        default: ""
     }
+
 
 })
 

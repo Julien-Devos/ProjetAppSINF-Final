@@ -31,7 +31,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <div class="navbar-collapse row">
                         <div class="nav col-11 justify-content-center">
-                            <form class="d-flex search-bar" method="get" action="/posts" autocomplete="off">
+                            <form class="d-flex search-bar" method="get" action="posts" autocomplete="off">
                                 <select class="selectpicker titre2 game-select" name="filter" data-live-search="true" title="Filtre de jeu" data-selected-text-format="count > 1" data-width="200px" multiple>
                                     {{#games}}
                                     <option>{{name}}</option>
@@ -42,24 +42,17 @@
                             </form>
                         </div>
                         <div class="nav col-1">
-                            {{^logged}}
-                            <ul class="navbar-nav ms-auto justify-content-end">
-                                <li class="nav-item">
-                                    <a class="headline1 link" href="/login">S'identifier</a>
-                                </li>
-                            </ul>
-                            {{/logged}}
                             {{#logged}}
                             <ul class="navbar-nav ms-auto justify-content-end">
                                 <li class="nav-item dropdown">
                                     <a class="headline1" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <img src="/img/users-pfp/{{user_id}}.png" class="d-inline-block profile-pic ms-auto" onerror="this.src='/img/users-pfp/default-pfp.png';">
                                     </a>
-                                    <ul class="dropdown-menu dropdown-menu-lg-end dropdown-window-menu dropdown-profile-menu headline1" aria-labelledby="accountDropdown">
-                                        <li><a class="dropdown-item" href="user-profile"><span class="icon-Profile"></span> Profile</a></li>
+                                    <ul class="dropdown-menu dropdown-menu-lg-end dropdown-window-menu dropdown-profile-menu headline1" id="test" aria-labelledby="accountDropdown">
+                                        <li><a class="dropdown-item" href="/user/profile"><span class="icon-Profile"></span> Profile</a></li>
                                         <li><button class="dropdown-item" id="theme-toggle"><span class="icon-Dark-Mode" id="theme-icon"></span> <t id="theme-txt">Mode nuit</t></button></li>
                                         <li><hr class="dropdown-divider"></li>
-                                        <li><a class="dropdown-item" href="logout"><span class="icon-disconnect"></span> Se déconnecter</a></li>
+                                        <li><a class="dropdown-item" href="/login/logout"><span class="icon-disconnect"></span> Se déconnecter</a></li>
                                         </form>
                                     </ul>
                                 </li>
