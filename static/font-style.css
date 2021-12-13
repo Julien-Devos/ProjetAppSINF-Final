@@ -110,6 +110,19 @@
 .icon-eye-slash:before {
     content: "\e90c";
 }
+.icon-send:before{
+    content: "\e90e"
+}
+.icon-send{
+    color: var(--primary-text-color);
+}
+.icon-remove:before{
+    content: "\e90f"
+}.icon-remove{
+     color: var(--primary-text-transparent-color);
+    font-size: 14px;
+ }
+
 
 /* All fonts and text styles used in the website */
 

@@ -14,7 +14,8 @@ router.get('/', async (req, res) => {
         message = false;
 
     } catch (err) {
-        if (err) throw err;
+        console.log("Error: "+err);
+        res.render("error.html");
     }
 });
 
@@ -56,7 +57,8 @@ router.post('/reg', async (req, res) => {
             res.redirect('/register');
         }
     } catch (err) {
-        if (err) throw err;
+        console.log("Error: "+err);
+        res.render("error.html");
     }
 });
 

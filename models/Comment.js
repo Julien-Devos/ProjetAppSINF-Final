@@ -29,6 +29,14 @@ const CommentSchema = mongoose.Schema({
     likes: {
         type: Number,
         default: 0
+    },
+    like_id: {
+        type: Array,
+        default: []
+    },
+    commentAuthor: {
+        type: Boolean,
+        default: false
     }
 
 })

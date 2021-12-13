@@ -5,11 +5,26 @@ const Game = require('../models/Game');
 
 router.get('/', async (req,res) => {
     try{
-        let games = await Game.find();
+        const games = await Game.find().sort({"name":1});
 
-        res.json(games);
+        let logged = false;
+        if(req.session.username !== undefined && req.session.username === "Admin") {
+            logged = true;
+            let data = {
+                "logged": logged,
+                "user_id": req.session.user_id,
+                "games": games
+            }
+
+            res.render('game.html', data)
+        }
+        else{
+            res.redirect('/')
+        }
+
     } catch (err) {
-        if (err) throw err;
+        console.log("Error: "+err);
+        res.render("error.html");
     }
 });
 
@@ -20,10 +35,12 @@ router.post('/add', async (req,res) => {
     });
 
     try {
-        const savedGame = await game.save();
-        res.json(savedGame);
+        await game.save();
+        res.redirect('/game')
+
     } catch (err) {
-        res.json({ message:err });
+        console.log("Error: "+err);
+        res.render("error.html");
     }
 });
 

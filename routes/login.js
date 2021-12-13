@@ -13,7 +13,8 @@ router.get('/', (req, res) => {
         message = false;
 
     } catch (err) {
-        if (err) throw err;
+        console.log("Error: "+err);
+        res.render("error.html");
     }
 });
 
@@ -37,7 +38,8 @@ router.post('/log', async (req, res) => {
             res.redirect("/login")
         }
     } catch (err) {
-        if (err) throw err;
+        console.log("Error: "+err);
+        res.render("error.html");
     }
 
 });
@@ -50,8 +52,10 @@ router.get('/logout', async (req, res) => {
         req.session.user_id = undefined;
 
         res.redirect('/');
+
     } catch (err) {
-        if (err) throw err;
+        console.log("Error: "+err);
+        res.render("error.html");
     }
 
 });

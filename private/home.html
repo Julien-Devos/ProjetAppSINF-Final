@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
     <!--  Bootstrap import  -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/bad5ba018c.js" crossorigin="anonymous"></script>
@@ -19,7 +20,7 @@
 
     <header class="header" id="nav">
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-xl navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand titre1" href="/">
                     <img src="/img/logos/light-logo.svg" alt="logo" id="logo" class="d-inline-block align-text-top">
@@ -78,10 +79,20 @@
 
 
         <div class="page-content">
+            {{#admin}}
+            <div class="home-buttons">
+            {{/admin}}
+                <form method="get" action="/newPost">
+                    <button class="btn btn-outline-success btn-style buttonText" type="submit">Créer un nouveau post</button>
+                </form>
 
-            <form method="get" action="/newPost">
-                <button class="btn btn-outline-success btn-style buttonText" type="submit">Créer un nouveau post</button>
-            </form>
+                {{#admin}}
+                <form method="get" action="/game">
+                    <button class="btn btn-outline-success btn-style buttonText" type="submit">Ajouter un jeu</button>
+                </form>
+
+            </div>
+            {{/admin}}
 
             <div class="home-page-posts">
                 <label for="recent-posts" class="form-label titre2">Posts récents</label>
@@ -95,12 +106,16 @@
                             {{author}}
                         </div>
                     </a>
-                    <a class="post" href="post?id={{id}}">
 
-                        <div class="post-title titre2">
-                            {{game}} / {{title}}
+                    <div class="post-title titre2">
+                        <a href="/posts?filter={{game}}&search=">{{game}}</a>
+                        <a class="post" href="post?id={{id}}">
+                            / {{title}}
                             <p class="headline2 post-time">• {{displayedDate}}</p>
-                        </div>
+                        </a>
+                    </div>
+
+                    <a class="post" href="post?id={{id}}">
 
                         <div class="post-content post-text">
                             {{content}}
@@ -126,17 +141,24 @@
                 <div class="post-box scroller" id="trending-posts">
 
                     {{#trendingPosts}}
-                    <a class="post" href="post?id={{id}}">
+                    <a class="post" href="user?id={{author_id}}">
 
                         <div class="user-account titre2">
                             <img src="/img/users-pfp/{{author_id}}.png"  class="d-inline-block profile-pic" onerror="this.src='/img/users-pfp/default-pfp.png';">
                             {{author}}
                         </div>
 
-                        <div class="post-title titre2">
-                            {{game}} / {{title}}
+                    </a>
+
+                    <div class="post-title titre2">
+                        <a href="/posts?filter={{game}}&search=">{{game}}</a>
+                        <a class="post" href="post?id={{id}}">
+                            / {{title}}
                             <p class="headline2 post-time">• {{displayedDate}}</p>
-                        </div>
+                        </a>
+                    </div>
+
+                    <a class="post" href="post?id={{id}}">
 
                         <div class="post-content post-text">
                             {{content}}

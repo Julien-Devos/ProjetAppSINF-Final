@@ -48,6 +48,9 @@ app.use('/user', userRoute);
 app.use('/game', gameRoute);
 app.use('/login', loginRoute);
 app.use('/register', registerRoute);
+app.get('*', async (req, res) => {
+    res.render("404.html")
+});
 
 
 // Connect mongoose to db

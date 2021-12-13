@@ -71,11 +71,15 @@ module.exports = {
         for (let i in posts){
 
             if(curr_user_id !== undefined){
-                const curr_user = await User.findOne({"_id":curr_user_id});
 
-                let indexOf = curr_user["liked"].indexOf(posts[i]["_id"].toString())
+                let indexOf = posts[i]["like_id"].indexOf(curr_user_id.toString())
                 if (indexOf > -1){
                     posts[i]["liked"] = "liked";
+                }
+
+
+                if (posts[i]["author_id"] === curr_user_id){
+                    posts[i]["postAuthor"] = true;
                 }
             }
 
@@ -95,12 +99,14 @@ module.exports = {
         for (let i in comments){
 
             if(curr_user_id !== undefined){
-                const curr_user = await User.findOne({"_id":curr_user_id});
-                console.log(curr_user)
 
-                let indexOf = curr_user["liked"].indexOf(comments[i]["_id"].toString())
+                let indexOf = comments[i]["like_id"].indexOf(curr_user_id.toString())
                 if (indexOf > -1){
                     comments[i]["liked"] = "liked";
+                }
+
+                if (comments[i]["author_id"] === curr_user_id){
+                    comments[i]["commentAuthor"] = true;
                 }
             }
 

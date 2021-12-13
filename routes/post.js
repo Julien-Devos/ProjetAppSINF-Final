@@ -15,8 +15,6 @@ router.get('/', async (req, res) => {
             post = result;
         });
 
-        console.log(post);
-
         let comments = await Comment.find({'post_id': req.query.id});
 
         // get all the comments for the post and complete them with author and date
@@ -25,10 +23,10 @@ router.get('/', async (req, res) => {
         });
 
         // find all the games for the navbar game filter
-        const games = await Game.find();
+        const games = await Game.find().sort({"name":1});
 
         let logged = false;
-        if(req.session.username !== undefined){
+        if(req.session.username !== undefined) {
             logged = true;
         }
         let data = {
@@ -41,8 +39,10 @@ router.get('/', async (req, res) => {
         }
 
         res.render('post.html',data);
+
     } catch (err) {
-        if (err) throw err;
+        console.log("Error: "+err);
+        res.render("error.html");
     }
 });
 
@@ -57,8 +57,10 @@ router.post('/add', async (req,res) => {
     try {
         const savedPost = await post.save();
         res.redirect('/post?id='+savedPost["_id"])
+
     } catch (err) {
-        res.json({ message:err });
+        console.log("Error: "+err);
+        res.render("error.html");
     }
 });
 
@@ -66,22 +68,21 @@ router.post('/like', async (req,res) => {
     try {
 
         if (req.session.user_id !== undefined) {
-            const user = await User.findOne({"_id":req.session.user_id})
+            const post = await Post.findOne({"_id":req.query.id})
 
-            let userLiked = user["liked"];
-            let indexOf = userLiked.indexOf(req.query.id)
+            let postLikes = post["like_id"];
+            let indexOf = postLikes.indexOf(req.session.user_id)
             if (indexOf > -1){
 
-                userLiked.splice(indexOf, 1);
-                await Post.updateOne({"_id": req.query.id}, {$inc: {"likes": -1}})
+                postLikes.splice(indexOf, 1);
+                await Post.updateOne({"_id": req.query.id}, {$inc: {"likes": -1}, $set: {"like_id":postLikes}})
             }
             else {
 
-                userLiked.push(req.query.id)
-                await Post.updateOne({"_id": req.query.id}, {$inc: {"likes": 1}})
+                postLikes.push(req.session.user_id)
+                await Post.updateOne({"_id": req.query.id}, {$inc: {"likes": 1}, $set: {"like_id":postLikes}})
             }
 
-            await User.updateOne({"_id": req.session.user_id}, {$set: {"liked": userLiked}})
             res.redirect('/post?id='+req.query.id)
         }
         else{
@@ -89,7 +90,8 @@ router.post('/like', async (req,res) => {
         }
 
     } catch (err) {
-        if (err) throw err;
+        console.log("Error: "+err);
+        res.render("error.html");
     }
 });
 
@@ -97,32 +99,29 @@ router.post('/likeComm', async (req,res) => {
     try {
 
         if (req.session.user_id !== undefined) {
-            const user = await User.findOne({"_id":req.session.user_id});
+            const comm = await Comment.findOne({"_id":req.query.id})
 
-            let userLiked = user["liked"];
-            let indexOf = userLiked.indexOf(req.query.id);
+            let commLikes = comm["like_id"];
+            let indexOf = commLikes.indexOf(req.session.user_id);
             if (indexOf > -1){
-
-                userLiked.splice(indexOf, 1);
-                await Comment.updateOne({"_id": req.query.id}, {$inc: {"likes": -1}});
+                commLikes.splice(indexOf, 1);
+                await Comment.updateOne({"_id": req.query.id}, {$inc: {"likes": -1}, $set: {"like_id":commLikes}});
             }
             else {
-
-                userLiked.push(req.query.id)
-                await Comment.updateOne({"_id": req.query.id}, {$inc: {"likes": 1}});
+                commLikes.push(req.session.user_id)
+                await Comment.updateOne({"_id": req.query.id}, {$inc: {"likes": 1}, $set: {"like_id":commLikes}});
             }
 
-            await User.updateOne({"_id": req.session.user_id}, {$set: {"liked": userLiked}});
-            const comm = await Comment.findOne({"_id": req.query.id});
-
-            res.redirect('/post?id='+comm["post_id"])
+            const comment = await Comment.findOne({"_id": req.query.id});
+            res.redirect('/post?id='+comment["post_id"])
         }
         else{
             res.redirect('/login');
         }
 
     } catch (err) {
-        if (err) throw err;
+        console.log("Error: "+err);
+        res.render("error.html");
     }
 });
 
@@ -145,18 +144,42 @@ router.post('/addComment', async (req,res) => {
 
 
     } catch (err) {
-        if (err) throw err;
+        console.log("Error: "+err);
+        res.render("error.html");
     }
 });
 
-router.delete('/delComment', async (req,res) => {
+router.post('/delPost', async (req,res) => {
     try {
-        await Post.updateOne({"_id":req.body.post_id},{$inc:{"comments":-1}});
-        await Comment.remove({"post_id":req.body.id});
+        const post = await Post.findOne({"_id":req.body.id});
 
-        res.json(savedComment);
+        if (req.session.user_id === post["author_id"]){
+            await Post.deleteOne({"_id":req.body.id});
+            await Comment.deleteMany({"post_id":req.body.id});
+        }
+
+        res.redirect("/");
+
     } catch (err) {
-        if (err) throw err;
+        console.log("Error: "+err);
+        res.render("error.html");
+    }
+});
+
+router.post('/delComment', async (req,res) => {
+    try {
+        const comm = await Comment.findOne({"_id":req.body.id});
+
+        if (req.session.user_id === comm["author_id"]){
+            await Post.updateOne({"_id":req.body.post_id},{$inc:{"comments":-1}});
+            await Comment.deleteOne({"_id":req.body.id});
+        }
+
+        res.redirect("/post?id="+req.body.post_id);
+
+    } catch (err) {
+        console.log("Error: "+err);
+        res.render("error.html");
     }
 });
 

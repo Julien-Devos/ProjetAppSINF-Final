@@ -14,9 +14,9 @@ const UserSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    liked: {
-        type: Array,
-        default: []
+    desc: {
+        type: String,
+        default: ""
     }
 
 })

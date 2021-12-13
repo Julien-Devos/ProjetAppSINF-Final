@@ -46,6 +46,14 @@ const PostSchema = mongoose.Schema({
         type: String,
         required: false,
         default: ""
+    },
+    like_id: {
+        type: Array,
+        default: []
+    },
+    postAuthor: {
+        type: Boolean,
+        default: false
     }
 
 

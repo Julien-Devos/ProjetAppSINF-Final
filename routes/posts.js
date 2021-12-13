@@ -33,7 +33,7 @@ router.get('/', async (req, res) => {
 
 
         // find all the games for the navbar game filter
-        const games = await Game.find();
+        const games = await Game.find().sort({"name":1});
 
         let logged = false;
         if(req.session.username !== undefined){
@@ -51,8 +51,10 @@ router.get('/', async (req, res) => {
         }
 
         res.render('posts.html',data);
+
     } catch (err) {
-        if (err) throw err;
+        console.log("Error: "+err);
+        res.render("error.html");
     }
 });
 

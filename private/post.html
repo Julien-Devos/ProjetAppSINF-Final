@@ -19,7 +19,7 @@
 
   <header class="header" id="nav">
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-xl navbar-light bg-light">
       <div class="container-fluid">
         <a class="navbar-brand titre1" href="/">
           <img src="/img/logos/light-logo.svg" alt="logo" id="logo" class="d-inline-block align-text-top">
@@ -91,7 +91,15 @@
 
             <div class="post-title titre2">
               {{game}} / {{title}}
-              <p class="headline2 post-time">• {{displayedDate}}</p>
+              <div class="test">
+                <p class="headline2 post-time">• {{displayedDate}}</p>
+                {{#postAuthor}}
+                <form class="remove-btn" method="post" action="/post/delPost">
+                  <input class="hide" name="id" value="{{id}}">
+                  <button class="btn" type="submit"><span class="icon-remove"></span></button>
+                </form>
+              </div>
+              {{/postAuthor}}
             </div>
 
             <div class="post-content post-text">
@@ -119,13 +127,21 @@
 
               <div class="comment">
 
-                <a class="post" href="/user?id={{author_id}}">
+
                   <div class="user-account titre2">
-                    <img src="img/users-pfp/{{author_id}}.png" class="d-inline-block profile-pic ms-auto" onerror="this.src='/img/users-pfp/default-pfp.png';">
-                    {{author}}
+                    <a class="post" href="/user?id={{author_id}}">
+                      <img src="img/users-pfp/{{author_id}}.png" class="d-inline-block profile-pic ms-auto" onerror="this.src='/img/users-pfp/default-pfp.png';">
+                      {{author}}
+                    </a>
                     <p class="headline2 post-time">• {{displayedDate}}</p>
+                    {{#commentAuthor}}
+                    <form class="remove-btn" method="post" action="/post/delComment">
+                      <input class="hide" name="id" value="{{id}}">
+                      <input class="hide" name="post_id" value="{{post_id}}">
+                      <button class="btn" type="submit"><span class="icon-remove"></span></button>
+                    </form>
+                    {{/commentAuthor}}
                   </div>
-                </a>
 
                 <div class="post-content post-text">
                   {{content}}

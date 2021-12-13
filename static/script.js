@@ -15,8 +15,6 @@ window.addEventListener('load', function() {
     }
     fade(document.getElementById("body"))
 
-
-
     // Found on https://www.w3schools.com/js/js_cookies.asp
     function setCookie(cname, cvalue, exdays) {
         const d = new Date();
@@ -150,9 +148,11 @@ window.addEventListener('load', function() {
 
 
 
-    let filter_search = document.querySelector(".bs-searchbox .form-control");
+    let filter_search = document.querySelectorAll(".bs-searchbox .form-control");
     if (filter_search != null){
-        filter_search.placeholder = "Rechercher";
+        Array.prototype.slice.call(filter_search).forEach( (filter) => {
+            filter.placeholder = "Rechercher";
+        });
     }
     let search_dropdown = document.querySelector(".game-select ul.dropdown-menu.inner");
     if (search_dropdown != null){

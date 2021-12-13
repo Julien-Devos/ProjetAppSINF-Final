@@ -7,6 +7,7 @@
     --primary-text-transparent-color: rgba(42, 45, 52, 0.5);
     --primary-bg-color: #EDEEF0;
     --primary-blue-color: #336984;
+    --primary-blue-shadow-color: rgba(51, 105, 132, 0.3);
     --primary-blue-hover-color: #255371;
 
     --secondary-text-color: #FCFCFC;
@@ -33,6 +34,7 @@
     --primary-text-transparent-color: rgba(252, 252, 252, 0.5);
     --primary-bg-color: #202935;
     --primary-blue-color: #82CAF0;
+    --primary-blue-shadow-color: rgba(130, 202, 240, 0.3);
     --primary-blue-hover-color: #5FA0CE;
 
     --secondary-text-color: #1E222C;
@@ -83,7 +85,7 @@ body{
     background-color: var(--primary-bg-color);
     overflow-x: hidden;
     overflow-y: scroll;
-    display: none; /* To make a smooth fade in js */
+    display: none; /* made for the fade in effect in script.js */
 }
 a{
     text-decoration: none;
@@ -124,6 +126,17 @@ input{
     line-height: 40px !important;
     border-radius: 10px !important;
 }
+.center-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.center-profile{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
 /* General */
 
 
@@ -156,15 +169,15 @@ input{
     border-color: var(--alert-border-color) !important;
 }
 .alert{
-    position: absolute;
-    transform: translate(-50%,-50%);
-    left: 50%;
-    top: 19%;
+    margin-top: 100px;
+    margin-bottom: -130px;
     width: 600px;
+    height: 60px;
     border-radius: 15px;
 }
 .register-alert.alert{
     top: 15%;
+    margin-bottom: -80px;
 }
 .invalid-feedback{
     position: absolute;
@@ -270,7 +283,7 @@ div.game-select .btn.dropdown-toggle:hover{
     overflow-x: hidden;
 }
 .game-select .dropdown-menu.show{
-    height: 300px;
+    height: 310px;
 }
 .bootstrap-select .dropdown-menu.inner{
     margin-top: 0 !important;
@@ -426,6 +439,8 @@ form.newPost div.game-select .btn.dropdown-toggle:hover, .newpost-content.formTe
     background-color: var(--secondary-bg-color);
     border-radius: 15px;
     width: 600px;
+    position: relative;
+    margin: 100px auto 50px auto;
 }
 .profile-page-content{
     padding: 35px 100px 35px 100px;
@@ -435,7 +450,7 @@ form.newPost div.game-select .btn.dropdown-toggle:hover, .newpost-content.formTe
     height: 45px;
     border-radius: 10px;
     border: none;
-    text-indent: 15px;
+    text-indent: 5px;
 }
 .profile-page-content .profile-picture img{
     width: 150px;
@@ -444,8 +459,8 @@ form.newPost div.game-select .btn.dropdown-toggle:hover, .newpost-content.formTe
 }
 .EditBtn{
     position: absolute;
-    left: 335px;
-    top: 160px;
+    top: 72.5%;
+    left: 60%;
     border-radius: 100px !important;
     height: 37px !important;
     font-size: small;
@@ -456,9 +471,8 @@ form.newPost div.game-select .btn.dropdown-toggle:hover, .newpost-content.formTe
     display: none;
 }
 .profile-picture{
-    padding: 0 50px 0 50px;
-    margin-top: 4%;
-    margin-bottom: 12%;
+    margin: 4% 50px 12% 50px;
+    position: relative;
 }
 .username, .email, .password {
     margin-bottom: 8%;
@@ -474,11 +488,108 @@ form.newPost div.game-select .btn.dropdown-toggle:hover, .newpost-content.formTe
     display: inline-block;
 }
 .toggle-password#profilePass{
-    top: 60.4%;
-    right: 23%;
+    top: 45.5%;
+    right: 20%;
+}
+.form-control.description{
+    height: 150px !important;
+    background-color: var(--primary-bg-color);
+    resize: none;
+    border: 0;
+    border-radius: 10px;
+    text-indent: 5px;
+}
+.send-desc{
+    position: absolute;
+    top: 81%;
+    right: 18.5%;
+    border-radius: 20px;
+    background-color: var(--shadow-color);
+}
+.send-desc:hover .icon-send{
+    color: var(--primary-text-hover-color);
+}
+.form-control:disabled{
+    background-color: var(--primary-bg-color) !important;
 }
 
 /** profile page style **/
+
+
+/***************************************************  User page  ******************************************************/
+
+
+.user-page{
+    height: 800px;
+    width: 1200px;
+    max-width: 90%;
+    background-color: var(--secondary-bg-color);
+    border-radius: 15px;
+    box-shadow: 0 0 5px 4px rgba(26, 25, 25, 0.2);
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    margin: 100px auto 50px auto;
+    overflow: hidden;
+}
+.user-page .profile-picture img{
+    vertical-align: middle;
+    margin: 0;
+    width: 150px;
+    height: 150px;
+    border-radius: 100px;
+}
+.user-page .profile-picture{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+.user-page .username{
+    display: inline-block;
+    margin: 0;
+    word-break: break-all;
+}
+.profile-info{
+    position: relative;
+    display: inline-block;
+    margin-left: 20px;
+    width: 50%;
+    margin-top: 25px;
+}
+.stats{
+    margin-top: 12px;
+    color: var(--primary-text-color);
+}
+.stats div{
+    margin-left: 10%;
+}
+.stats div:first-child{
+    margin-left: 0;
+}
+.stats p {
+    display: inline-block;
+}
+.user-desc{
+    height: 225px;
+    width: 800px;
+    max-width: 100%;
+    margin: 15px 0 15px 0;
+}
+.user-desc p{
+    margin-top: 2px;
+    word-break: break-word;
+}
+.user-posts{
+    height: 100%;
+    width: 100%;
+    background-color: var(--primary-bg-color);
+    box-shadow: 0 0 8px 2px var(--primary-blue-shadow-color);
+    border-radius: 15px 0 0 15px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 30px 40px 30px 40px;
+}
 
 
 /******************************************************  Login  *******************************************************/
@@ -488,20 +599,18 @@ form.newPost div.game-select .btn.dropdown-toggle:hover, .newpost-content.formTe
     height: 700px;
     width: 600px;
     background-color: var(--secondary-bg-color);
-    position: absolute;
-    transform: translate(-50%,-50%);
-    top: 50%;
-    left: 50%;
+    position: relative;
     border-radius: 15px;
-    /*backdrop-filter: blur(10px);*/
     box-shadow: 0 0 5px 4px rgba(26, 25, 25, 0.2);
     padding: 40px 50px 20px;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    margin: 150px 0 25px 0;
 }
 .login-page.register-page {
     height: 800px;
+    margin-top: 100px;
 }
 .login-page h1.titre3-Underlined, .loginLink, .login-page div.form-button{
     display: flex;
@@ -533,12 +642,41 @@ form.newPost div.game-select .btn.dropdown-toggle:hover, .newpost-content.formTe
     color: var(--primary-text-transparent-color);
 }
 .toggle-password#regPass1{
-    top: 55.85%;
+    top: 39.85%;
     right: 12%;
 }
 .toggle-password#regPass2{
-    top: 71.85%;
+    top: 55.85%;
     right: 12%;
+}
+
+/******************************************************  Game *********************************************************/
+
+.game-label{
+    margin-top: 50px;
+}
+.game-add{
+    display: flex;
+    flex-direction: row;
+}
+.game-add input{
+    background-color: var(--secondary-bg-color);
+    margin-bottom: 80px;
+    border-radius: 15px 0 0 15px !important;
+    width: 500px;
+}
+.game-add button{
+    border-radius: 0 15px 15px 0 !important;
+}
+.game-add button:hover{
+    box-shadow: 0 0 2px 2px var(--primary-blue-shadow-color);
+}
+.game-add input:hover{
+    box-shadow: 0 0 2px 2px var(--darker-bg-hover-color);
+}
+.game-add input:focus{
+    box-shadow: 0 0 2px 2px var(--darker-bg-hover-color);
+    background-color: var(--secondary-bg-color) !important;
 }
 
 /****************************************************  Dropdowns  *****************************************************/
@@ -642,8 +780,14 @@ span t.headline2{
     display: inline-block;
     margin-left: 60px;
 }
-.post-box .box-divider:last-child{
+.box-divider:last-child{
     display: none;
+}
+.remove-btn{
+    display: inline-block;
+}
+.date-remove p{
+    display: inline-block;
 }
 
 
@@ -702,7 +846,7 @@ button.btn-close {
     width: 100%;
     height: 800px;
     overflow: auto;
-    border: 2px solid var(--primary-blue-color);
+    box-shadow: 0 0 8px 2px var(--primary-blue-shadow-color);
     background-color: var(--secondary-bg-color);
     padding: 25px;
     border-radius: 10px 0 0 10px;
@@ -711,6 +855,13 @@ button.btn-close {
     margin: 40px 100px 40px 100px;
     background-color: var(--primary-text-transparent-color);
     height: 2px;
+}
+.home-buttons{
+    display: flex;
+    flex-direction: row;
+}
+.home-buttons form:last-child{
+    margin-left: 50px;
 }
 /* Home page posts */
 
@@ -721,6 +872,7 @@ button.btn-close {
     border-radius: 10px;
     height: 100%;
     border: 0;
+    margin-top: 10px;
 }
 nav ul.pagination{
     margin-top: 20px;
@@ -764,15 +916,80 @@ nav ul.pagination{
 
 /* Styling for posts */
 
+/*******************************************************  Errors  *****************************************************/
+
+/* 404 page */
+.err-window{
+    height: 500px;
+    width: 800px;
+    max-width: 90%;
+    background-color: rgba(61, 40, 40, 0.1);
+    position: relative;
+    margin-top: 13%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 50px 35px;
+    color: var(--primary-text-color);
+}
+.err-window h1{
+    margin-top: -60px;
+    font-weight: bold;
+    font-size: 250px;
+    display: flex;
+    justify-content: center;
+}
+.err-window h2{
+    font-weight: bold;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+}
+.err{
+    overflow: hidden;
+    background-image: url("/img/bg.svg");
+    background-repeat: no-repeat;
+    height: 1500px;
+    background-size: cover;
+}
+.err-window form{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+/* 404 page */
+
+/* error page */
+
+.err-window.error h1{
+    margin-top: -10px;
+    font-size: 200px;
+}
+.err-window.error h2{
+    margin-top: 20px;
+    font-size: 32px;
+}
+
+/* error page */
 
 /*************************************************  Breakpoints  ******************************************************/
 
+.test{
+    display: inline-block;
+}
+
+@media (max-width: 1550px) {
+    .nav-item .link{
+        margin-left: -10px;
+    }
+}
 
 /* All the above is for XXL screens since the website is desktop first designed */
 /*X-Large devices (large desktops, less than 1400px)*/
 @media (max-width: 1399.98px) {
     body{
-        background-color: red;
+        /*background-color: red;*/
     }
     ul.navbar-nav.game{
         margin-left: 10%;
@@ -780,29 +997,18 @@ nav ul.pagination{
     .page-content{
         margin: 61px 120px 50px 120px;
     }
+    .nav-item .link{
+        margin-left: -30px;
+    }
+    .user-page{
+        /*margin: 100px 25px 50px 25px;*/
+    }
 }
 
 /*Large devices (desktops, less than 1200px)*/
 @media (max-width: 1199.98px) {
     body{
-        background-color: green;
-    }
-    ul.navbar-nav.game{
-        margin-left: 0;
-    }
-    form.search-bar{
-        width: 80%;
-        margin-left: 10%;
-    }
-    .page-content{
-        margin: 61px 80px 50px 80px;
-    }
-}
-
-/*Medium devices (tablets, less than 992px)  Navbar goes in mobile mode  */
-@media (max-width: 991.98px) {
-    body{
-        background-color: yellow;
+        /*background-color: green;*/
     }
     button.navbar-toggler {
         border: 0;
@@ -817,8 +1023,14 @@ nav ul.pagination{
         background-color: var(--secondary-bg-color);
         box-shadow: 0 0 4px 1px var(--shadow-color);
     }
-    div.navbar-collapse ul.navbar-nav{
-        margin-left: 0;
+    div.navbar-collapse.row div.nav.col-11{
+        margin-left: 10px;
+        margin-top: 10px;
+    }
+    .navbar-collapse.row .nav.col-1{
+        display: block;
+        margin-left: 18px;
+        margin-top: 15px !important;
     }
     ul.navbar-nav.ms-auto{
         margin-bottom: 20px;
@@ -833,6 +1045,22 @@ nav ul.pagination{
     .nav.col-3, .nav.col-6{
         width: 80%;
     }
+    .page-content{
+        margin: 61px 80px 50px 80px;
+    }
+    .nav-item .link{
+        margin-left: 0;
+    }
+    .modal-dialog{
+         max-width: 900px;
+    }
+}
+
+/*Medium devices (tablets, less than 992px)  Navbar goes in mobile mode  */
+@media (max-width: 991.98px) {
+    body{
+        /*background-color: yellow;*/
+    }
 
     /* Posts */
     .post-box{
@@ -843,43 +1071,197 @@ nav ul.pagination{
     .comments{
         margin-left: 50px;
     }
+    .modal-dialog{
+        max-width: 700px;
+    }
+
+    .user-posts{
+        padding: 30px 20px 30px 20px;
+    }
+
+    .err-window{
+        height: 450px;
+    }
+    .err-window .Titre1{
+        font-size: 225px !important;
+    }
+    .err-window .Titre2{
+        font-size: 36px !important;
+    }
+    .err-window.error h1{
+        font-size: 175px !important;
+    }
+    .err-window.error h2{
+        font-size: 28px !important;
+    }
 }
 
 /*Small devices (landscape phones, less than 768px)*/
 @media (max-width: 767.98px) {
     body{
-        background-color: pink;
+        /*background-color: pink;*/
     }
     .post-time{
-        display: block;
         margin-left: 0;
     }
+    .date-remove{
+        display: block;
+    }
     .page-content{
-        margin: 61px 50px 50px 50px;
+        margin: 61px 25px 50px 25px;
     }
     .login-page{
         width: 500px;
+        margin: 100px 25px 25px 25px;
+        padding: 40px 30px 20px;
+    }
+    .alert{
+        margin-bottom: -80px;
+        width: 500px;
+    }
+    .login-page.register-page h1{
+        font-size: 43px;
     }
     .toggle-password {
         top: 54.85%;
-        right: 14%;
+        right: 11%;
     }
     .toggle-password#regPass1{
-        top: 55.85%;
-        right: 12%;
+        top: 39.5%;
+        right: 11%;
     }
     .toggle-password#regPass2{
-        top: 71.85%;
-        right: 12%;
+        top: 55.5%;
+        right: 11%;
+    }
+    .home-buttons{
+        display: flex;
+        flex-direction: column;
+    }
+    .home-buttons form:last-child{
+        margin-top: 25px;
+        margin-left: 0;
+    }
+    .modal-dialog{
+        max-width: 600px;
+    }
+    .profile-page{
+        margin: 100px 25px 50px 25px;
+    }
+    .profile-page-content{
+        padding: 35px 60px 35px 60px;
+    }
+    .toggle-password#profilePass{
+        right: 15%;
+    }
+    .send-desc{
+        right: 13.3%;
+    }
+
+    .err-window{
+        height: 400px;
+    }
+    .err-window .Titre1{
+        font-size: 200px !important;
+    }
+    .err-window .Titre2{
+        font-size: 25px !important;
+    }
+    .err-window.error h1{
+        font-size: 140px !important;
+    }
+    .err-window.error h2{
+        font-size: 22px !important;
     }
 }
 
 /*X-Small devices (portrait phones, less than 576px)*/
 @media (max-width: 575.98px) {
     body{
-        background-color: magenta;
+        /*background-color: magenta;*/
+    }
+    .titre1{
+        font-size: 28px !important;
     }
     .login-page{
         width: 400px;
+        padding: 40px 20px 20px;
+    }
+    .alert{
+        width: 400px;
+    }
+    .login-page.register-page h1{
+        font-size: 34px;
+    }
+    .toggle-password {
+        top: 54.85%;
+        right: 11%;
+    }
+    .toggle-password#regPass1{
+        top: 34%;
+        right: 11%;
+    }
+    .toggle-password#regPass2{
+        top: 54.5%;
+        right: 11%;
+    }
+    .game-add{
+        display: flex;
+        flex-direction: column;
+    }
+    .game-add input{
+        margin-bottom: 20px;
+        border-radius: 15px !important;
+        width: 100%;
+    }
+    .game-add button{
+        border-radius: 15px !important;
+        width: 200px;
+    }
+    .modal-dialog{
+        max-width: 400px;
+    }
+    .modal-header .titre1{
+        font-size: 25px !important;
+        margin-bottom: 0 !important;
+    }
+    .profile-page-content{
+        padding: 35px 40px 35px 40px;
+    }
+    .toggle-password#profilePass{
+        right: 16%;
+    }
+    .send-desc{
+        right: 15%;
+    }
+
+    .user-page .profile-picture img{
+        width: 80px;
+        height: 80px;
+    }
+    .user-posts{
+        padding: 20px 15px 20px 15px;
+    }
+    .username .titre1{
+        font-size: 20px !important;
+    }
+    .register-page .titre3-Underlined{
+        font-size: 23px !important;
+    }
+
+    .err-window{
+        height: 350px;
+    }
+    .err-window .Titre1{
+        font-size: 150px !important;
+    }
+    .err-window .Titre2{
+        font-size: 15px !important;
+    }
+    .err-window.error h1{
+        font-size: 110px !important;
+    }
+    .err-window.error h2{
+        font-size: 16px !important;
     }
 }

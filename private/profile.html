@@ -19,7 +19,7 @@
 
     <header class="header" id="nav">
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-xl navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand titre1" href="/">
                     <img src="/img/logos/light-logo.svg" alt="logo" id="logo" class="d-inline-block align-text-top">
@@ -31,7 +31,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <div class="navbar-collapse row">
                         <div class="nav col-11 justify-content-center">
-                            <form class="d-flex search-bar" method="get" action="posts" autocomplete="off">
+                            <form class="d-flex search-bar" method="get" action="/posts" autocomplete="off">
                                 <select class="selectpicker titre2 game-select" name="filter" data-live-search="true" title="Filtre de jeu" data-selected-text-format="count > 1" data-width="200px" multiple>
                                     {{#games}}
                                     <option>{{name}}</option>
@@ -66,37 +66,50 @@
 
     </header>
 
-    <section id="content">
-        <div class="container-fluid profile-page position-absolute top-50 start-50 translate-middle">
+    <section id="content" class="center-profile">
+
+        <div class="profile-page">
+
             <div class="profile-page-content">
 
                 {{#user}}
-                <div class="profile-picture profile-pic-div">
+                <div class="profile-picture">
 
                     <img src="/img/users-pfp/{{id}}.png" class="d-block profile-pic mx-auto badge" onerror="this.src='/img/users-pfp/default-pfp.png';">
 
-                    <form method="post" action="/user/profile/update" id="profilePicForm" enctype="multipart/form-data">
-                        <label class="EditBtn btn btn-outline-success btn-style">
-                            <input class="form-control" id="formFile" type="file" accept="image/*" name="file">
-                            <span class="icon-Edit"></span>
-                        </label>
-                    </form>
+                    <div class="edit-pfp">
+                        <form method="post" action="/user/profile/update" id="profilePicForm" enctype="multipart/form-data">
+                            <label class="EditBtn btn btn-outline-success btn-style">
+                                <input class="form-control" id="formFile" type="file" accept="image/*" name="file">
+                                <span class="icon-Edit"></span>
+                            </label>
+                        </form>
+                    </div>
 
                 </div>
 
                 <div class="username">
                     <label for="username" class="titre2">Nom d'utilisateur</label>
-                    <input class="headline1" placeholder="{{name}}" id="username" disabled>
+                    <input class="form-control headline1" placeholder="{{name}}" id="username" disabled>
                 </div>
                 <div class="password">
                     <label for="password" class="titre2">Mot de passe</label>
-                    <input class="headline1" placeholder="{{password}}" id="password" disabled>
+                    <input class="form-control headline1" placeholder="{{password}}" id="password" disabled>
                     <button class="toggle-password" type="button" id="profilePass" title="Afficher le mot de passe"><span class="icon-eye"></span></button>
                 </div>
                 <div class="email">
                     <label for="mail" class="titre2">Adresse e-mail</label>
-                    <input class="headline1" placeholder="{{mail}}" id="mail" disabled>
+                    <input class="form-control headline1" placeholder="{{mail}}" id="mail" disabled>
                 </div>
+
+                <form method="post" action="/user/profile/updateDesc">
+
+                    <label for="desc" class="titre2">Description</label>
+                    <textarea class="form-control formTextArea description headline1" placeholder="{{desc}}" name="desc" id="desc"></textarea>
+                    <button type="submit" title="Changer la description" class="btn send-desc"><span class="icon-send"></span></button>
+
+                </form>
+
                 <div class="likencomments">
                     <div class="d-inline-block" title="Nombre de likes reçu">
                         <p class="headline2">{{likes}}</p> <span class="icon-Like"></span>

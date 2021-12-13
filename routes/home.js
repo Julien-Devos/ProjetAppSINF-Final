@@ -19,26 +19,32 @@ router.get('/', async (req, res) => {
         await utils.completePost(trendingPosts, req.session.user_id, function (result){
             trendingPosts = result;
         });
-        console.log(recentPosts)
 
         // find all the games for the navbar game filter
-        const games = await Game.find();
+        const games = await Game.find().sort({"name":1});
 
         let logged = false;
+        let admin = false;
         if(req.session.username !== undefined){
             logged = true;
+            if (req.session.username === "Admin"){
+                admin = true;
+            }
         }
         let data = {
-            "logged" : logged,
-            "user_id" : req.session.user_id,
-            "games" : games,
-            "recentPosts" : recentPosts,
-            "trendingPosts" : trendingPosts
+            "logged": logged,
+            "user_id": req.session.user_id,
+            "games": games,
+            "admin": admin,
+            "recentPosts": recentPosts,
+            "trendingPosts": trendingPosts
         }
 
         res.render('home.html',data);
+
     } catch (err) {
-        if (err) throw err;
+        console.log("Error: "+err);
+        res.render("error.html");
     }
 });
 
@@ -46,7 +52,7 @@ router.get('/', async (req, res) => {
 router.get('/newPost', async (req, res) => {
     try{
 
-        const games = await Game.find({});
+        const games = await Game.find().sort({"name":1});
 
         let logged = false;
         if(req.session.username !== undefined){
@@ -64,7 +70,8 @@ router.get('/newPost', async (req, res) => {
         }
 
     } catch (err) {
-        if (err) throw err;
+        console.log("Error: "+err);
+        res.render("error.html");
     }
 });
 
