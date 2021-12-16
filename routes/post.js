@@ -5,6 +5,7 @@ const Game = require('../models/Game');
 const User = require('../models/User');
 const Comment = require('../models/Comment');
 const utils = require('../utils/utils');
+const fs = require("fs");
 
 router.get('/', async (req, res) => {
     try{
@@ -46,16 +47,26 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.post('/add', async (req,res) => {
-    const post = new Post({
-        game_id: req.body.game_id,
-        author_id: req.session.user_id,
-        title: req.body.title,
-        content: req.body.content
-    });
 
+router.post('/add', async (req,res) => {
     try {
+        const user = await User.findOne({"_id":req.session.user_id});
+        const game = await Game.findOne({"_id":req.body.game_id});
+
+        let currDate = new Date().toLocaleString("fr-BE").split(',')[0];
+
+        const post = new Post({
+            game_id: req.body.game_id,
+            author_id: req.session.user_id,
+            title: req.body.title,
+            content: req.body.content,
+            subject: user["username"] + " " + game["name"] + " " + req.body.title + " " + req.body.content + " " + currDate
+        });
+
         const savedPost = await post.save();
+
+        await utils.updatePostsWords(savedPost);
+
         res.redirect('/post?id='+savedPost["_id"])
 
     } catch (err) {
@@ -135,7 +146,11 @@ router.post('/addComment', async (req,res) => {
             });
             await comment.save();
 
-            await Post.updateOne({"_id":req.body.post_id},{$inc:{"comments":1}});
+            const post = await Post.findOne({"_id":req.body.post_id});
+
+            let newSubject = post["subject"] + " " +  req.body.content;
+
+            await Post.updateOne({"_id":req.body.post_id},{$inc:{"comments":1},$set:{"subject":newSubject}});
             res.redirect("/post?id="+req.body.post_id);
         }
         else{
@@ -157,6 +172,8 @@ router.post('/delPost', async (req,res) => {
             await Post.deleteOne({"_id":req.body.id});
             await Comment.deleteMany({"post_id":req.body.id});
         }
+
+        await utils.deletePostWords(req.body.id);
 
         res.redirect("/");
 

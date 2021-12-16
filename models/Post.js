@@ -54,9 +54,16 @@ const PostSchema = mongoose.Schema({
     postAuthor: {
         type: Boolean,
         default: false
+    },
+    subject: {
+        type: String,
+        default: "",
+        index: true
     }
 
 
 })
+
+PostSchema.index({"subject":"text"});
 
 module.exports = mongoose.model('Posts', PostSchema);

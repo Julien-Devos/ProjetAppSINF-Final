@@ -3,6 +3,8 @@ const router = express.Router();
 const utils = require("../utils/utils");
 const Post = require('../models/Post');
 const Game = require("../models/Game");
+const fs = require("fs");
+const e = require("express");
 
 router.get('/', async (req, res) => {
     try{
@@ -16,14 +18,29 @@ router.get('/', async (req, res) => {
         let { page = 1 } = req.query;
         page = parseInt(page);
 
-        let posts = await Post.find(filter).sort({ "date" : -1}).limit(5).skip((page - 1) * 5);
+
+        // .limit(5).skip((page - 1) * 5)
+        let posts = await Post.find(filter).sort({ "date" : -1});
+
+        console.log("filter:",JSON.stringify(filter));
+
+        let sortedResults = [];
+        console.log(req.query.search)
+        if (req.query.search !== "" && req.query.search !== undefined){
+            await utils.orderResults(posts,sortedResults,req);
+        }
+        else {
+            sortedResults = posts;
+        }
+
 
         // complete the post with the the displayed date, the author username and the game name
         await utils.completePost(posts, req.session.user_id, function (result){
             posts = result;
         });
 
-        let nbrPosts = (await Post.find(filter)).length;
+        let allPosts = await Post.find(filter);
+        let nbrPosts = allPosts.length;
 
         // text to say how many posts were found according to the search request
         let searchResults = utils.searchResults(req, nbrPosts);
@@ -43,7 +60,7 @@ router.get('/', async (req, res) => {
             "logged" : logged,
             "user_id" : req.session.user_id,
             "games" : games,
-            "posts" : posts,
+            "posts" : sortedResults,
             "searchResults" : searchResults,
             "previous": pageNav[0],
             "pagination": pageNav[1],
@@ -54,7 +71,8 @@ router.get('/', async (req, res) => {
 
     } catch (err) {
         console.log("Error: "+err);
-        res.render("error.html");
+        if (err) throw err;
+        // res.render("error.html");
     }
 });
 

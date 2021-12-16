@@ -1,5 +1,6 @@
 const Game = require("../models/Game");
 const User = require("../models/User");
+const fs = require("fs");
 
 module.exports = {
 
@@ -52,7 +53,12 @@ module.exports = {
             const gameFilter = req.query.filter;
             if (typeof gameFilter === "string"){
                 const game = await Game.findOne({"name":gameFilter});
-                filter = {"game_id":game["_id"]};
+                if (req.query.search !== ""){
+                    filter = {$and: [{"game_id":game["_id"]},{$text: {$search: req.query.search}}]};
+                }
+                else{
+                    filter = {$and: [{"game_id":game["_id"]}]};
+                }
             }
             else{
                 let orList = [];
@@ -61,8 +67,19 @@ module.exports = {
                     const game = await Game.findOne({"name":gameFilter[i]});
                     orList.push({"game_id":game["_id"]});
                 }
-                filter = {$or: orList};
+                if (req.query.search !== ""){
+                    filter = {$and: [{$or: orList},{$text: {$search: req.query.search}}]};
+                }
+                else{
+                    filter = {$and: [{$or: orList}]};
+                }
             }
+        }
+        else if (req.query.search === ""){
+            filter = {};
+        }
+        else{
+            filter = {$text: {$search: req.query.search}};
         }
         f(filter);
     },
@@ -150,12 +167,13 @@ module.exports = {
     },
 
     searchResults: (req, nbrPosts) => {
+
         if (req.query.filter === undefined && req.query.search === ""){
             return "Il y a au total " + nbrPosts + " posts sur le site." // message displayed when no filter and no search
         }
         else {
             let filters = req.query.filter;
-            if ( ! (typeof filters === "string") ){
+            if ( typeof filters === "object" ){
                 filters = req.query.filter.join(", ");
             }
 
@@ -169,5 +187,140 @@ module.exports = {
                 return nbrPosts + ' posts trouvés pour: " ' + filters + ' " contenant " ' + req.query.search + ' ".'  // message displayed when search and filter
             }
         }
+    },
+
+    // Remove point or comma and s if the word is in the plural
+    lemmatisation: (m) => {
+        if (m.substring(m.length-2,m.length) === 's.' || m.substring(m.length-2,m.length) === 's,'){
+            return m.substring(0,m.length-2);
+        }
+        else if (m[m.length-1] === 's' || m[m.length-1] === ',' || m[m.length-1] === '.'){
+            return m.substring(0,m.length-1);
+        }
+        return m;
+    },
+
+    // TF or Term Frequency of m (a word) and d (all occurs of words in the current doc)
+    tfFunct: (m,d) => {
+        let occurOfmInDoc = d[m];
+        let numberOfWordsInDoc = 0;
+        for (let word in d){
+            numberOfWordsInDoc += d[word];
+        }
+        return Math.log10(1+(occurOfmInDoc/numberOfWordsInDoc));
+    },
+
+    // IDF or Inverse Document Frequency of docs with word compare to all docs
+    idfFunct: (docsWithWord,allDocs) => {
+        return Math.log10(allDocs/docsWithWord);
+    },
+
+    updatePostsWords: async (savedPost) => {
+
+        await fs.readFile('./private/postsWords.json', 'utf8', (err, jsonString) => {
+            if (err) {
+                console.log("File read failed: ", err);
+                return;
+            }
+            let postsWords = JSON.parse(jsonString);
+            let docIndex = savedPost["_id"];
+
+            let docContent = {};
+            let splittedSubject = savedPost["subject"].split(" ");
+
+            for (let i = 0; i<splittedSubject.length; i++){
+                let currWord = module.exports.lemmatisation(splittedSubject[i].toLowerCase())
+
+                if (currWord in docContent){
+                    docContent[currWord] ++;
+                }
+                else{
+                    docContent[currWord] = 1;
+                }
+            }
+
+            postsWords[docIndex] = docContent;
+
+            let newJson = JSON.stringify(postsWords)
+
+            fs.writeFile('./private/postsWords.json', newJson, err => {
+                if (err) {
+                    console.log('Error writing file: ', err)
+                }
+            })
+
+        })
+
+    },
+
+    deletePostWords: async (post_id) => {
+
+        await fs.readFile('./private/postsWords.json', 'utf8', (err, jsonString) => {
+            if (err) {
+                console.log("File read failed: ", err);
+                return;
+            }
+
+            let postsWords = JSON.parse(jsonString);
+
+            delete postsWords[post_id];
+
+            let newJson = JSON.stringify(postsWords)
+
+            fs.writeFile('./private/postsWords.json', newJson, err => {
+                if (err) {
+                    console.log('Error writing file: ', err)
+                }
+            })
+
+        })
+
+    },
+
+    orderResults: async (posts,sortedResults,req) => {
+        await fs.readFile('./private/postsWords.json', 'utf8', (err, jsonString) => {
+            let order = [];
+
+            if (err) {
+                console.log("File read failed: ", err)
+                return;
+            }
+            let postsWords = JSON.parse(jsonString);
+
+            let search = req.query.search.toLowerCase().split(" ");
+            let tf_idf = {};
+            for (let i = 0; i < posts.length; i++) {
+                for (let j = 0; j < search.length; j++) {
+                    let currSearchedWord = module.exports.lemmatisation(search[j].toLowerCase())
+                    let tf = 0;
+                    let idf = 0;
+                    if (currSearchedWord in postsWords[posts[i]["_id"]]) {
+                        tf = module.exports.tfFunct(currSearchedWord, postsWords[posts[i]["_id"]]);
+                        idf = module.exports.idfFunct(posts.length, Object.keys(postsWords).length);
+                        if (posts[i]["_id"] in tf_idf) {
+                            tf_idf[posts[i]["_id"]] += tf * idf;
+                        } else {
+                            tf_idf[posts[i]["_id"]] = tf * idf;
+                        }
+                    }
+                }
+            }
+
+            for (let doc in tf_idf) {
+                order.push([doc, tf_idf[doc]])
+            }
+            order.sort(function (a, b) {
+                return b[1] - a[1];
+            })
+
+
+            for (let i = 0; i < order.length; i++) {
+                for (let j = 0; j < posts.length; j++) {
+                    if (posts[j]["_id"].toString() === order[i][0]) {
+                        sortedResults[i] = posts[j];
+                    }
+                }
+            }
+        });
     }
 };
