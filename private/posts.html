@@ -89,23 +89,28 @@
                 <div class="post-box scroller">
 
                     {{#posts}}
-                    <a class="post" href="/post?id={{_id}}">
-
+                    <a class="post" href="/user?id={{author_id}}">
                         <div class="user-account titre2">
                             <img src="/img/users-pfp/{{author_id}}.png" class="d-inline-block profile-pic" onerror="this.src='/img/users-pfp/default-pfp.png';">
                             {{author}}
                         </div>
+                    </a>
 
-                        <div class="post-title titre2">
-                            {{game}} / {{title}}
+                    <div class="post-title titre2">
+                        <a href="/posts?filter={{game}}&search=">{{game}}</a>
+                        <a class="post" href="post?id={{id}}">
+                            / {{title}}
                             <p class="headline2 post-time">• {{displayedDate}}</p>
-                        </div>
+                        </a>
+                    </div>
+
+                    <a class="post" href="post?id={{id}}">
 
                         <div class="post-content post-text">
                             {{content}}
                         </div>
 
-                        <div class="nb-likes">
+                        <div class="nb-likes {{liked}}">
                             <span class="icon-Like"><t class="headline2">{{likes}}</t></span>
                         </div>
                         <div class="nb-comms">

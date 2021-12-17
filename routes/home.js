@@ -4,6 +4,7 @@ const utils = require('../utils/utils');
 const Post = require('../models/Post');
 const Game = require('../models/Game');
 
+
 router.get('/', async (req, res) => {
     try{
         let recentPosts = await Post.find().sort({ "date" : -1}).limit(5);

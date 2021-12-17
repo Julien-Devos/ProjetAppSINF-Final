@@ -136,6 +136,17 @@ input{
     flex-direction: row;
     justify-content: center;
 }
+.cookieModalContent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.cookieModalContent p{
+    margin: 25px 0 50px;
+}
+.cookieModalContent button{
+    margin-bottom: 25px;
+}
 
 /* General */
 
@@ -789,6 +800,9 @@ span t.headline2{
 .date-remove p{
     display: inline-block;
 }
+.remove{
+    display: inline-block;
+}
 
 
 /* add comment modal */
@@ -974,10 +988,6 @@ nav ul.pagination{
 /* error page */
 
 /*************************************************  Breakpoints  ******************************************************/
-
-.test{
-    display: inline-block;
-}
 
 @media (max-width: 1550px) {
     .nav-item .link{

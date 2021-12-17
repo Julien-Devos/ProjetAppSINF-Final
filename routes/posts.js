@@ -3,11 +3,10 @@ const router = express.Router();
 const utils = require("../utils/utils");
 const Post = require('../models/Post');
 const Game = require("../models/Game");
-const fs = require("fs");
-const e = require("express");
 
 router.get('/', async (req, res) => {
     try{
+
         // create the filter for the db search
         let filter = "";
         await utils.createSearchFilter(req,function (result) {
@@ -19,13 +18,10 @@ router.get('/', async (req, res) => {
         page = parseInt(page);
 
 
-        // .limit(5).skip((page - 1) * 5) //TODO gérer la pagination avec sorted results
         let posts = await Post.find(filter).sort({ "date" : -1});
 
-        console.log("filter:",JSON.stringify(filter));
 
         let orderedResults = [];
-        console.log(req.query.search)
         if (req.query.search !== "" && req.query.search !== undefined){
             await utils.orderResults(posts,req, (result) => {
                 orderedResults = result;
@@ -36,13 +32,16 @@ router.get('/', async (req, res) => {
         }
 
 
+        // make orderedResults array contains correct posts for pagination
+        orderedResults = utils.correctPosts(orderedResults,page);
+
+
         // complete the post with the the displayed date, the author username and the game name
         await utils.completePost(posts, req.session.user_id, function (result){
             posts = result;
         });
 
-        let allPosts = await Post.find(filter);
-        let nbrPosts = allPosts.length;
+        let nbrPosts = posts.length;
 
         // text to say how many posts were found according to the search request
         let searchResults = utils.searchResults(req, nbrPosts);
@@ -70,12 +69,10 @@ router.get('/', async (req, res) => {
         }
 
         res.render('posts.html',data);
-        console.log("FINAL RES",orderedResults)
 
     } catch (err) {
         console.log("Error: "+err);
-        if (err) throw err;
-        // res.render("error.html");
+        res.render("error.html");
     }
 });
 

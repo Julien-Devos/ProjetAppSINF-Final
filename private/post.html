@@ -90,8 +90,10 @@
             </a>
 
             <div class="post-title titre2">
-              {{game}} / {{title}}
-              <div class="test">
+              <a href="/posts?filter={{game}}&search=">{{game}}</a>
+              / {{title}}
+
+              <div class="remove">
                 <p class="headline2 post-time">• {{displayedDate}}</p>
                 {{#postAuthor}}
                 <form class="remove-btn" method="post" action="/post/delPost">

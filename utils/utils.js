@@ -48,13 +48,20 @@ module.exports = {
 
     createSearchFilter: async (req,f) => {
         let filter = {};
+        let search = req.query.search;
+
+        if (req.query.search !== undefined){
+            search = module.exports.lemmatizeWordsOfString(req.query.search);
+        }
+        console.log("SEARCH:",search)
 
         if (! (req.query.filter === undefined) ){
+
             const gameFilter = req.query.filter;
             if (typeof gameFilter === "string"){
                 const game = await Game.findOne({"name":gameFilter});
                 if (req.query.search !== ""){
-                    filter = {$and: [{"game_id":game["_id"]},{$text: {$search: req.query.search}}]};
+                    filter = {$and: [{"game_id":game["_id"]},{$text: {$search: search}}]};
                 }
                 else{
                     filter = {$and: [{"game_id":game["_id"]}]};
@@ -68,7 +75,7 @@ module.exports = {
                     orList.push({"game_id":game["_id"]});
                 }
                 if (req.query.search !== ""){
-                    filter = {$and: [{$or: orList},{$text: {$search: req.query.search}}]};
+                    filter = {$and: [{$or: orList},{$text: {$search: search}}]};
                 }
                 else{
                     filter = {$and: [{$or: orList}]};
@@ -79,7 +86,7 @@ module.exports = {
             filter = {};
         }
         else{
-            filter = {$text: {$search: req.query.search}};
+            filter = {$text: {$search: search}};
         }
         f(filter);
     },
@@ -189,15 +196,22 @@ module.exports = {
         }
     },
 
-    // Remove point or comma and s if the word is in the plural
-    lemmatisation: (m) => {
-        if (m.substring(m.length-2,m.length) === 's.' || m.substring(m.length-2,m.length) === 's,'){
-            return m.substring(0,m.length-2);
+    // Remove point or comma, s if the word is in the plural and l' or s' or c' or qu'
+    lemmatisation: (s) => {
+        if(s.substring(0,2) === "l'" || s.substring(0,2) === "s'" || s.substring(0,2) === "c'"){
+            s = s.substring(2,s.length)
         }
-        else if (m[m.length-1] === 's' || m[m.length-1] === ',' || m[m.length-1] === '.'){
-            return m.substring(0,m.length-1);
+        else if (s.substring(0,3) === "qu'"){
+            s = s.substring(3,s.length)
         }
-        return m;
+
+        if (s.substring(s.length-2,s.length) === 's.' || s.substring(s.length-2,s.length) === 's,'){
+            s = s.substring(0,s.length-2);
+        }
+        else if (s[s.length-1] === 's' || s[s.length-1] === ',' || s[s.length-1] === '.'){
+            s = s.substring(0,s.length-1);
+        }
+        return s;
     },
 
     // TF or Term Frequency of m (a word) and d (all occurs of words in the current doc)
@@ -328,5 +342,35 @@ module.exports = {
             }
             f(sortedResults)
         });
+    },
+
+    lemmatizeWordsOfString: (m) => {
+        let splittedString = m.toLowerCase().split(" ");
+        let finalString = "";
+        for (let i=0; i<splittedString.length; i++){
+            finalString += module.exports.lemmatisation(splittedString[i]) + " ";
+        }
+        return finalString.trimRight();
+    },
+
+    // used to render only the posts of the right page
+    correctPosts: (results,page) => {
+        let postLimit = 5;
+        let posts = [];
+        let index = 0;
+        if (page > 1){
+            index = ((page-1)*5);
+        }
+        let limit = postLimit*page;
+        if (limit >= results.length){
+            limit = results.length;
+        }
+
+        console.log("index:",index+"\npage:",page+"\npostLimit",postLimit*page)
+        for (let i=index; i<limit; i++){
+            posts.push(results[i]);
+        }
+
+        return posts;
     }
 };

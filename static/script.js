@@ -184,4 +184,19 @@ window.addEventListener('load', function() {
         }, false)
     });
 
+
+    // cookie consent modal
+    const cookieBtn = document.getElementById("cookieBtn");
+    const cookieAccept = document.getElementById("acceptCookies");
+
+    cookieAccept.addEventListener("click", () => {
+        localStorage.setItem("CookieAccepted", "true");
+    });
+
+    setTimeout(() => {
+        if (!localStorage.getItem("CookieAccepted")) {
+            cookieBtn.click();
+        }
+    }, 1000);
+
 });

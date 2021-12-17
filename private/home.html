@@ -56,7 +56,7 @@
                                         <a class="headline1" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             <img src="/img/users-pfp/{{user_id}}.png" class="d-inline-block profile-pic ms-auto" onerror="this.src='/img/users-pfp/default-pfp.png';">
                                         </a>
-                                        <ul class="dropdown-menu dropdown-menu-lg-end dropdown-window-menu dropdown-profile-menu headline1" id="test" aria-labelledby="accountDropdown">
+                                        <ul class="dropdown-menu dropdown-menu-lg-end dropdown-window-menu dropdown-profile-menu headline1" aria-labelledby="accountDropdown">
                                             <li><a class="dropdown-item" href="/user/profile"><span class="icon-Profile"></span> Profile</a></li>
                                             <li><button class="dropdown-item" id="theme-toggle"><span class="icon-Dark-Mode" id="theme-icon"></span> <t id="theme-txt">Mode nuit</t></button></li>
                                             <li><hr class="dropdown-divider"></li>
@@ -79,6 +79,7 @@
 
 
         <div class="page-content">
+
             {{#admin}}
             <div class="home-buttons">
             {{/admin}}
@@ -180,6 +181,24 @@
             </div>
 
         </div>
+
+
+        <button type="button" id="cookieBtn" class="btn hide" data-bs-toggle="modal" data-bs-target="#cookieModal"></button>
+        <div class="modal fade" id="cookieModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+
+                    <div class="modal-body cookieModalContent">
+                        <p class="titre2">Ce site utilise les cookies pour fonctionner correctement.</p>
+                        <button class="btn btn-outline-success btn-style buttonText" id="acceptCookies" data-bs-dismiss="modal" aria-label="Close">Accepter</button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
 
     </section>
 

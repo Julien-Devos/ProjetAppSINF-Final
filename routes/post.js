@@ -55,12 +55,14 @@ router.post('/add', async (req,res) => {
 
         let currDate = new Date().toLocaleString("fr-BE").split(',')[0];
 
+        let subject = await user["username"] + " " + game["name"] + " " + utils.lemmatizeWordsOfString(req.body.title + " " + req.body.content) + " " + currDate;
+
         const post = new Post({
             game_id: req.body.game_id,
             author_id: req.session.user_id,
             title: req.body.title,
             content: req.body.content,
-            subject: user["username"] + " " + game["name"] + " " + req.body.title + " " + req.body.content + " " + currDate
+            subject: subject
         });
 
         const savedPost = await post.save();

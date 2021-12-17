@@ -78,7 +78,7 @@
 
                 <div class="game-select">
                     <label for="games" class="select-label titre2">Sélectionner un jeu:</label>
-                    <select id="games" name="game_id" class="selectpicker headline1" data-live-search="true" placeholder="Jeux">
+                    <select id="games" name="game_id" class="selectpicker headline1" data-live-search="true" placeholder="Jeux" required>
                         {{#games}}
                         <option value="{{_id}}">{{name}}</option>
                         {{/games}}
@@ -87,13 +87,13 @@
 
                 <div class="titleArea">
                     <label for="post-title" class="form-label titre2">Intitulé du post</label>
-                    <input name="title" class="form-control post-text newpost-title" id="post-title" placeholder="Titre du post...">
+                    <input name="title" class="form-control post-text newpost-title" id="post-title" placeholder="Titre du post..." required>
                 </div>
 
                 <div class="contentArea">
                     <label for="post-content" class="form-label titre2">Contenu du post</label>
                     <textarea name="content" class="form-control post-text newpost-content formTextArea" id="post-content"
-                              placeholder="Contenu du post..." inputmode=""></textarea>
+                              placeholder="Contenu du post..." inputmode="" required></textarea>
                 </div>
 
                 <button type="submit" class="btn btn-outline-success btn-style buttonText">Soumettre</button>
