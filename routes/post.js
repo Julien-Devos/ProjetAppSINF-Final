@@ -188,7 +188,10 @@ router.post('/delComment', async (req,res) => {
         const comm = await Comment.findOne({"_id":req.body.id});
 
         if (req.session.user_id === comm["author_id"]){
-            await Post.updateOne({"_id":req.body.post_id},{$inc:{"comments":-1}});
+            const post = await Post.findOne({"_id":req.body.post_id});
+            let newSubject = post["subject"].replace(comm["content"],"");
+
+            await Post.updateOne({"_id":req.body.post_id},{$inc:{"comments":-1},$set:{"subject":newSubject}});
             await Comment.deleteOne({"_id":req.body.id});
         }
 

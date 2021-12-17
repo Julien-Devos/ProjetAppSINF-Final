@@ -51,6 +51,7 @@ const PostSchema = mongoose.Schema({
         type: Array,
         default: []
     },
+    // used for delete post
     postAuthor: {
         type: Boolean,
         default: false

@@ -277,7 +277,8 @@ module.exports = {
 
     },
 
-    orderResults: async (posts,sortedResults,req) => {
+    orderResults: async (posts,req,f) => {
+        let sortedResults = [];
         await fs.readFile('./private/postsWords.json', 'utf8', (err, jsonString) => {
             let order = [];
 
@@ -313,14 +314,19 @@ module.exports = {
                 return b[1] - a[1];
             })
 
-
-            for (let i = 0; i < order.length; i++) {
-                for (let j = 0; j < posts.length; j++) {
-                    if (posts[j]["_id"].toString() === order[i][0]) {
-                        sortedResults[i] = posts[j];
+            if (order.length === 0){
+                sortedResults = posts;
+            }
+            else{
+                for (let i = 0; i < order.length; i++) {
+                    for (let j = 0; j < posts.length; j++) {
+                        if (posts[j]["_id"].toString() === order[i][0]) {
+                            sortedResults[i] = posts[j];
+                        }
                     }
                 }
             }
+            f(sortedResults)
         });
     }
 };

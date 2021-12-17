@@ -19,18 +19,20 @@ router.get('/', async (req, res) => {
         page = parseInt(page);
 
 
-        // .limit(5).skip((page - 1) * 5)
+        // .limit(5).skip((page - 1) * 5) //TODO gérer la pagination avec sorted results
         let posts = await Post.find(filter).sort({ "date" : -1});
 
         console.log("filter:",JSON.stringify(filter));
 
-        let sortedResults = [];
+        let orderedResults = [];
         console.log(req.query.search)
         if (req.query.search !== "" && req.query.search !== undefined){
-            await utils.orderResults(posts,sortedResults,req);
+            await utils.orderResults(posts,req, (result) => {
+                orderedResults = result;
+            });
         }
         else {
-            sortedResults = posts;
+            orderedResults = posts;
         }
 
 
@@ -60,7 +62,7 @@ router.get('/', async (req, res) => {
             "logged" : logged,
             "user_id" : req.session.user_id,
             "games" : games,
-            "posts" : sortedResults,
+            "posts" : orderedResults,
             "searchResults" : searchResults,
             "previous": pageNav[0],
             "pagination": pageNav[1],
@@ -68,6 +70,7 @@ router.get('/', async (req, res) => {
         }
 
         res.render('posts.html',data);
+        console.log("FINAL RES",orderedResults)
 
     } catch (err) {
         console.log("Error: "+err);
