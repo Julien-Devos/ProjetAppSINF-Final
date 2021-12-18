@@ -55,7 +55,7 @@ router.post('/add', async (req,res) => {
 
         let currDate = new Date().toLocaleString("fr-BE").split(',')[0];
 
-        let subject = await user["username"] + " " + game["name"] + " " + utils.lemmatizeWordsOfString(req.body.title + " " + req.body.content) + " " + currDate;
+        let subject = await user["username"] + " " + game["name"] + " " + utils.lemmatizeWordsOfString(req.body.title + " " + (req.body.content).replace(/(\r\n|\n|\r)/gm, " ")) + " " + currDate;
 
         const post = new Post({
             game_id: req.body.game_id,

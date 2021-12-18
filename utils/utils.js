@@ -53,7 +53,6 @@ module.exports = {
         if (req.query.search !== undefined){
             search = module.exports.lemmatizeWordsOfString(req.query.search);
         }
-        console.log("SEARCH:",search)
 
         if (! (req.query.filter === undefined) ){
 
@@ -249,7 +248,9 @@ module.exports = {
                     docContent[currWord] ++;
                 }
                 else{
-                    docContent[currWord] = 1;
+                    if (currWord !== ""){
+                        docContent[currWord] = 1;
+                    }
                 }
             }
 
