@@ -14,7 +14,7 @@ Nous devions donc utiliser MongoDB et Node.js avec express, hogan et consolidate
 
 - Utilise Node.js v14.18.1
 
-- Utilise MongoDB v5.0.3 avec MongoDB Database tools installé.
+- Utilise MongoDB v5.0.3 avec MongoDB Database tools installés.
 
 - Nécessite d'avoir installé les packages node.js nécessaires.
 

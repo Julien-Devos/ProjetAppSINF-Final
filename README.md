@@ -7,7 +7,7 @@ Final project of group F for the LINFO1212 course at UCLouvain.
 
 The goal of the project is to create a website that have a database, users accounts with login system and search into
 the database. For the final project, we were free to choose the subject of the website. The only constraint were that
-we have to use the systems listed before and use the following technologies.\
+we had to use the systems listed before and use the following technologies.\
 We had to use MongoDB and Node.js with express, hogan and consolidate.
 
 ## Requirements:
@@ -23,9 +23,8 @@ We had to use MongoDB and Node.js with express, hogan and consolidate.
   
   $ npm install
   ```
-  
-- Pour pouvoir tester le site correctement, des données d'exemples sont disponibles.
-- In order to test the website directly, example datas are available.
+
+- In order to test the website directly, examples data are available.
 
   ```batch
   To import them:
