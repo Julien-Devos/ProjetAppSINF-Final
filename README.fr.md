@@ -47,3 +47,14 @@ Nous devions donc utiliser MongoDB et Node.js avec express, hogan et consolidate
   ```
 
 - Ensuite vous pouvez accéder au site en suivant le lien imprimé dans la console.
+
+## Quelques précisions:
+
+Pour ajouter des jeux, il suffit de se connecter sur le compte administrateur. Dans les données d'exemples
+(username: Admin, password: admin). Ou alors se créer un compte avec comme nom d'utilisateur "Admin".\
+Une fois que c'est fait, un bouton apparaitra sur la page d'accueil pour ajouter un jeu.
+
+Le site utilise le fichier postsWords.json pour stocker une table des mots de chaque post pour permettre de classer 
+les documents par pertinence quand une recherche est effectuée. Ce fichier contient de base les données d'exemple.
+Pour utiliser le site à zéro, il est conseillé de vider ce fichier.
+

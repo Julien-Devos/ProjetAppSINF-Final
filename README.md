@@ -24,7 +24,7 @@ We had to use MongoDB and Node.js with express, hogan and consolidate.
   $ npm install
   ```
 
-- In order to test the website directly, examples data are available.
+- In order to test the website directly, sample data are available.
 
   ```batch
   To import them:
@@ -47,3 +47,13 @@ We had to use MongoDB and Node.js with express, hogan and consolidate.
   ```
 
 - And then you can follow the link printed in the console to access the website.
+
+## Some precisions
+
+To add games, just log into the administrator account. In the sample data
+(username: Admin, password: admin). Or create an account with the username "Admin". \
+Once it's done, a button will appear on the home page to add a game.
+
+The site uses the postsWords.json file to store a table of words for each post to allow classification
+documents by relevance when a search is performed. This file contains basic sample data.
+To use the website from scratch, it is advisable to empty this file.
