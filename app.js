@@ -54,7 +54,7 @@ app.get('*', async (req, res) => {
 
 
 // Connect mongoose to db
-mongoose.connect('mongodb://localhost:27017/finalAppSinf' , () => {
+mongoose.connect('mongodb://localhost:27017/GameTalks' , () => {
     console.log('Connected to db')
 });
 

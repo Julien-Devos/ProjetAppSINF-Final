@@ -366,7 +366,6 @@ module.exports = {
             limit = results.length;
         }
 
-        console.log("index:",index+"\npage:",page+"\npostLimit",postLimit*page)
         for (let i=index; i<limit; i++){
             posts.push(results[i]);
         }
