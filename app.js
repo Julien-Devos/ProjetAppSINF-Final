@@ -1,18 +1,20 @@
 const express = require('express');
 const mongoose = require('mongoose')
 const bodyParser = require("body-parser");
-const consolidate = require('consolidate');
 const favicon = require("serve-favicon");
 const session = require('express-session');
+const upload = require('express-fileupload');
+const consolidate = require('consolidate');
 const https = require("https");
 const fs = require("fs");
-const upload = require('express-fileupload');
+
 
 // Create app and set the used port for the server
 const app = express();
 const port = 8080;
 
 
+// sets the engines used and session
 app.engine ('html', consolidate.hogan );
 app.set('views', __dirname + '/private');
 app.use(express.static(__dirname + '/static'));
@@ -54,7 +56,7 @@ app.get('*', async (req, res) => {
 
 
 // Connect mongoose to db
-mongoose.connect('mongodb://localhost:27017/GameTalks' , () => {
+mongoose.connect('mongodb://localhost:27017/GameTalks', () => {
     console.log('Connected to db')
 });
 

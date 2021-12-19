@@ -4,6 +4,13 @@ const fs = require("fs");
 
 module.exports = {
 
+
+    /**
+     * Used to transform a Date obj into a string to tell how much time has passed since the post has been posted
+     *
+     * @param {Date} postDate Date the post has been posted.
+     * @return {string} how much time has passed since the post has been posted
+     */
     dateToTime: (postDate) => {
         let currDate = new Date();
         const months = ["Janv.","Févr.","Mars","Avr.","Mai","Juin","Juil.","Août","Sep.","Oct.","Nov.","Déc."];
@@ -46,6 +53,14 @@ module.exports = {
         }
     },
 
+
+    /**
+     * Create a filter for the search in the db
+     *
+     * @param req
+     * @param f
+     * @returns {Promise<void>} execute the function f with the filter created
+     */
     createSearchFilter: async (req,f) => {
         let filter = {};
         let search = req.query.search;
@@ -90,6 +105,15 @@ module.exports = {
         f(filter);
     },
 
+
+    /**
+     * Complete a post with Author's username, displayedDate, game name and liked if the curr user has liked this post
+     *
+     * @param posts
+     * @param curr_user_id
+     * @param f
+     * @returns {Promise<void>} execute the function f with the completed post
+     */
     completePost: async (posts, curr_user_id, f) => {
         for (let i in posts){
 
@@ -118,6 +142,15 @@ module.exports = {
         f(posts);
     },
 
+
+    /**
+     * Complete comments with Author's username, displayedDate and liked if the curr user has liked this comment
+     *
+     * @param comments
+     * @param curr_user_id
+     * @param f
+     * @returns {Promise<void>} execute the function f with the completed post
+     */
     addPostComments: async (comments, curr_user_id, f) => {
         for (let i in comments){
 
@@ -141,6 +174,16 @@ module.exports = {
         f(comments)
     },
 
+
+    /**
+     * Returns the pagination params according to the number of posts and the current page
+     *
+     * @param req
+     * @param {number} page
+     * @param {Array} posts
+     * @param {number} nbrPosts
+     * @returns {Array} array with pagination params
+     */
     pagination: (req,page,posts,nbrPosts) => {
 
         const pageNbr = Math.ceil(nbrPosts/5);
@@ -174,6 +217,14 @@ module.exports = {
         return pageNav;
     },
 
+
+    /**
+     * Returns informations string with total found posts according to the search for the posts page
+     *
+     * @param req
+     * @param nbrPosts
+     * @returns {string}
+     */
     searchResults: (req, nbrPosts) => {
 
         if (req.query.filter === undefined && req.query.search === ""){
@@ -197,7 +248,13 @@ module.exports = {
         }
     },
 
-    // Remove point or comma, s if the word is in the plural and l' or s' or c' or qu'
+
+    /**
+     * Remove point or comma, s if the word is in the plural and l' or s' or c' or qu'
+     *
+     * @param s
+     * @returns {string}
+     */
     lemmatisation: (s) => {
         if(s.substring(0,2) === "l'" || s.substring(0,2) === "s'" || s.substring(0,2) === "c'"){
             s = s.substring(2,s.length)
@@ -215,7 +272,14 @@ module.exports = {
         return s;
     },
 
-    // TF or Term Frequency of m (a word) and d (all occurs of words in the current doc)
+
+    /**
+     * Returns the term frequency of the word m in document d
+     *
+     * @param m
+     * @param d
+     * @returns {number}
+     */
     tfFunct: (m,d) => {
         let occurOfmInDoc = d[m];
         let numberOfWordsInDoc = 0;
@@ -225,11 +289,26 @@ module.exports = {
         return Math.log10(1+(occurOfmInDoc/numberOfWordsInDoc));
     },
 
-    // IDF or Inverse Document Frequency of docs with word compare to all docs
+
+    /**
+     * Return inverse document frequency of the docs containing the words according to all docs
+     *
+     * @param docsWithWord
+     * @param allDocs
+     * @returns {number}
+     */
     idfFunct: (docsWithWord,allDocs) => {
         return Math.log10(allDocs/docsWithWord);
     },
 
+
+    /**
+     * Update the postsWords.json with the subject of the saved posts
+     * Count occur of each word in the savedPost subject and update the json file
+     *
+     * @param savedPost
+     * @returns {Promise<void>}
+     */
     updatePostsWords: async (savedPost) => {
 
         await fs.readFile('./private/postsWords.json', 'utf8', (err, jsonString) => {
@@ -270,6 +349,13 @@ module.exports = {
 
     },
 
+
+    /**
+     * Update the postsWords.json file when a post is deleted
+     *
+     * @param post_id
+     * @returns {Promise<void>}
+     */
     deletePostWords: async (post_id) => {
 
         await fs.readFile('./private/postsWords.json', 'utf8', (err, jsonString) => {
@@ -294,6 +380,15 @@ module.exports = {
 
     },
 
+
+    /**
+     * Used to sort the searched posts according to the pertinence of each post
+     *
+     * @param posts
+     * @param req
+     * @param f
+     * @returns {Promise<void>} execute the f function with the sorted posts
+     */
     orderResults: async (posts,req,f) => {
         let sortedResults = [];
         await fs.readFile('./private/postsWords.json', 'utf8', (err, jsonString) => {
@@ -347,6 +442,13 @@ module.exports = {
         });
     },
 
+
+    /**
+     * Used to apply the lemmatisation function to all word of a string
+     *
+     * @param m
+     * @returns {string}
+     */
     lemmatizeWordsOfString: (m) => {
         let splittedString = m.toLowerCase().split(" ");
         let finalString = "";
@@ -356,7 +458,14 @@ module.exports = {
         return finalString.trimRight();
     },
 
-    // used to render only the posts of the right page
+
+    /**
+     * Returns the right posts according to the current page when a search is made
+     *
+     * @param results
+     * @param page
+     * @returns {Array}
+     */
     correctPosts: (results,page) => {
         let postLimit = 5;
         let posts = [];

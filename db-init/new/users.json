@@ -1,4 +1,5 @@
-{"_id":{"$oid":"61b0e42ac43c593f2655717e"},"username":"Admin","password":"admin","mail":"admin@gmail.com","desc":"C'est moi l'admin, donc fais attention ! 💀"}
 {"_id":{"$oid":"61b0e4eac43c593f265571e7"},"username":"PabloLeBest","password":"pab","mail":"pablo@gmail.com","desc":""}
+{"_id":{"$oid":"61b0e42ac43c593f2655717e"},"username":"Admin","password":"admin","mail":"admin@gmail.com","desc":"C'est moi l'admin, donc fais attention ! 💀"}
 {"_id":{"$oid":"61bcd0aed7ba6570ebef9057"},"username":"Hecker","password":"1234","mail":"hecker@gmail.com","desc":"I'm the h@cker","__v":0}
 {"_id":{"$oid":"61bd0c72d7ba6570ebef91cf"},"username":"Kevin23_","password":"kev","mail":"kevkev@gmail.com","desc":"😥","__v":0}
+{"_id":{"$oid":"61be39cf7a1e25615cb62b57"},"username":"_RageCat_","password":"rage","mail":"RageCat@gmail.com","desc":"","__v":0}
