@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--  Bootstrap import  -->
+    <!--  Import Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <!--  style and script  -->
-    <link rel="stylesheet" href="font-style.css">
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-    <title>Profile</title>
+    <link rel="stylesheet" href="/font-style.css">
+    <link rel="stylesheet" href="/style.css">
+    <script src="/script.js"></script>
+    <title>Se connecter - Game talks</title>
 </head>
 <body id="body">
 
@@ -29,7 +29,7 @@
 <section id="content" class="center-content">
 
     {{#logError}}
-    <div class="alert alert-danger headline1" role="alert">
+    <div class="alert login alert-danger headline1" role="alert">
         {{message}}
     </div>
     {{/logError}}
@@ -44,7 +44,8 @@
 
             <div class="form-item">
                 <label for="post-title" class="titre2">Nom d'utilisateur</label>
-                <input class="form-control headline1" id="post-title" name="username" placeholder="Nom d'utilisateur" required>
+                <input class="form-control headline1" id="post-title" name="username" placeholder="Nom d'utilisateur"
+                       required>
                 <div class="invalid-feedback">
                     Veuillez rentrer votre nom d'utilisateur.
                 </div>
@@ -52,8 +53,10 @@
 
             <div class="form-item">
                 <label for="password" class="titre2">Mot de passe</label>
-                <input class="form-control headline1" id="password" name="password" type="password" placeholder="Mot de passe" required>
-                <button class="toggle-password" type="button" id="logPass" title="Afficher le mot de passe"><span class="icon-eye-slash"></span></button>
+                <input class="form-control headline1" id="password" name="password" type="password"
+                       placeholder="Mot de passe" required>
+                <button class="toggle-password" type="button" id="logPass" title="Afficher le mot de passe"><span
+                        class="icon-eye-slash"></span></button>
                 <div class="invalid-feedback">
                     Veuillez rentrer votre mot de passe.
                 </div>
@@ -72,6 +75,8 @@
 
 </section>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
 </body>
 </html>

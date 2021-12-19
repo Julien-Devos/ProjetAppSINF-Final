@@ -6,6 +6,7 @@ const Game = require("../models/Game");
 
 router.get('/', async (req, res) => {
     try{
+        let search = "Posts";
 
         // create the filter for the db search
         let filter = "";
@@ -19,6 +20,10 @@ router.get('/', async (req, res) => {
 
 
         let posts = await Post.find(filter).sort({ "date" : -1});
+        let noPosts = false;
+        if (posts.length === 0){
+            noPosts = true;
+        }
 
 
         let orderedResults = [];
@@ -26,6 +31,7 @@ router.get('/', async (req, res) => {
             await utils.orderResults(posts,req, (result) => {
                 orderedResults = result;
             });
+            search = req.query.search;
         }
         else {
             orderedResults = posts;
@@ -60,12 +66,14 @@ router.get('/', async (req, res) => {
         let data = {
             "logged" : logged,
             "user_id" : req.session.user_id,
+            "search": search,
             "games" : games,
             "posts" : orderedResults,
             "searchResults" : searchResults,
             "previous": pageNav[0],
             "pagination": pageNav[1],
-            "next": pageNav[2]
+            "next": pageNav[2],
+            "noPosts": noPosts
         }
 
         res.render('posts.html',data);

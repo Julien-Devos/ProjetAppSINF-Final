@@ -144,31 +144,33 @@ module.exports = {
     pagination: (req,page,posts,nbrPosts) => {
 
         const pageNbr = Math.ceil(nbrPosts/5);
+        let pageNav = [false,false,false];
 
-        let filterParams = "";
-        if (! (req.query.filter === undefined) ){
-            filterParams = "&filter="+req.query.filter;
-        }
-        let link = "/posts?search="+req.query.search+filterParams+"&page=";
-
-        let pageNav = [{"disabled":"","link":link+(page-1)},[],{"disabled":"","link":link+(page+1)}];
-
-        if (page === 1){
-            pageNav[0]["disabled"] = "disabled"
-        }
-        if (page === pageNbr){
-            pageNav[2]["disabled"] = "disabled"
-        }
-
-        for (let i = 0; i<pageNbr; i++){
-            let status = "";
-            if (i+1 === page){
-                status = "active";
+        if (nbrPosts > 0){
+            let filterParams = "";
+            if (! (req.query.filter === undefined) ){
+                filterParams = "&filter="+req.query.filter;
             }
-            let linkParams = {"active":status,"link":"/posts?search="+req.query.search+filterParams+"&page="+(i+1),"page":i+1};
-            pageNav[1].push(linkParams)
-        }
+            let link = "/posts?search="+req.query.search+filterParams+"&page=";
 
+            pageNav = [{"disabled":"","link":link+(page-1)},[],{"disabled":"","link":link+(page+1)}];
+
+            if (page === 1){
+                pageNav[0]["disabled"] = "disabled"
+            }
+            if (page === pageNbr){
+                pageNav[2]["disabled"] = "disabled"
+            }
+
+            for (let i = 0; i<pageNbr; i++){
+                let status = "";
+                if (i+1 === page){
+                    status = "active";
+                }
+                let linkParams = {"active":status,"link":"/posts?search="+req.query.search+filterParams+"&page="+(i+1),"page":i+1};
+                pageNav[1].push(linkParams)
+            }
+        }
         return pageNav;
     },
 

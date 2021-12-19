@@ -41,6 +41,7 @@ router.get('/', async (req, res) => {
         let data = {
             "logged": logged,
             "games": games,
+            "username": user["username"],
             "user_id": req.session.user_id,
             "id": user["_id"],
             "name": user["username"],

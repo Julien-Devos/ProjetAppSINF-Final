@@ -1,43 +1,44 @@
-window.addEventListener('load', function() {
+// Found on https://www.w3schools.com/js/js_cookies.asp
+function setCookie(cname, cvalue, exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    let expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
 
-    // Make a smooth fade in when the page load
-    function fade(element) {
-        var op = 0.1;  // initial opacity
-        element.style.display = 'block';
-        var timer = setInterval(function () {
-            if (op >= 1) {
-                clearInterval(timer);
-            }
-            element.style.opacity = op;
-            element.style.filter = 'alpha(opacity=' + op * 100 + ")";
-            op += op * 0.1;
-        }, 10);
-    }
-    fade(document.getElementById("body"))
-
-    // Found on https://www.w3schools.com/js/js_cookies.asp
-    function setCookie(cname, cvalue, exdays) {
-        const d = new Date();
-        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-        let expires = "expires="+d.toUTCString();
-        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-    }
-
-    function getCookie(cname) {
-        let name = cname + "=";
-        let ca = document.cookie.split(';');
-        for(let i = 0; i < ca.length; i++) {
-            let c = ca[i];
-            while (c.charAt(0) == ' ') {
-                c = c.substring(1);
-            }
-            if (c.indexOf(name) == 0) {
-                return c.substring(name.length, c.length);
-            }
+function getCookie(cname) {
+    let name = cname + "=";
+    let ca = document.cookie.split(';');
+    for(let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) === ' ') {
+            c = c.substring(1);
         }
-        return "";
+        if (c.indexOf(name) === 0) {
+            return c.substring(name.length, c.length);
+        }
     }
+    return "";
+}
 
+// Make a smooth fade in when the page load
+function fade(element) {
+    let op = 0.1;
+    element.style.display = 'block';
+    let timer = setInterval(function () {
+        if (op >= 1) {
+            clearInterval(timer);
+        }
+        element.style.opacity = op;
+        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+        op += op * 0.1;
+    }, 10);
+}
+
+window.addEventListener('load', () => {
+
+
+    fade(document.getElementById("body"))
 
 
     // used to show password in login forms
@@ -75,6 +76,7 @@ window.addEventListener('load', function() {
     }
 
 
+
     let showPassBtn = document.getElementById("profilePass");
     let profilePassInput = document.getElementById("password");
     let profileEyeIcon = document.querySelector(".icon-eye");
@@ -93,6 +95,7 @@ window.addEventListener('load', function() {
             profileEyeIcon.classList.toggle("icon-eye");
         }
     }
+
 
 
     // Apply dark theme or light theme when button is clicked
@@ -137,7 +140,7 @@ window.addEventListener('load', function() {
 
 
 
-    // used to submit profile picture when changed
+    // used to submit profile picture when changed on profile page
     let formFile = document.getElementById("formFile");
     let form = document.getElementById("profilePicForm");
     if (formFile !== null) {
@@ -148,6 +151,7 @@ window.addEventListener('load', function() {
 
 
 
+    // Change placeholder and scrollbar in game select from bootstrap-select
     let filter_search = document.querySelectorAll(".bs-searchbox .form-control");
     if (filter_search != null){
         Array.prototype.slice.call(filter_search).forEach( (filter) => {
@@ -170,6 +174,7 @@ window.addEventListener('load', function() {
     });
 
 
+
     // Find forms that needs validation and validate them
     // From bootstrap 5 doc https://getbootstrap.com/docs/5.0/forms/validation/#how-it-works
     let forms = document.querySelectorAll('.needs-validation')
@@ -185,18 +190,22 @@ window.addEventListener('load', function() {
     });
 
 
+
     // cookie consent modal
     const cookieBtn = document.getElementById("cookieBtn");
     const cookieAccept = document.getElementById("acceptCookies");
 
-    cookieAccept.addEventListener("click", () => {
-        localStorage.setItem("CookieAccepted", "true");
-    });
+    if (cookieBtn !== null){
 
-    setTimeout(() => {
-        if (!localStorage.getItem("CookieAccepted")) {
-            cookieBtn.click();
-        }
-    }, 1000);
+        cookieAccept.addEventListener("click", () => {
+            localStorage.setItem("CookieAccepted", "true");
+        });
+
+        setTimeout(() => {
+            if (!localStorage.getItem("CookieAccepted")) {
+                cookieBtn.click();
+            }
+        }, 1000);
+    }
 
 });

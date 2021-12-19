@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js"
+    "start": "node app.js"
   },
   "author": "Groupe F",
   "license": "Apache 2.0",
@@ -20,7 +19,6 @@
     "loader": "^2.1.1",
     "mongodb": "^4.2.0",
     "mongoose": "^6.0.14",
-    "nodemon": "^2.0.15",
     "serve-favicon": "^2.5.0",
     "stack": "^0.1.0"
   }

@@ -3,131 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--  Bootstrap import  -->
+    <!--  Import Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/bad5ba018c.js" crossorigin="anonymous"></script>
     <!-- Import jquery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Import Bootstrap-select library -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta2/dist/css/bootstrap-select.min.css">
+    <!--  style and script  -->
     <link rel="stylesheet" href="/font-style.css">
     <link rel="stylesheet" href="/style.css">
     <script src="/script.js"></script>
-    <title>Profile</title>
+    <title>Profile - Game talks</title>
 </head>
 <body id="body">
 
-    <header class="header" id="nav">
+<header class="header" id="nav">
 
-        <nav class="navbar navbar-expand-xl navbar-light bg-light">
-            <div class="container-fluid">
-                <a class="navbar-brand titre1" href="/">
-                    <img src="/img/logos/light-logo.svg" alt="logo" id="logo" class="d-inline-block align-text-top">
-                    <p>Game talks</p>
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="icon-Bars"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <div class="navbar-collapse row">
-                        <div class="nav col-11 justify-content-center">
-                            <form class="d-flex search-bar" method="get" action="/posts" autocomplete="off">
-                                <select class="selectpicker titre2 game-select" name="filter" data-live-search="true" title="Filtre de jeu" data-selected-text-format="count > 1" data-width="200px" multiple>
-                                    {{#games}}
-                                    <option>{{name}}</option>
-                                    {{/games}}
-                                </select>
-                                <input class="form-control titre2 bar" type="search" name="search" placeholder="Rechercher" aria-label="Search">
-                                <button class="btn btn-outline-success search-button" type="submit"><span class="icon-Search"></span></button>
-                            </form>
-                        </div>
-                        <div class="nav col-1">
-                            {{#logged}}
-                            <ul class="navbar-nav ms-auto justify-content-end">
-                                <li class="nav-item dropdown">
-                                    <a class="headline1" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <img src="/img/users-pfp/{{user_id}}.png" class="d-inline-block profile-pic ms-auto" onerror="this.src='/img/users-pfp/default-pfp.png';">
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-menu-lg-end dropdown-window-menu dropdown-profile-menu headline1" id="test" aria-labelledby="accountDropdown">
-                                        <li><a class="dropdown-item" href="/user/profile"><span class="icon-Profile"></span> Profile</a></li>
-                                        <li><button class="dropdown-item" id="theme-toggle"><span class="icon-Dark-Mode" id="theme-icon"></span> <t id="theme-txt">Mode nuit</t></button></li>
-                                        <li><hr class="dropdown-divider"></li>
-                                        <li><a class="dropdown-item" href="/login/logout"><span class="icon-disconnect"></span> Se déconnecter</a></li>
-                                        </form>
-                                    </ul>
-                                </li>
-                            </ul>
-                            {{/logged}}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
-
-    </header>
-
-    <section id="content" class="center-profile">
-
-        <div class="profile-page">
-
-            <div class="profile-page-content">
-
-                {{#user}}
-                <div class="profile-picture">
-
-                    <img src="/img/users-pfp/{{id}}.png" class="d-block profile-pic mx-auto badge" onerror="this.src='/img/users-pfp/default-pfp.png';">
-
-                    <div class="edit-pfp">
-                        <form method="post" action="/user/profile/update" id="profilePicForm" enctype="multipart/form-data">
-                            <label class="EditBtn btn btn-outline-success btn-style">
-                                <input class="form-control" id="formFile" type="file" accept="image/*" name="file">
-                                <span class="icon-Edit"></span>
-                            </label>
+    <nav class="navbar navbar-expand-xl navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand titre1" href="/">
+                <img src="/img/logos/light-logo.svg" alt="logo" id="logo" class="d-inline-block align-text-top">
+                <p>Game talks</p>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="icon-Bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="navbar-collapse row">
+                    <div class="nav col-11 justify-content-center">
+                        <form class="d-flex search-bar" method="get" action="posts" autocomplete="off">
+                            <select class="selectpicker titre2 game-select" name="filter" data-live-search="true"
+                                    title="Filtre de jeu" data-selected-text-format="count > 1" data-width="200px"
+                                    multiple>
+                                {{#games}}
+                                <option>{{name}}</option>
+                                {{/games}}
+                            </select>
+                            <input class="form-control titre2 bar" type="search" name="search" placeholder="Rechercher"
+                                   aria-label="Search">
+                            <button class="btn btn-outline-success search-button" type="submit"><span
+                                    class="icon-Search" title="Rechercher"></span></button>
                         </form>
                     </div>
-
-                </div>
-
-                <div class="username">
-                    <label for="username" class="titre2">Nom d'utilisateur</label>
-                    <input class="form-control headline1" placeholder="{{name}}" id="username" disabled>
-                </div>
-                <div class="password">
-                    <label for="password" class="titre2">Mot de passe</label>
-                    <input class="form-control headline1" placeholder="{{password}}" id="password" disabled>
-                    <button class="toggle-password" type="button" id="profilePass" title="Afficher le mot de passe"><span class="icon-eye"></span></button>
-                </div>
-                <div class="email">
-                    <label for="mail" class="titre2">Adresse e-mail</label>
-                    <input class="form-control headline1" placeholder="{{mail}}" id="mail" disabled>
-                </div>
-
-                <form method="post" action="/user/profile/updateDesc">
-
-                    <label for="desc" class="titre2">Description</label>
-                    <textarea class="form-control formTextArea description headline1" placeholder="{{desc}}" name="desc" id="desc"></textarea>
-                    <button type="submit" title="Changer la description" class="btn send-desc"><span class="icon-send"></span></button>
-
-                </form>
-
-                <div class="likencomments">
-                    <div class="d-inline-block" title="Nombre de likes reçu">
-                        <p class="headline2">{{likes}}</p> <span class="icon-Like"></span>
+                    <div class="nav col-1">
+                        {{^logged}}
+                        <ul class="navbar-nav ms-auto justify-content-end">
+                            <li class="nav-item">
+                                <a class="headline1 link" href="/login">S'identifier</a>
+                            </li>
+                        </ul>
+                        {{/logged}}
+                        {{#logged}}
+                        <ul class="navbar-nav ms-auto justify-content-end">
+                            <li class="nav-item dropdown">
+                                <a class="headline1" id="accountDropdown" role="button" data-bs-toggle="dropdown"
+                                   aria-expanded="false">
+                                    <img src="/img/users-pfp/{{user_id}}.png" class="d-inline-block profile-pic ms-auto"
+                                         onerror="this.src='/img/users-pfp/default-pfp.png';">
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-lg-end dropdown-window-menu dropdown-profile-menu headline1"
+                                    aria-labelledby="accountDropdown">
+                                    <li><a class="dropdown-item" href="/user/profile"><span class="icon-Profile"></span>
+                                        Profile</a></li>
+                                    <li>
+                                        <button class="dropdown-item" id="theme-toggle" title="Changer le theme"><span class="icon-Dark-Mode"
+                                                                                              id="theme-icon"></span>
+                                            <t id="theme-txt">Mode nuit</t>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="/login/logout"><span
+                                            class="icon-disconnect"></span> Se déconnecter</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        {{/logged}}
                     </div>
-                    <div class="d-inline-block" title="Nombre de commentaires reçu">
-                        <p class="headline2">{{comments}}</p> <span class="icon-Comments"></span>
-                    </div>
-                    <div class="d-inline-block" title="Nombre de posts créé">
-                        <p class="headline2">{{posts}}</p> <span class="icon-Edit"></span>
-                    </div>
                 </div>
-                {{/user}}
-
             </div>
         </div>
-    </section>
+    </nav>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta2/dist/js/bootstrap-select.min.js"></script>
+</header>
+
+
+<section id="content" class="center-profile">
+
+    <div class="profile-page">
+
+        <div class="profile-page-content">
+
+            {{#user}}
+            <div class="profile-picture">
+
+                <img src="/img/users-pfp/{{id}}.png" class="d-block profile-pic mx-auto badge"
+                     onerror="this.src='/img/users-pfp/default-pfp.png';">
+
+                <div class="edit-pfp">
+                    <form method="post" action="/user/profile/update" id="profilePicForm" enctype="multipart/form-data" title="Changer de photo de profile">
+                        <label class="EditBtn btn btn-outline-success btn-style">
+                            <input class="form-control" id="formFile" type="file" accept="image/*" name="file">
+                            <span class="icon-Edit"></span>
+                        </label>
+                    </form>
+                </div>
+
+            </div>
+
+            <div class="username">
+                <label for="username" class="titre2">Nom d'utilisateur</label>
+                <input class="form-control headline1" placeholder="{{name}}" id="username" disabled>
+            </div>
+            <div class="password">
+                <label for="password" class="titre2">Mot de passe</label>
+                <input class="form-control headline1" placeholder="{{password}}" id="password" disabled>
+                <button class="toggle-password" type="button" id="profilePass" title="Afficher le mot de passe"><span
+                        class="icon-eye"></span></button>
+            </div>
+            <div class="email">
+                <label for="mail" class="titre2">Adresse e-mail</label>
+                <input class="form-control headline1" placeholder="{{mail}}" id="mail" disabled>
+            </div>
+
+            <form method="post" action="/user/profile/updateDesc">
+
+                <label for="desc" class="titre2">Description</label>
+                <textarea class="form-control formTextArea description headline1" placeholder="{{desc}}" name="desc"
+                          id="desc"></textarea>
+                <button type="submit" title="Changer la description" class="btn send-desc"><span
+                        class="icon-send"></span></button>
+
+            </form>
+
+            <div class="likencomments">
+                <div class="d-inline-block" title="Nombre de likes reçu">
+                    <p class="headline2">{{likes}}</p> <span class="icon-Like"></span>
+                </div>
+                <div class="d-inline-block" title="Nombre de commentaires reçu">
+                    <p class="headline2">{{comments}}</p> <span class="icon-Comments"></span>
+                </div>
+                <div class="d-inline-block" title="Nombre de posts créé">
+                    <p class="headline2">{{posts}}</p> <span class="icon-Edit"></span>
+                </div>
+            </div>
+            {{/user}}
+
+        </div>
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta2/dist/js/bootstrap-select.min.js"></script>
 </body>
 </html>

@@ -2,207 +2,231 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-<!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
-    <!--  Bootstrap import  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--  Import Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/bad5ba018c.js" crossorigin="anonymous"></script>
     <!-- Import jquery library for boostrap-select -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Import Bootstrap-select library -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta2/dist/css/bootstrap-select.min.css">
+    <!--  style and script  -->
     <link rel="stylesheet" href="/font-style.css">
     <link rel="stylesheet" href="/style.css">
     <script src="/script.js"></script>
-    <title>Home</title>
+    <title>Game talks</title>
 </head>
 <body id="body">
 
-    <header class="header" id="nav">
+<header class="header" id="nav">
 
-        <nav class="navbar navbar-expand-xl navbar-light bg-light">
-            <div class="container-fluid">
-                <a class="navbar-brand titre1" href="/">
-                    <img src="/img/logos/light-logo.svg" alt="logo" id="logo" class="d-inline-block align-text-top">
-                    <p>Game talks</p>
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="icon-Bars"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <div class="navbar-collapse row">
-                        <div class="nav col-11 justify-content-center">
-                            <form class="d-flex search-bar" method="get" action="posts" autocomplete="off">
-                                <select class="selectpicker titre2 game-select" name="filter" data-live-search="true" title="Filtre de jeu" data-selected-text-format="count > 1" data-width="200px" multiple>
-                                    {{#games}}
-                                    <option>{{name}}</option>
-                                    {{/games}}
-                                </select>
-                                <input class="form-control titre2 bar" type="search" name="search" placeholder="Rechercher" aria-label="Search">
-                                <button class="btn btn-outline-success search-button" type="submit"><span class="icon-Search"></span></button>
-                            </form>
-                        </div>
-                        <div class="nav col-1">
-                            {{^logged}}
-                            <ul class="navbar-nav ms-auto justify-content-end">
-                                <li class="nav-item">
-                                    <a class="headline1 link" href="/login">S'identifier</a>
-                                </li>
-                            </ul>
-                            {{/logged}}
-                            {{#logged}}
-                                <ul class="navbar-nav ms-auto justify-content-end">
-                                    <li class="nav-item dropdown">
-                                        <a class="headline1" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <img src="/img/users-pfp/{{user_id}}.png" class="d-inline-block profile-pic ms-auto" onerror="this.src='/img/users-pfp/default-pfp.png';">
-                                        </a>
-                                        <ul class="dropdown-menu dropdown-menu-lg-end dropdown-window-menu dropdown-profile-menu headline1" aria-labelledby="accountDropdown">
-                                            <li><a class="dropdown-item" href="/user/profile"><span class="icon-Profile"></span> Profile</a></li>
-                                            <li><button class="dropdown-item" id="theme-toggle"><span class="icon-Dark-Mode" id="theme-icon"></span> <t id="theme-txt">Mode nuit</t></button></li>
-                                            <li><hr class="dropdown-divider"></li>
-                                            <li><a class="dropdown-item" href="/login/logout"><span class="icon-disconnect"></span> Se déconnecter</a></li>
-                                        </form>
-                                        </ul>
+    <nav class="navbar navbar-expand-xl navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand titre1" href="/">
+                <img src="/img/logos/light-logo.svg" alt="logo" id="logo" class="d-inline-block align-text-top">
+                <p>Game talks</p>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="icon-Bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="navbar-collapse row">
+                    <div class="nav col-11 justify-content-center">
+                        <form class="d-flex search-bar" method="get" action="posts" autocomplete="off">
+                            <select class="selectpicker titre2 game-select" name="filter" data-live-search="true"
+                                    title="Filtre de jeu" data-selected-text-format="count > 1" data-width="200px"
+                                    multiple>
+                                {{#games}}
+                                <option>{{name}}</option>
+                                {{/games}}
+                            </select>
+                            <input class="form-control titre2 bar" type="search" name="search" placeholder="Rechercher"
+                                   aria-label="Search">
+                            <button class="btn btn-outline-success search-button" type="submit"><span
+                                    class="icon-Search" title="Rechercher"></span></button>
+                        </form>
+                    </div>
+                    <div class="nav col-1">
+                        {{^logged}}
+                        <ul class="navbar-nav ms-auto justify-content-end">
+                            <li class="nav-item">
+                                <a class="headline1 link" href="/login">S'identifier</a>
+                            </li>
+                        </ul>
+                        {{/logged}}
+                        {{#logged}}
+                        <ul class="navbar-nav ms-auto justify-content-end">
+                            <li class="nav-item dropdown">
+                                <a class="headline1" id="accountDropdown" role="button" data-bs-toggle="dropdown"
+                                   aria-expanded="false">
+                                    <img src="/img/users-pfp/{{user_id}}.png" class="d-inline-block profile-pic ms-auto"
+                                         onerror="this.src='/img/users-pfp/default-pfp.png';">
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-lg-end dropdown-window-menu dropdown-profile-menu headline1"
+                                    aria-labelledby="accountDropdown">
+                                    <li><a class="dropdown-item" href="/user/profile"><span class="icon-Profile"></span>
+                                        Profile</a></li>
+                                    <li>
+                                        <button class="dropdown-item" id="theme-toggle" title="Changer le theme"><span class="icon-Dark-Mode"
+                                                                                              id="theme-icon"></span>
+                                            <t id="theme-txt">Mode nuit</t>
+                                        </button>
                                     </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="/login/logout"><span
+                                            class="icon-disconnect"></span> Se déconnecter</a></li>
                                 </ul>
-                            {{/logged}}
-                        </div>
+                            </li>
+                        </ul>
+                        {{/logged}}
                     </div>
                 </div>
             </div>
-        </nav>
+        </div>
+    </nav>
 
-    </header>
-
-
-    <section id="content">
+</header>
 
 
-        <div class="page-content">
+<section id="content">
+
+
+    <div class="page-content">
+
+        {{#admin}}
+        <div class="home-buttons">
+            {{/admin}}
+            <form method="get" action="/newPost">
+                <button class="btn btn-outline-success btn-style buttonText" type="submit">Créer un nouveau post
+                </button>
+            </form>
 
             {{#admin}}
-            <div class="home-buttons">
-            {{/admin}}
-                <form method="get" action="/newPost">
-                    <button class="btn btn-outline-success btn-style buttonText" type="submit">Créer un nouveau post</button>
-                </form>
-
-                {{#admin}}
-                <form method="get" action="/game">
-                    <button class="btn btn-outline-success btn-style buttonText" type="submit">Ajouter un jeu</button>
-                </form>
-
-            </div>
-            {{/admin}}
-
-            <div class="home-page-posts">
-                <label for="recent-posts" class="form-label titre2">Posts récents</label>
-                <div class="post-box scroller" id="recent-posts">
-
-                    {{#recentPosts}}
-
-                    <a class="post" href="/user?id={{author_id}}">
-                        <div class="user-account titre2">
-                            <img src="/img/users-pfp/{{author_id}}.png" class="d-inline-block profile-pic" onerror="this.src='/img/users-pfp/default-pfp.png';">
-                            {{author}}
-                        </div>
-                    </a>
-
-                    <div class="post-title titre2">
-                        <a href="/posts?filter={{game}}&search=">{{game}}</a>
-                        <a class="post" href="post?id={{id}}">
-                            / {{title}}
-                            <p class="headline2 post-time">• {{displayedDate}}</p>
-                        </a>
-                    </div>
-
-                    <a class="post" href="post?id={{id}}">
-
-                        <div class="post-content">
-                            <p class="post-text">{{content}}</p>
-                        </div>
-
-                        <div class="nb-likes {{liked}}">
-                            <span class="icon-Like"><t class="headline2">{{likes}}</t></span>
-                        </div>
-                        <div class="nb-comms">
-                            <span class="icon-Comments"><t class="headline2">{{comments}}</t></span>
-                        </div>
-
-                    </a>
-
-                    <div class="box-divider"></div>
-                    {{/recentPosts}}
-
-                </div>
-            </div>
-
-            <div class="home-page-posts">
-                <label for="trending-posts" class="form-label titre2">Posts populaires</label>
-                <div class="post-box scroller" id="trending-posts">
-
-                    {{#trendingPosts}}
-                    <a class="post" href="user?id={{author_id}}">
-
-                        <div class="user-account titre2">
-                            <img src="/img/users-pfp/{{author_id}}.png"  class="d-inline-block profile-pic" onerror="this.src='/img/users-pfp/default-pfp.png';">
-                            {{author}}
-                        </div>
-
-                    </a>
-
-                    <div class="post-title titre2">
-                        <a href="/posts?filter={{game}}&search=">{{game}}</a>
-                        <a class="post" href="post?id={{id}}">
-                            / {{title}}
-                            <p class="headline2 post-time">• {{displayedDate}}</p>
-                        </a>
-                    </div>
-
-                    <a class="post" href="post?id={{id}}">
-
-                        <div class="post-content">
-                            <p class="post-text">{{content}}</p>
-                        </div>
-
-                        <div class="nb-likes {{liked}}">
-                            <span class="icon-Like"><t class="headline2">{{likes}}</t></span>
-                        </div>
-                        <div class="nb-comms">
-                            <span class="icon-Comments"><t class="headline2">{{comments}}</t></span>
-                        </div>
-
-                    </a>
-
-                    <div class="box-divider"></div>
-                    {{/trendingPosts}}
-
-                </div>
-            </div>
+            <form method="get" action="/game">
+                <button class="btn btn-outline-success btn-style buttonText" type="submit">Ajouter un jeu</button>
+            </form>
 
         </div>
+        {{/admin}}
 
+        <div class="home-page-posts">
+            <label for="recent-posts" class="form-label titre2">Posts récents</label>
+            <div class="post-box scroller" id="recent-posts">
 
-        <button type="button" id="cookieBtn" class="btn hide" data-bs-toggle="modal" data-bs-target="#cookieModal"></button>
-        <div class="modal fade" id="cookieModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                {{#recentPosts}}
 
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
+                <a class="post" href="/user?id={{author_id}}" title="Voir le profile">
+                    <div class="user-account titre2">
+                        <img src="/img/users-pfp/{{author_id}}.png" class="d-inline-block profile-pic"
+                             onerror="this.src='/img/users-pfp/default-pfp.png';">
+                        {{author}}
+                    </div>
+                </a>
 
-                    <div class="modal-body cookieModalContent">
-                        <p class="titre2">Ce site utilise les cookies pour fonctionner correctement.</p>
-                        <button class="btn btn-outline-success btn-style buttonText" id="acceptCookies" data-bs-dismiss="modal" aria-label="Close">Accepter</button>
+                <div class="post-title titre2">
+                    <a href="/posts?filter={{game}}&search=" title="Aller à la page du jeu">{{game}}</a>
+                    <a class="post" href="post?id={{id}}" title="Voir le post">
+                        / {{title}}
+                        <p class="headline2 post-time">• {{displayedDate}}</p>
+                    </a>
+                </div>
+
+                <a class="post" href="post?id={{id}}" title="Voir le post">
+
+                    <div class="post-content">
+                        <p class="post-text">{{content}}</p>
                     </div>
 
-                </div>
-            </div>
+                    <div class="nb-likes {{liked}}">
+                        <span class="icon-Like"><t class="headline2">{{likes}}</t></span>
+                    </div>
+                    <div class="nb-comms">
+                        <span class="icon-Comments"><t class="headline2">{{comments}}</t></span>
+                    </div>
 
+                </a>
+
+                <div class="box-divider"></div>
+                {{/recentPosts}}
+
+            </div>
         </div>
 
+        <div class="home-page-posts">
+            <label for="trending-posts" class="form-label titre2">Posts populaires</label>
+            <div class="post-box scroller" id="trending-posts">
 
-    </section>
+                {{#trendingPosts}}
+                <a class="post" href="user?id={{author_id}}" title="Voir le profile">
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta2/dist/js/bootstrap-select.min.js"></script>
+                    <div class="user-account titre2">
+                        <img src="/img/users-pfp/{{author_id}}.png" class="d-inline-block profile-pic"
+                             onerror="this.src='/img/users-pfp/default-pfp.png';">
+                        {{author}}
+                    </div>
+
+                </a>
+
+                <div class="post-title titre2">
+                    <a href="/posts?filter={{game}}&search=" title="Aller à la page du jeu">{{game}}</a>
+                    <a class="post" href="post?id={{id}}" title="Voir le post">
+                        / {{title}}
+                        <p class="headline2 post-time">• {{displayedDate}}</p>
+                    </a>
+                </div>
+
+                <a class="post" href="post?id={{id}}" title="Voir le post">
+
+                    <div class="post-content">
+                        <p class="post-text">{{content}}</p>
+                    </div>
+
+                    <div class="nb-likes {{liked}}">
+                        <span class="icon-Like"><t class="headline2">{{likes}}</t></span>
+                    </div>
+                    <div class="nb-comms">
+                        <span class="icon-Comments"><t class="headline2">{{comments}}</t></span>
+                    </div>
+
+                </a>
+
+                <div class="box-divider"></div>
+                {{/trendingPosts}}
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <button type="button" id="cookieBtn" class="btn hide" data-bs-toggle="modal" data-bs-target="#cookieModal"></button>
+    <div class="modal fade" id="cookieModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+         aria-labelledby="staticBackdropLabel" aria-hidden="true">
+
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+
+                <div class="modal-body cookieModalContent">
+                    <p class="titre2">Ce site utilise les cookies pour fonctionner correctement.</p>
+                    <button class="btn btn-outline-success btn-style buttonText" id="acceptCookies"
+                            data-bs-dismiss="modal" aria-label="Close">Accepter
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta2/dist/js/bootstrap-select.min.js"></script>
 </body>
 </html>

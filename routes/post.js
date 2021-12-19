@@ -31,10 +31,11 @@ router.get('/', async (req, res) => {
             logged = true;
         }
         let data = {
-            "logged" : logged,
-            "user_id" : req.session.user_id,
-            "games" : games,
-            "post" : post,
+            "logged": logged,
+            "user_id": req.session.user_id,
+            "title": post[0]["title"],
+            "games": games,
+            "post": post,
             "post_id": req.query.id,
             "comments": comments
         }
