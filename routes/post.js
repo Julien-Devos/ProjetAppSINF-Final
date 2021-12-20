@@ -7,9 +7,19 @@ const Comment = require('../models/Comment');
 const utils = require('../utils/utils');
 const fs = require("fs");
 
+
+/**
+ * GET - root/post/
+ *
+ * Render post page with the post content and its comments
+ *
+ */
 router.get('/', async (req, res) => {
     try{
+
+
         let post = await Post.find({"_id":req.query.id});
+
 
         // complete the posts with date, username and game
         await utils.completePost(post, req.session.user_id, function (result){
@@ -49,6 +59,12 @@ router.get('/', async (req, res) => {
 });
 
 
+/**
+ * POST - root/post/add
+ *
+ * Add a post in the database
+ *
+ */
 router.post('/add', async (req,res) => {
     try {
         const user = await User.findOne({"_id":req.session.user_id});
@@ -78,6 +94,13 @@ router.post('/add', async (req,res) => {
     }
 });
 
+
+/**
+ * POST - root/post/like
+ *
+ * Make the user like the post that matches with the querry post id
+ *
+ */
 router.post('/like', async (req,res) => {
     try {
 
@@ -109,6 +132,13 @@ router.post('/like', async (req,res) => {
     }
 });
 
+
+/**
+ * POST - root/post/likeComm
+ *
+ * Make the user like the comment that matches with the querry comment id
+ *
+ */
 router.post('/likeComm', async (req,res) => {
     try {
 
@@ -139,6 +169,13 @@ router.post('/likeComm', async (req,res) => {
     }
 });
 
+
+/**
+ * POST - root/post/addComment
+ *
+ * Add a comment to the database
+ *
+ */
 router.post('/addComment', async (req,res) => {
     try {
         if (req.session.user_id !== undefined){
@@ -167,6 +204,13 @@ router.post('/addComment', async (req,res) => {
     }
 });
 
+
+/**
+ * POST - root/post/delPost
+ *
+ * Deletes the post and its comment from the database
+ *
+ */
 router.post('/delPost', async (req,res) => {
     try {
         const post = await Post.findOne({"_id":req.body.id});
@@ -186,6 +230,13 @@ router.post('/delPost', async (req,res) => {
     }
 });
 
+
+/**
+ * POST - root/post/delComment
+ *
+ * Deletes the comment that matches with the querry comment id
+ *
+ */
 router.post('/delComment', async (req,res) => {
     try {
         const comm = await Comment.findOne({"_id":req.body.id});

@@ -5,8 +5,16 @@ const Post = require('../models/Post');
 const Game = require('../models/Game');
 
 
+/**
+ * GET - root/
+ *
+ * Render the home page with recent posts and trending posts
+ *
+ */
 router.get('/', async (req, res) => {
     try{
+
+        // get the 5 first posts of the Posts collection ordered by date
         let recentPosts = await Post.find().sort({ "date" : -1}).limit(5);
 
         // complete the posts with date, username and game
@@ -14,6 +22,7 @@ router.get('/', async (req, res) => {
             recentPosts = result;
         });
 
+        // get the 5 first posts of the Posts collection ordered by likes
         let trendingPosts = await Post.find().sort({ "likes" : -1}).limit(5);
 
         // complete the posts with date, username and game
@@ -50,6 +59,12 @@ router.get('/', async (req, res) => {
 });
 
 
+/**
+ * GET - root/newPost
+ *
+ * Render the newpost page
+ *
+ */
 router.get('/newPost', async (req, res) => {
     try{
 

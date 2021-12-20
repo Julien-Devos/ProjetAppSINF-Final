@@ -6,6 +6,12 @@ const utils = require("../utils/utils");
 const Game = require("../models/Game");
 
 
+/**
+ * GET - root/user
+ *
+ * Render the public user profile that matches with the query id
+ *
+ */
 router.get('/', async (req, res) => {
     try{
         const user = await User.findOne({"_id":req.query.id})
@@ -60,6 +66,12 @@ router.get('/', async (req, res) => {
 });
 
 
+/**
+ * GET - root/user/profile
+ *
+ * Render the private profile of the logged user
+ *
+ */
 router.get('/profile', async (req, res) => {
     try{
         let logged = false;
@@ -112,6 +124,13 @@ router.get('/profile', async (req, res) => {
     }
 });
 
+
+/**
+ * POST - root/user/profile/update
+ *
+ * Save the updated profile picture in the static/img/users-pfp/ folder with the user_id
+ *
+ */
 router.post('/profile/update', async (req, res) => {
     try{
 
@@ -129,6 +148,13 @@ router.post('/profile/update', async (req, res) => {
     }
 });
 
+
+/**
+ * POST root/user/profile/updateDesc
+ *
+ * Update the description of the user that matches the session user_id
+ *
+ */
 router.post('/profile/updateDesc', async (req, res) => {
     try{
 

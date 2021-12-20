@@ -4,6 +4,13 @@ const router = express.Router();
 
 let message = false;
 
+
+/**
+ * GET - root/register/
+ *
+ * Render the register page
+ *
+ */
 router.get('/', async (req, res) => {
     try{
 
@@ -19,6 +26,13 @@ router.get('/', async (req, res) => {
     }
 });
 
+
+/**
+ * POST - root/register/reg
+ *
+ * Check if the username is available and the passwords matches if they match add the user to the database
+ *
+ */
 router.post('/reg', async (req, res) => {
     try {
 

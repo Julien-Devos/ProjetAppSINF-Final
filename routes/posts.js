@@ -4,6 +4,13 @@ const utils = require("../utils/utils");
 const Post = require('../models/Post');
 const Game = require("../models/Game");
 
+
+/**
+ * GET - root/posts/
+ *
+ * Render the posts page with the matching posts
+ *
+ */
 router.get('/', async (req, res) => {
     try{
         let search = "Posts";

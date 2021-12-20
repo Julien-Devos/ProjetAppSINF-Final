@@ -4,6 +4,12 @@ const router = express.Router();
 
 let message = false;
 
+/**
+ * GET - root/login/
+ *
+ * Render login page
+ *
+ */
 router.get('/', (req, res) => {
     try{
         let data = {
@@ -18,6 +24,13 @@ router.get('/', (req, res) => {
     }
 });
 
+
+/**
+ * POST root/login/log
+ *
+ * Check if the username and password matches and if they match set session
+ *
+ */
 router.post('/log', async (req, res) => {
     try {
         const user = await User.findOne({'username':req.body.username})

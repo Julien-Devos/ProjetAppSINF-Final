@@ -3,6 +3,12 @@ const router = express.Router();
 const Game = require('../models/Game');
 
 
+/**
+ * GET - root/game
+ *
+ * Render the page to add a game when connected to Admin account
+ *
+ */
 router.get('/', async (req,res) => {
     try{
         const games = await Game.find().sort({"name":1});
@@ -29,6 +35,12 @@ router.get('/', async (req,res) => {
 });
 
 
+/**
+ * POST - root/game/add
+ *
+ * Add a game in the database
+ *
+ */
 router.post('/add', async (req,res) => {
     const game = new Game({
         name: req.body.name
