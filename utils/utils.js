@@ -1,6 +1,8 @@
 const Game = require("../models/Game");
 const User = require("../models/User");
 const fs = require("fs");
+const Post = require("../models/Post");
+const Comment = require("../models/Comment");
 
 module.exports = {
 
@@ -483,5 +485,21 @@ module.exports = {
         }
 
         return posts;
+    },
+
+    countUserLikes_CommentsAndPosts: async (id) => {
+        let userPosts = await Post.find({"author_id":id});
+        let userComments = await Comment.find({"author_id":id});
+
+        let likes = 0;
+        let comments = 0;
+        for (i in userPosts){
+            likes += userPosts[i]["likes"];
+            comments += userPosts[i]["comments"];
+        }
+        for (i in userComments){
+            likes += userComments[i]["likes"];
+        }
+        return [likes,comments,userPosts.length]
     }
 };

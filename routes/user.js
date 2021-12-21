@@ -14,18 +14,11 @@ const Game = require("../models/Game");
  */
 router.get('/', async (req, res) => {
     try{
-        const user = await User.findOne({"_id":req.query.id})
+        const user = await User.findOne({"_id":req.query.id});
 
         let userPosts = await Post.find({"author_id":req.query.id});
 
-        let likes = 0;
-        let comments = 0;
-        for (i in userPosts){
-            likes += userPosts[i]["likes"];
-            comments += userPosts[i]["comments"];
-        }
-
-
+        const likesAndComments = await utils.countUserLikes_CommentsAndPosts(req.query.id);
 
         // complete the posts with date, username and game
         await utils.completePost(userPosts, req.session.user_id, function (result){
@@ -52,9 +45,9 @@ router.get('/', async (req, res) => {
             "id": user["_id"],
             "name": user["username"],
             "description": description,
-            "likes": likes,
-            "comments": comments,
-            "postNbr": userPosts.length,
+            "likes": likesAndComments[0],
+            "comments": likesAndComments[1],
+            "postNbr": likesAndComments[2],
             "posts" : userPosts
         }
         res.render("user.html",data)
@@ -78,16 +71,9 @@ router.get('/profile', async (req, res) => {
         if(req.session.username !== undefined){
             logged = true;
 
-            const user = await User.findOne({"_id":req.session.user_id})
+            const user = await User.findOne({"_id":req.session.user_id});
 
-            const posts = await Post.find({"author_id":req.session.user_id})
-
-            let likes = 0;
-            let comments = 0;
-            for (i in posts){
-                likes += posts[i]["likes"];
-                comments += posts[i]["comments"];
-            }
+            const likesAndComments = await utils.countUserLikes_CommentsAndPosts(req.session.user_id);
 
             let description = "Vous n'avez aucune description.";
             if (user["desc"] !== ""){
@@ -106,9 +92,9 @@ router.get('/profile', async (req, res) => {
                     "name": req.session.username,
                     "password": user["password"],
                     "mail": user["mail"],
-                    "likes" : likes,
-                    "comments" : comments,
-                    "posts": posts.length,
+                    "likes" : likesAndComments[0],
+                    "comments" : likesAndComments[1],
+                    "posts": likesAndComments[2],
                     "desc": description
                 }
             }
