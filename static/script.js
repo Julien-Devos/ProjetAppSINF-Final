@@ -6,6 +6,7 @@ function setCookie(cname, cvalue, exdays) {
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
+// Found on https://www.w3schools.com/js/js_cookies.asp
 function getCookie(cname) {
     let name = cname + "=";
     let ca = document.cookie.split(';');
@@ -22,6 +23,7 @@ function getCookie(cname) {
 }
 
 // Make a smooth fade in when the page load
+// Found on https://stackoverflow.com/a/6121270/15874874
 function fade(element) {
     let op = 0.1;
     element.style.display = 'block';
@@ -74,8 +76,6 @@ window.addEventListener('load', () => {
             togglePassword(passInput2,eyeIcon2)
         }
     }
-
-
 
     let showPassBtn = document.getElementById("profilePass");
     let profilePassInput = document.getElementById("password");
