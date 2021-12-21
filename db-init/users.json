@@ -1,2 +1,11 @@
-{"username" : "Admin", "password" : "admin", "mail" : "admin@gmail.com", "desc": "", "_id" : {"$oid":"61b0e42ac43c593f2655717e"}}
-{"username" : "PabloLeBest", "password" : "pab", "mail" : "pablo@gmail.com", "desc": "", "_id" : {"$oid":"61b0e4eac43c593f265571e7"}}
+{"_id":{"$oid":"61b0e4eac43c593f265571e7"},"username":"PabloLeBest","password":"pab","mail":"pablo@gmail.com","desc":""}
+{"_id":{"$oid":"61b0e42ac43c593f2655717e"},"username":"Admin","password":"admin","mail":"admin@gmail.com","desc":"C'est moi l'admin, donc fais attention ! 💀"}
+{"_id":{"$oid":"61bcd0aed7ba6570ebef9057"},"username":"Hecker","password":"1234","mail":"hecker@gmail.com","desc":"I'm the h@cker","__v":0}
+{"_id":{"$oid":"61bd0c72d7ba6570ebef91cf"},"username":"Kevin23_","password":"kev","mail":"kevkev@gmail.com","desc":"😥","__v":0}
+{"_id":{"$oid":"61be39cf7a1e25615cb62b57"},"username":"_RageCat_","password":"rage","mail":"RageCat@gmail.com","desc":"","__v":0}
+{"_id":{"$oid":"61bf48ad8df01413b2423386"},"username":"DarkShadowdu63","password":"Bullshit","mail":"user3@gmail.com","desc":"League of Legends c'est pas ouf","__v":0}
+{"_id":{"$oid":"61bfad598df01413b24239eb"},"username":"Mife_02","password":"Mot de passe","mail":"Coxycastellianos@gmail.com","desc":"Médecin de profession, je m intéresse aux jeux vidéos","__v":0}
+{"_id":{"$oid":"61c0ba18bca878299270fa22"},"username":"CleverCat22","password":"imsmart","mail":"clevercat22@hotmail.com","desc":"","__v":0}
+{"_id":{"$oid":"61c0c2eabca878299270feb7"},"username":"User123","password":"user123","mail":"user123@gmail.com","desc":"","__v":0}
+{"_id":{"$oid":"61c0ca82bca878299271084f"},"username":"RobberyDoggo","password":"thisarobbery","mail":"thisarobbery@gmail.com","desc":"","__v":0}
+{"_id":{"$oid":"61c0cb9dbca878299271088a"},"username":"good boi","password":"dummy","mail":"goodboi@gmail.com","desc":"","__v":0}

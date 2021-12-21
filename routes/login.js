@@ -57,6 +57,13 @@ router.post('/log', async (req, res) => {
 
 });
 
+
+/**
+ * GET - root/login/logout
+ *
+ * Render login page
+ *
+ */
 router.get('/logout', async (req, res) => {
     try {
 
