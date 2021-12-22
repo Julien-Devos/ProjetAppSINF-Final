@@ -492,6 +492,13 @@ module.exports = {
         return posts;
     },
 
+
+    /**
+     * Returns an array with the count of likes, comment of the user and the number of post the user made
+     *
+     * @param id
+     * @returns {Promise<(number|*)[]>}
+     */
     countUserLikes_CommentsAndPosts: async (id) => {
         let userPosts = await Post.find({"author_id":id});
         let userComments = await Comment.find({"author_id":id});

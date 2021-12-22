@@ -56,5 +56,5 @@ Une fois que c'est fait, un bouton apparaitra sur la page d'accueil pour ajouter
 
 Le site utilise le fichier postsWords.json pour stocker une table des mots de chaque post pour permettre de classer 
 les documents par pertinence quand une recherche est effectuée. Ce fichier contient de base les données d'exemple.
-Pour utiliser le site à zéro, il est conseillé de vider ce fichier.
+Pour utiliser le site à zéro, il est conseillé de vider l'objet (mettre {} dans le fichier).
 
