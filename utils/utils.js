@@ -73,8 +73,13 @@ module.exports = {
 
         if (! (req.query.filter === undefined) ){
 
-            const gameFilter = req.query.filter;
+            let gameFilter = req.query.filter;
             if (typeof gameFilter === "string"){
+                gameFilter = gameFilter.split(",");
+            }
+            if (gameFilter.length === 1){
+                gameFilter = gameFilter[0];
+
                 const game = await Game.findOne({"name":gameFilter});
                 if (req.query.search !== ""){
                     filter = {$and: [{"game_id":game["_id"]},{$text: {$search: search}}]};
